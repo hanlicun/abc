@@ -1,4 +1,3 @@
-abc
-===
+error_reporting(E_ALL);
 
-abc
+
