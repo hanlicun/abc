@@ -1,4 +1,4 @@
-给PHP扩展/C语言/网络编程初学者推荐的几本书
+（一）给PHP扩展/C语言/网络编程初学者推荐的几本书
 
 
 Linux/Unix系统
@@ -20,9 +20,12 @@ Linux/Unix系统
     C程序设计语言
 
 
-PHP
-
+PHP 图书
 
 
 《细说php》
 
+
+（二）
+
+知道创宇研发技能表：https://github.com/knownsec/RD_Checklist
