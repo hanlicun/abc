@@ -25,6 +25,10 @@ Linux/Unix系统
 
 知道创宇研发技能表：https://github.com/knownsec/RD_Checklist
 
+（V2.2)
+
+http://blog.knownsec.com/Knownsec_RD_Checklist/v2.2.html
+
 
 （三）来源coolshell陈皓建议 
 
