@@ -233,7 +233,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' IDENTIFIED BY '55445544';
  
       # cd /usr/local/mysql/scripts
  
-      # ./mysql_install_db --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+      # ./mysql_install_db --user=mysql --basedir=/usr/local/webserver/mysql
  
       # cd /usr/local/mysql/support-files
  
