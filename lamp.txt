@@ -47,11 +47,11 @@ wget http://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.3-m3.tar.gz/from/htt
 wget http://downloads.mysql.com/archives/mysql-5.6/mysql-5.6.10-linux-glibc2.5-x86_64.tar.gz
 
 
-2：必要软件包
+  (1)必要软件包
  
 yum -y install  gcc gcc-c++ gcc-g77 autoconf automake zlib* fiex* libxml* ncurses-devel libmcrypt* libtool-ltdl-devel* make cmake
  
-3:编译安装
+   (2)编译安装
  
 [root@server182 ~]# groupadd mysql
  
