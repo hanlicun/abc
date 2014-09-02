@@ -58,25 +58,20 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
       # groupadd mysql
  
       # useradd -r -g mysql mysql
+      
       #  yum install libaio
- 
+      
       # tar -zxvf mysql-5.6.10.tar.gz
+
+      #mkdir -p /Data/data/mysql/data
+      
+      #  /Data/apps/mysql/scripts/mysql_install_db --basedir=/Data/apps/mysql --datadir=/Data/data/mysql/data --user=mysql
  
-      # cd mysql-5.6.10
-
--------------------------MySQL自5.5版本以后，就开始使用CMake编译工具了，
--------------------------因此，你在安装源文件中找不到configure文件是正常的。----
- 
-      #  cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/webserver/mysql  -DINSTALL_DATADIR=/usr/local/webserver/mysql/data
+    
+      sed -i "s#/usr/local/mysql#/Data/apps/mysql#g" /Data/apps/mysql/bin/mysqld_safe
 
 
 
-
-----------  CMake参数说明手册(http://www.blogjava.net/kelly859/archive/2012/09/04/387005.html )     
-
- 
-      # make && make install
- 
 -------------------------默认情况下是安装在/usr/local/mysql
  
       # chown -R mysql.mysql /usr/local/mysql
