@@ -160,7 +160,11 @@ max_allowed_packet = 32M
 
 
 
-
+启动mysql
+     /usr/local/webserver/mysql/bin/mysqld_safe --defaults-file=/etc/my.cnf 2>&1 > /dev/null &
+     
+     
+        
 
 
 
