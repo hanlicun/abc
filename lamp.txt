@@ -274,6 +274,9 @@ export PATH
  
  wget http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
  
+ ln -s /usr/local/webserver/mysql/include/mysql/* /usr/local/include/
+
+ 
 tar zxvf PDO_MYSQL-1.0.2.tgz
 cd PDO_MYSQL-1.0.2/
 /usr/local/webserver/php/bin/phpize
