@@ -161,14 +161,20 @@ max_allowed_packet = 32M
 
 
 启动mysql
+
      /usr/local/webserver/mysql/bin/mysqld_safe --defaults-file=/etc/my.cnf 2>&1 > /dev/null &
      
      
         
+通过命令行登录管理MySQL服务器（提示输入密码时直接回车）：
+
+/usr/local/webserver/mysql/bin/mysql -u root -p -S /tmp/mysql.sock
 
 
+输入以下SQL语句，创建一个具有root权限的用户（root）和密码（55445544）：
 
-
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '55445544';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' IDENTIFIED BY '55445544';
 
 
 
