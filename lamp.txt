@@ -67,7 +67,8 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
 -------------------------因此，你在安装源文件中找不到configure文件是正常的。----
  
       #  cmake  CMAKE_INSTALL_PREFIX=/usr/local/webserver/mysql
-      
+----------  CMake参数说明手册(http://www.blogjava.net/kelly859/archive/2012/09/04/387005.html )     
+
  
       # make && make install
  
