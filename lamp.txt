@@ -40,9 +40,24 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
      service httpd restart
      
 
+2、安装mysql
+
+wget http://downloads.mysql.com/archives/mysql-5.6/mysql-5.6.10-linux-glibc2.5-x86_64.tar.gz
+tar zxvf mysql-5.6.10-linux-glibc2.5-x86_64.tar.gz
+mv mysql-5.6.10-linux-glibc2.5-x86_64 /Data/apps/mysql
+/usr/sbin/groupadd mysql
+/usr/sbin/useradd -g mysql mysql
+mkdir -p /Data/data/mysql/data
+yum install libaio
+/Data/apps/mysql/scripts/mysql_install_db --basedir=/Data/apps/mysql --datadir=/Data/data/mysql/data --user=mysql
+
+sed -i "s#/usr/local/mysql#/Data/apps/mysql#g" /Data/apps/mysql/bin/mysqld_safe
 
 
-2、安装php
+
+
+
+3、安装php
    
    
 （1）先安装libxml
