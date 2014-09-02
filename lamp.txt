@@ -45,7 +45,6 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
 
 2、安装mysql
 
-    wget http://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.3-m3.tar.gz/from/http://mysql.he.net/
 
     wget http://downloads.mysql.com/archives/mysql-5.6/mysql-5.6.10-linux-glibc2.5-x86_64.tar.gz
 
@@ -67,7 +66,8 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
 -------------------------MySQL自5.5版本以后，就开始使用CMake编译工具了，
 -------------------------因此，你在安装源文件中找不到configure文件是正常的。----
  
-      # cmake 
+      #  cmake  CMAKE_INSTALL_PREFIX=/usr/local/webserver/mysql
+      
  
       # make && make install
  
