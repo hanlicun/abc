@@ -81,6 +81,15 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
       
       # source  /etc/profile
       
+      # service mysql start
+      
+      # chkconfig --add mysqld
+ 
+      # chkconfig mysqld on
+ 
+      # service mysqld  restart
+      
+      
       
 -------------------------默认情况下是安装在/usr/local/mysql
  
