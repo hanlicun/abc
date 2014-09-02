@@ -68,10 +68,20 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
       #  /Data/apps/mysql/scripts/mysql_install_db --basedir=/Data/apps/mysql --datadir=/Data/data/mysql/data --user=mysql
  
     
-      sed -i "s#/usr/local/mysql#/Data/apps/mysql#g" /Data/apps/mysql/bin/mysqld_safe
+      # sed -i "s#/usr/local/mysql#/Data/apps/mysql#g" /Data/apps/mysql/bin/mysqld_safe
+      # cp   /Data/apps/mysql/support-files/my-default.cnf   /etc/my.cnf
 
-
-
+      #  cp /Data/apps/mysql/support-files/mysql.server  /etc/init.d/mysqld
+      
+      #  vi /etc/profile
+      
+      PATH=/Data/apps/mysql/bin:/Data/apps/mysql/lib:$PATH
+      
+      export PATH
+      
+      # source  /etc/profile
+      
+      
 -------------------------默认情况下是安装在/usr/local/mysql
  
       # chown -R mysql.mysql /usr/local/mysql
