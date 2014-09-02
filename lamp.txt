@@ -270,8 +270,22 @@ export PATH
  
  ?>
  
+ 安装PDO_MYSQL
  
+ wget http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
  
+tar zxvf PDO_MYSQL-1.0.2.tgz
+cd PDO_MYSQL-1.0.2/
+/usr/local/webserver/php/bin/phpize
+./configure --with-php-config=/usr/local/webserver/php/bin/php-config --with-pdo-mysql=/usr/local/webserver/mysql
+make
+make install
+cd ../
+
+vi /etc/php.ini
+shift+g
+extension=pdo_mysql
+
 
 
 搭建完毕, 谢谢！
