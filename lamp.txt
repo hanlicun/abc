@@ -230,8 +230,9 @@ cd php-5.6.0
 --with-mysql=/usr/local/webserver/mysql --with-mysqli=/usr/local/webserver/bin/mysql_config \
 --enable-soap --enable-sockets    
 
-
-make && make  install
+ make ZEND_EXTRA_LIBS='-liconv' 
+  
+ make  install
      
 
 cp php.ini-dist /usr/local/webserver/php/etc/php.ini  
