@@ -291,5 +291,18 @@ extension=pdo_mysql
 
 
 
+
+装PHP时的错误
+/usr/local/webserver/mysql/include/m_string.h:291: error: dereferencing pointer to incomplete type
+/usr/local/webserver/mysql/include/m_string.h:292: error: dereferencing pointer to incomplete type
+make: *** [ext/mysqli/mysqli.lo] Error 1
+解决办法：
+mkdir /usr/local/webserver/mysql/include/mysql
+ln -s /usr/local/webserver/mysql/include/* /usr/local/webserver/mysql/include/mysql/ 
+
+
+
+
+
 搭建完毕, 谢谢！
 
