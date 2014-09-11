@@ -28,6 +28,15 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
    
    /usr/local/webserver/httpd/bin/apachectl start
 
+  报错：
+  httpd: Could not reliably determine the server's fully qualified domain name, using 10.171.44.219 for ServerName
+  
+  vi /usr/local/webserver/conf/httpd.conf
+  
+    #ServerName www.example.com:80   改为 ServerName 127.0.0.1:80
+
+
+
 
      #cp /usr/local/webserver/httpd/bin/apachectl     /etc/rc.d/init.d/httpd
      
