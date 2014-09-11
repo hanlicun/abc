@@ -12,8 +12,10 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
    mkdir /usr/local/webserver
    
    tar zxvf httpd.tar.gz
-   
-   ./configure --prefix=/usr/local/webserver/httpd
+  
+    
+   ./configure --prefix=/usr/local/webserver/httpd  --enable-cgi --enable-rewrite --enable-deflate
+    
    
    make 
    
