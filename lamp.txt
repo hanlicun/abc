@@ -175,8 +175,14 @@ FLUSH PRIVILEGES;
     make&&make install
 
 （2）安装php
+
+
+
+wget http://www.greengrass-service.com/software/php5.6.0.tar.gz
+
     
 tar zxvf php-5.6.0.tar.gz 
+
   
 cd php-5.6.0
    
