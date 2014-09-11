@@ -221,8 +221,7 @@ cp psi.h psi
 
      
 
-cp php.ini-dist /usr/local/webserver/php/etc/php.ini  
-     
+ cp php.ini-development  /usr/local/webserver/php/etc/php.ini     
 
 
 //创建配置文件 
