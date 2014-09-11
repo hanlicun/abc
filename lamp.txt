@@ -33,9 +33,24 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
   
   vi /usr/local/webserver/conf/httpd.conf
   
-    #ServerName www.example.com:80   改为 ServerName 127.0.0.1:80
+    将 #ServerName www.example.com:80   改为 ServerName 127.0.0.1:80
+
+     /usr/sbin/groupadd www
+     /usr/sbin/useradd -g www www
+     
+     将
+      User daemon
+      Group daemon
+     改为：
+      User www
+      Group www
+      
+      
+      :wq
+      
 
 
+     
 
 
      #cp /usr/local/webserver/httpd/bin/apachectl     /etc/rc.d/init.d/httpd
