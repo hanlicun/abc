@@ -60,7 +60,7 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
 
    编译安装MySQL 5.5.3-m3
    
-   wget http://blog.zyan.cc/soft/linux/nginx_php/mysql/mysql-5.5.3-m3.tar.gz
+   wget http://www.greengrass-service.com/software/mysql-5.5.3-m3.tar.gz
    
    /usr/sbin/groupadd mysql
     /usr/sbin/useradd -g mysql mysql
