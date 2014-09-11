@@ -87,14 +87,14 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
     
     
        chmod +w /usr/local/webserver/mysql
-       chown -R mysql:mysql /usr/local/webserver/mysql
     
     
         mkdir -p    /usr/local/webserver/mysql/data/
 	mkdir -p    /usr/local/webserver/mysql/binlog/
 	mkdir -p    /usr/local/webserver/mysql/relaylog/
 	
-	
+       chown -R mysql:mysql /usr/local/webserver/mysql
+
      cd ../
 
 
