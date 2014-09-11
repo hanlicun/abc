@@ -197,6 +197,13 @@ cd php-5.6.0
  make ZEND_EXTRA_LIBS='-liconv' 
   
  make  install
+
+错误:     
+/usr/local/webserver/mysql/include/mysql/my_sys.h:1027:27: error: mysql/psi/psi.h: No such file or directory
+In file included from /root/software/php-5.6.0/ext/mysqli/php_mysqli_structs.h:83,
+                 from /root/software/php-5.6.0/ext/mysqli/mysqli.c:34:
+/usr/local/webserver/mysql/include/mysql/m_string.h:285:26: error: mysql/plugin.h: No such file or directory
+make: *** [ext/mysqli/mysqli.lo] Error 1     
      
 
 cp php.ini-dist /usr/local/webserver/php/etc/php.ini  
