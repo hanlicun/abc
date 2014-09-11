@@ -198,12 +198,26 @@ cd php-5.6.0
   
  make  install
 
-错误:     
-/usr/local/webserver/mysql/include/mysql/my_sys.h:1027:27: error: mysql/psi/psi.h: No such file or directory
-In file included from /root/software/php-5.6.0/ext/mysqli/php_mysqli_structs.h:83,
-                 from /root/software/php-5.6.0/ext/mysqli/mysqli.c:34:
+
+错误解决方法:
+
+1：
 /usr/local/webserver/mysql/include/mysql/m_string.h:285:26: error: mysql/plugin.h: No such file or directory
-make: *** [ext/mysqli/mysqli.lo] Error 1     
+
+参照以下方法解决
+echo "/usr/local/webserver/mysql/lib/mysql" >> /etc/ld.so.conf
+ldconfig
+ln -s /usr/local/webserver/mysql/lib/mysql /usr/lib/mysql
+ln -s /usr/local/webserver/mysql/include/mysql /usr/include/mysql
+
+2：/usr/local/webserver/mysql/include/mysql/my_sys.h:1027:27: error: mysql/psi/psi.h: No such file or directory
+
+这个貌似mysql中的目录是 mysql/psi.h
+
+目录中调整为mysql/psi/psi.h就可以了  
+( cp -R  /usr/local/webserver/mysql/include/mysql  /usr/local/webserver/mysql/include/psi )
+
+
      
 
 cp php.ini-dist /usr/local/webserver/php/etc/php.ini  
