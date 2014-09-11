@@ -113,6 +113,7 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
       # chkconfig --add mysqld
  
       # chkconfig mysqld on
+      # chmod +x /etc/init.d/mysqld
  
       # service mysqld start
      
