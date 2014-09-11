@@ -215,8 +215,9 @@ ln -s /usr/local/webserver/mysql/include/mysql /usr/include/mysql
 这个貌似mysql中的目录是 mysql/psi.h
 
 目录中调整为mysql/psi/psi.h就可以了  
-( cp -R  /usr/local/webserver/mysql/include/mysql  /usr/local/webserver/mysql/include/psi )
-
+cd /usr/local/webserver/mysql/include/mysql 
+mkdir psi
+cp psi.h psi
 
      
 
