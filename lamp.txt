@@ -11,7 +11,7 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
 
    mkdir /usr/local/webserver
    
-   http://www.greengrass-service.com/software/httpd-2.2.9.tar.gz
+   wget http://www.greengrass-service.com/software/httpd-2.2.9.tar.gz
    
    tar zxvf httpd-2.2.9.tar.gz
   
