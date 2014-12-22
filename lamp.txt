@@ -191,7 +191,7 @@ flush privileges;
 
 修改后重启MySQL，如果不能重启成功需要将/data/mysql/3306/data目录下的ibdata1及ib_logfile*文件删除然后重新启动。
 
- 本文中用到的MySQL源码包可以
+ 本文中用到的MySQL源码包可以到 这里  http://pan.baidu.com/s/1mg84unA  下载
 
 
 2、安装mysql
