@@ -53,8 +53,6 @@ ulimit -SHn 65535
       
 
 
-     
-
 
      #cp /usr/local/webserver/httpd/bin/apachectl     /etc/rc.d/init.d/httpd
      
@@ -72,10 +70,15 @@ ulimit -SHn 65535
      chkconfig httpd on
      
      service httpd restart
+     
+     
  2、安装mysql    
+ 
+ 
  首先到MySQL官网下载MySQL最新版（目前是mysql-5.6.12）上传到服务器上，下面说一下详细的安装过程。
 
     安装依赖包，可以在线更新也可以配置本地源（CentOS本地源配置）
+    
 yum -y install cmake make ncurses-devel gcc gcc-c++ bison perl
 
     创建MySQL用户和用户组
