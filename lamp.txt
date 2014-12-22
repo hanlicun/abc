@@ -5,9 +5,7 @@ sudo -s
 LANG=C
 yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers
 
-/usr/sbin/groupadd www
-/usr/sbin/useradd -g www www
-ulimit -SHn 65535
+
 
 
 1、安装Apache
@@ -48,16 +46,15 @@ ulimit -SHn 65535
       User www
       Group www
       
-      
       :wq
       
 
 
 
-     #cp /usr/local/webserver/httpd/bin/apachectl     /etc/rc.d/init.d/httpd
+     shell#cp /usr/local/webserver/httpd/bin/apachectl     /etc/rc.d/init.d/httpd
      
      
-     #vi /etc/rc.d/init.d/httpd
+     shell#vi /etc/rc.d/init.d/httpd
      
      
      添加以下注释信息：
@@ -70,9 +67,6 @@ ulimit -SHn 65535
      chkconfig httpd on
      
      service httpd restart
-  
-
-
    
      
  2、安装mysql    
@@ -112,7 +106,6 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/webserver/mysql \
 -DMYSQL_USER=mysql
 
 编译安装
-
 make
 make install
 
@@ -130,7 +123,6 @@ chown -R mysql:mysql /data/mysql/
 --explicit_defaults_for_timestamp
 
 删除默认配置文件并设置开机启动
-
 rm -rf /etc/my.cnf
 cd support-files/
 cp mysql.server /etc/init.d/mysqld
@@ -141,9 +133,7 @@ chkconfig mysqld on
 启动MySQL
 
 service mysqld start
-
 登录MySQL并创建默认用户
-
 登陆mysql
 /usr/local/webserver/mysql/bin/mysql
 
@@ -204,95 +194,6 @@ flush privileges;
    export PATH
    # source /etc/profile
    
-   
-   
-   
-2、安装mysql
-
-   编译安装MySQL 5.5.3-m3
-   
-   wget http://www.greengrass-service.com/software/mysql-5.5.3-m3.tar.gz
-   
-   /usr/sbin/groupadd mysql
-    /usr/sbin/useradd -g mysql mysql
-    tar zxvf mysql-5.5.3-m3.tar.gz
-    cd mysql-5.5.3-m3/
-    ./configure --prefix=/usr/local/webserver/mysql/ --enable-assembler --with-extra-charsets=complex --enable-thread-safe-client --with-big-tables --with-readline --with-ssl --with-embedded-server --enable-local-infile --with-plugins=partition,innobase,myisammrg
-    make && make install
-    
-    
-    
-       chmod +w /usr/local/webserver/mysql
-    
-    
-        mkdir -p    /usr/local/webserver/mysql/data/
-	mkdir -p    /usr/local/webserver/mysql/binlog/
-	mkdir -p    /usr/local/webserver/mysql/relaylog/
-	
-       chown -R mysql:mysql /usr/local/webserver/mysql
-
-     cd ../
-
-
-      以mysql用户帐号的身份建立数据表：
-      
-      /usr/local/webserver/mysql/bin/mysql_install_db --basedir=/usr/local/webserver/mysql  --user=mysql
-      
-      // --datadir=/data0/mysql/3306/data
-      
-      创建my.cnf配置文件：
-      
-      wget  http://www.greengrass-service.com/software/my.cnf
-      
-      mv ./my.cnf /etc/my.cnf
-
-
-
-
-启动mysql
-
-      # cd  /root/software/mysql-5.5.3-m3/support-files
- 
-      # cp mysql.server /etc/rc.d/init.d/mysqld
- 
- 
-      # chkconfig --add mysqld
- 
-      # chkconfig mysqld on
-      # chmod +x /etc/init.d/mysqld
- 
-      # service mysqld start
-     
-     
-     
-        
-通过命令行登录管理MySQL服务器（提示输入密码时直接回车）：
-
-/usr/local/webserver/mysql/bin/mysql -u root -p -S /tmp/mysql.sock
-
-
-输入以下SQL语句，创建一个具有root权限的用户（root）和密码（55445544）：
-
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '55445544';
-
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' IDENTIFIED BY '55445544';
-
-FLUSH PRIVILEGES;
-
-
-
-
- #  vi /etc/profile
-      
-      PATH=/usr/local/webserver/mysql/bin:/usr/local/webserver/mysql/lib:$PATH
-      
-      export PATH
-      
-      # source  /etc/profile
-      
-
-
-
 
 3、安装php
    
