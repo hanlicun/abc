@@ -70,7 +70,13 @@ ulimit -SHn 65535
      chkconfig httpd on
      
      service httpd restart
-     
+  
+   # vi /etc/profile
+   PATH=/usr/local/webserver/mysql/bin:/usr/local/webserver/mysql/lib:$PATH
+   export PATH
+   # source /etc/profile
+
+   
      
  2、安装mysql    
  
