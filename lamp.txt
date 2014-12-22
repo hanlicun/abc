@@ -73,16 +73,125 @@ ulimit -SHn 65535
      
      service httpd restart
  2、安装mysql    
-wget http://downloads.mysql.com/archives/mysql-5.6/mysql-5.6.10-linux-glibc2.5-x86_64.tar.gz
-tar zxvf mysql-5.6.10-linux-glibc2.5-x86_64.tar.gz
-mv mysql-5.6.10-linux-glibc2.5-x86_64 /Data/apps/mysql
+ 首先到MySQL官网下载MySQL最新版（目前是mysql-5.6.12）上传到服务器上，下面说一下详细的安装过程。
+
+    安装依赖包，可以在线更新也可以配置本地源（CentOS本地源配置）
+yum -y install cmake make ncurses-devel gcc gcc-c++ bison perl
+
+    创建MySQL用户和用户组
+
 /usr/sbin/groupadd mysql
 /usr/sbin/useradd -g mysql mysql
-mkdir -p /Data/data/mysql/data
-yum install libaio
-/Data/apps/mysql/scripts/mysql_install_db --basedir=/Data/apps/mysql --datadir=/Data/data/mysql/data --user=mysql
 
-sed -i "s#/usr/local/mysql#/Data/apps/mysql#g" /Data/apps/mysql/bin/mysqld_safe
+    解压缩
+
+tar zxvf mysql-5.6.12.tar.gz
+cd mysql-5.6.12
+
+    MySQL5.5之前的版本是configure现在是cmake，格式略有不同，以下使用了换行符，如果不用换行符则在同一行。
+
+cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/webserver/mysql \
+-DSYSCONFDIR=/usr/local/webserver/mysql \
+-DMYSQL_DATADIR=/data/mysql/3306/data \
+-DEXTRA_CHARSETS=all \
+-DDEFAULT_CHARSET=utf8 \
+-DDEFAULT_COLLATION=utf8_general_ci \
+-DENABLED_LOCAL_INFILE=1 \
+-DWITH_MYISAM_STORAGE_ENGINE=1 \
+-DWITH_INNOBASE_STORAGE_ENGINE=1 \
+-DWITH_MEMORY_STORAGE_ENGINE=1 \
+-DWITH_ARCHIVE_STORAGE_ENGINE=1 \
+-DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
+-DMYSQL_UNIX_ADDR=/tmp/mysql.sock \
+-DMYSQL_USER=mysql
+
+编译安装
+
+make
+make install
+
+更改目录所有者为mysql并创建相关目录
+
+chown -R mysql:mysql /usr/local/webserver/mysql
+mkdir -p /data/mysql/3306/data/
+mkdir -p /data/mysql/3306/binlog/
+mkdir -p /data/mysql/3306/relaylog/
+chown -R mysql:mysql /data/mysql/
+
+对数据库进行初始化
+/usr/local/webserver/mysql/scripts/mysql_install_db --basedir=/usr/local/webserver/mysql \
+--datadir=/data/mysql/3306/data --user=mysql --defaults-file=/usr/local/webserver/mysql/my.cnf \
+--explicit_defaults_for_timestamp
+
+删除默认配置文件并设置开机启动
+
+rm -rf /etc/my.cnf
+cd support-files/
+cp mysql.server /etc/init.d/mysqld
+chmod +x /etc/init.d/mysqld
+chkconfig --add mysqld
+chkconfig mysqld on
+
+启动MySQL
+
+service mysqld start
+
+登录MySQL并创建默认用户
+
+登陆mysql
+/usr/local/webserver/mysql/bin/mysql
+
+登录后再MySQL命令界面下执行如下命令创建root用户，并将密码也设置成root（当然可以设置为其他值）
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' IDENTIFIED BY 'root';
+flush privileges;
+
+到此为止已经安装完成！
+
+    其他优化配置可以参考如下做法：
+
+编辑MySQL的配置文件vi /usr/local/webserver/mysql/my.cnf 然后输入如下配置
+
+    #错误日志目录
+    log-error = /data/mysql/3306/mysql_error.log
+    #二进制日志目录
+    log-bin = /data/mysql/3306/binlog/binlog
+
+    #InnoDB 缓存数据大小(索引、锁、插入缓冲、数据字典等)
+    #推荐设置为物理内存的25%-50%
+    innodb_buffer_pool_size = 1G
+
+    #InnoDB共享表空间初始化大小
+    innodb_data_file_path = ibdata1:1G:autoextend
+
+    #每次事务提交或事务外的指令都需要将日志写入硬盘，设置为1比较安全
+    innodb_flush_log_at_trx_commit = 1
+
+    #InnoDB日志缓存
+    innodb_log_buffer_size = 64M
+
+    #InnoDB 大量写操作时有帮助
+    innodb_log_file_size = 256M
+
+    #启用InnoDB的status file
+    innodb_status_file = 1
+
+    #最大连接数
+    max_connections = 100
+
+    #最大连接错误次数
+    max_connect_errors = 10000
+
+    #设置慢查询时间
+    long_query_time = 1
+
+    #设置临时表最大值，max_heap_table_size 和 tmp_table_size 要设置一样大
+    max_heap_table_size = 96M
+    tmp_table_size = 96M
+
+修改后重启MySQL，如果不能重启成功需要将/data/mysql/3306/data目录下的ibdata1及ib_logfile*文件删除然后重新启动。
+
+ 本文中用到的MySQL源码包可以
 
 
 2、安装mysql
