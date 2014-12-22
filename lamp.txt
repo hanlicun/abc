@@ -71,10 +71,7 @@ ulimit -SHn 65535
      
      service httpd restart
   
-   # vi /etc/profile
-   PATH=/usr/local/webserver/mysql/bin:/usr/local/webserver/mysql/lib:$PATH
-   export PATH
-   # source /etc/profile
+
 
    
      
@@ -202,7 +199,14 @@ flush privileges;
 
  本文中用到的MySQL源码包可以到 这里  http://pan.baidu.com/s/1mg84unA  下载
 
-
+   # vi /etc/profile
+   PATH=/usr/local/webserver/mysql/bin:/usr/local/webserver/mysql/lib:$PATH
+   export PATH
+   # source /etc/profile
+   
+   
+   
+   
 2、安装mysql
 
    编译安装MySQL 5.5.3-m3
