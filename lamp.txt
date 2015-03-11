@@ -333,7 +333,7 @@ ln -s /usr/local/webserver/mysql/include/* /usr/local/webserver/mysql/include/my
     wget http://www.greengrass-service.com/software/libpng-1.2.31.tar.gz 
     wget http://www.greengrass-service.com/software/jpegsrc.v8b.tar.gz 
     wget http://www.greengrass-service.com/software/libgd-2.1.0.tar.gz
-   wget http://www.greengrass-service.com/software/libxml2-2.6.30.tar.gz
+    wget http://www.greengrass-service.com/software/libxml2-2.6.30.tar.gz
 
 
 tar zxvf libiconv-1.13.tar.gz
@@ -454,6 +454,9 @@ Can`t loacte API module staructure `mod_rewrite_module` in file
 [root@www httpd-2.2.22]# ../bin/apachectl configtest
 Syntax OK
 这时，你的apache应该已经支持rewrite了。
+
+
+修改httpd.conf
 
 将
     AllowOverride None
