@@ -70,7 +70,8 @@ yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel fr
    
      
  2、安装mysql    
- 
+    wget http://www.greengrass-service.com/software/mysql-5.6.12.tar.gz
+
  
  首先到MySQL官网下载MySQL最新版（目前是mysql-5.6.12）上传到服务器上，下面说一下详细的安装过程。
 
