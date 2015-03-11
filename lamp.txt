@@ -410,6 +410,60 @@ libXpm的路径在/usr/lib下
 此时需要重新configure下，在原来的基础上要加上 --with-xpm-dir=/usr/lib
 
 
+Apache添加mod_rewrite模块
+
+
+[root@bogon ~]# cd /usr/local/webserver/httpd-2.2.22
+
+[root@bogon httpd-2.2.22]# find . -name mod_rewrite.c
+./modules/mappers/mod_rewrite.c
+[root@bogon httpd-2.2.22]# cd modules/mappers/
+[root@bogon httpd-2.2.22]#/opt/sudytech/apache2/bin/apxs -c mod_rewrite.c
+[root@bogon httpd-2.2.22]#/opt/sudytech/apache2/bin/apxs -i -a -n mod_rewrite mod_rewrite.la
+
+
+apache已安装完毕，手动添加mod_rewrite模块
+#find . -name mod_rewrite.c //在apache的源码安装目录中寻找mod_rewrite.c文件
+#cd modules/mappers/mod_rewrite.c //进入包含mod_rewrite.c文件的目录
+#/usr/share/apache-2.2.11/bin/apxs -c mod_rewrite.c //apxs应指定绝对路径，在你当前正在使用apache的bin目录里
+#/usr/share/apache-2.2.11/bin/apxs -i -a -n mod_rewrite mod_rewrite.la
+如果没有什么错误的话，应该在你的apache的modules目录中编译出一个mod_rewrite.so文件。
+编辑httpd.conf文件，确认httpd.conf中已经包含mod_rewrite.so的加载语句，如下：
+LoadModule rewrite_module modules/mod_rewrite.so
+这时，你的apache应该已经支持rewrite了。
+注：完成之后，记得重启服务器apache。
+.可能遇到的问题
+httpd: Syntax error on line 54 of /usr/share/apache-2.2.11/conf/httpd.conf: Can't locate API module structure `mod_rewrite_module' in file /usr/share/apache-2.2.11/modules/mod_rewrite.so: /usr/share/apache-2.2.11/modules/mod_rewrite.so: undefined symbol: mod_rewrite_module
+修改 httpd.conf，将
+LoadModule mod_rewrite_module modules/mod_rewrite.so
+改为
+LoadModule mod_rewrite modules/mod_rewrite.so
+如果出现这个错误
+Syntax error on line 329 of /usr/local/apache2/conf/httpd.conf:
+Can`t loacte API module staructure `mod_rewrite_module` in file
+/usr/local/apache2/modules/mod_rewrite.so:/usr/local/apache2/lib/libapr-
+0.so.0:undefined symbol:mod_rewrite_module
+修改http.conf
+原来：httpd.conf里面写的mod_rewrite_module
+改成 rewrite_module
+如果重启apache出现这个错误module rewrite_module is built-in and can`t be loaded
+表示模块是内建的，不用再调入,注释掉
+#LoadModule rewrite_module modules/mod_rewrite.so
+#####################################################
+检查：
+[root@www httpd-2.2.22]# ../bin/apachectl configtest
+Syntax OK
+这时，你的apache应该已经支持rewrite了。
+
+将
+    AllowOverride None
+修改为：
+    AllowOverride All
+
+service httpd   restart
+
+
+
 搭建完毕, 谢谢！
 
 
