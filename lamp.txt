@@ -326,7 +326,90 @@ ln -s /usr/local/webserver/mysql/include/* /usr/local/webserver/mysql/include/my
 
 
 
+安装GD库
+
+    wget http://www.greengrass-service.com/software/libiconv-1.13.tar.gz
+    wget http://www.greengrass-service.com/software/freetype-2.3.5.tar.gz
+    wget http://www.greengrass-service.com/software/libpng-1.2.31.tar.gz 
+    wget http://www.greengrass-service.com/software/jpegsrc.v8b.tar.gz 
+    wget http://www.greengrass-service.com/software/libgd-2.1.0.tar.gz
+   wget http://www.greengrass-service.com/software/libxml2-2.6.30.tar.gz
+
+
+tar zxvf libiconv-1.13.tar.gz
+cd libiconv-1.13
+./configure --prefix=/usr/local/webserver/lib/libiconv
+make && make install
+cd ../
+
+tar zxvf freetype-2.3.5.tar.gz
+cd freetype-2.3.5/
+./configure --prefix=/usr/local/webserver/lib/freetype
+make && make install
+cd ../
+
+tar zxvf libpng-1.2.31.tar.gz 
+cd libpng-1.2.31
+./configure --prefix=/usr/local/webserver/lib/libpng
+make && make install
+cd ../
+
+tar zxvf jpegsrc.v8b.tar.gz 
+cd jpeg-8b/
+./configure --enable-static --enable-shared
+make && make install
+cd ../
+
+tar -zxvf libgd-2.1.0.tar.gz
+cd libgd-2.1.0
+./configure --prefix=/usr/local/webserver/lib/gd --with-freetype=/usr/local/webserver/lib/freetype --with-jpeg --with-png
+make
+make install
+cd ../
+
+
+tar zxvf libxml2-2.6.30.tar.gz
+cd libxml2-2.6.30/
+./configure --prefix=/usr/local/webserver/lib/libxml
+make && make install
+cd ../
+
+重新编译PHP
+
+ './configure' '--prefix=/usr/local/webserver/php' '--with-config-file-path=/usr/local/webserver/php/etc' '--with-apxs2=/usr/local/webserver/httpd/bin/apxs'  '--with-mysql=/usr/local/webserver/mysql' '--with-mysqli=/usr/local/webserver/mysql/bin/mysql_config' '--enable-soap' '--enable-sockets'  --with-gd=/usr/local/webserver/lib/gd --with-iconv-dir=/usr/local/webserver/lib/libiconv --with-freetype-dir=/usr/local/webserver/lib/freetype --with-jpeg-dir=/usr/local --with-png-dir=/usr/local/webserver/lib/libpng --with-zlib  --with-libxml-dir=/usr/local/webserver/lib/libxml --enable-xml   --with-xpm-dir=/usr/lib64
+
+ make 
+ make install
+
+
+出现错误信息：
+
+问题1：
+按照以上配置，make时可能报如下错误：
+/data/softare/php-5.6.0/ext/gd/gd.c:57:22: error: X11/xpm.h: No such file or directory
+make: *** [ext/gd/gd.lo] Error 1
+问题说明：这是提示gd库不支持xpm
+解决方法：
+安装libxpm
+yum install libXpm-devel.x86_64
+
+问题2：
+/data/softare/php-5.6.0/ext/gd/gd.c:57:22: error: X11/xpm.h: No such file or directory
+make: *** [ext/gd/gd.lo] Error 1
+
+  [root@Quincy php-5.5.5]# rpm -ql libXpm
+
+            /usr/lib/libXpm.so.4
+            /usr/lib/libXpm.so.4.11.0
+            /usr/share/doc/libXpm-3.5.10
+            /usr/share/doc/libXpm-3.5.10/AUTHORS        
+            /usr/share/doc/libXpm-3.5.10/COPYING
+            /usr/share/doc/libXpm-3.5.10/ChangeLog
+
+libXpm的路径在/usr/lib下
+此时需要重新configure下，在原来的基础上要加上 --with-xpm-dir=/usr/lib
 
 
 搭建完毕, 谢谢！
+
 
