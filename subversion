@@ -1,0 +1,48 @@
+
+
+centos下使用yum安装subversion On 服务器相关  
+
+1.安装subversion
+
+yum install subversion
+
+2.建立版本库，本例中我们的版本库建立在/var/www/svn,假设该版本库目录为svn
+
+cd /var/www
+
+mkdir svn
+
+svnadmin create ./svn/gaixue
+
+3.配置
+
+刚才建立了gaixue这个svn版本库，需要配置的有通用认证方式，用户名和密码，权限配置这三个文件，分别是/var/www/svn/gaixue下的conf下的svnserve.conf passwd 和authz这三个文件。
+
+svnserve.conf:
+
+anon-access = none
+auth-access = write
+password-db = passwd
+authz-db = authz
+
+passwd文件:
+user1:password1
+user2:password2
+
+authz文件:
+[groups]
+gaixueuser = user1,user2
+[gaixue:/]
+@gaixueuser = rw
+* =
+其中*=意味着匿名用户没有权限
+
+4.启动
+配置成功以后，启动svn版本库服务
+svnserve -d -r /var/www/svn
+
+5.使用
+svn://192.168.128.128/gaixue/
+即可取得版本库，这里提示需要用户名密码，输入user1，密码为password1即可，你也可以根据配置文件改成自己需要的用户名、密码。
+＝＝＝＝＝＝＝＝＝
+另：如果你安装成功后不能正常使用，请确保你的防火墙是否关闭，你可以执行 /etc/init.d/iptables stop 来关闭防火墙。
