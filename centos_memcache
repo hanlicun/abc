@@ -1,0 +1,73 @@
+2.0 安装步骤
+
+Centos及 Aliyun Linux 6系列版本
+
+ 
+
+首先需要确认是否安装了gcc-c++等组件可以使用如没有请执行，
+
+yum  install gcc+ gcc-c++
+
+  
+
+使用gcc –v查看版本是否为4.2（含）以上 【必须要安装GCC  GCC要大于等于4.2】
+
+1)    rpm –qa | grep php 查看系统中是否有PHP环境，如果没有则安装之；如果有PHP则不要安装。建议使用php5.3【含】以上版本PHP5.2部分版本系列源代码会有zend_parse_parameters_none函数会出错，如需使用请参照php官方相关文档【包含源码编译的PHP】
+
+yum install php-devel,php-common,php-cli  【如是源代码编译，请按照官方php编译升级的办法进行】
+
+2) 安装SASL相关环境yum install cyrus-sasl-plain cyrus-sasl  cyrus-sasl-devel  cyrus-sasl-lib 【请先检测下是否有已安装了这些包，如有则不需要安装】
+
+3) 安装源码包libmemcached 【推荐版本libmemcached-1.0.16】
+
+请先检测下是否有已安装了这些包【包含源码包】如有则不需要安装
+
+wget https://launchpad.net/libmemcached/1.0/1.0.16/+download/libmemcached-1.0.16.tar.gz 
+
+tar zxvf libmemcached-1.0.16.tar.gz
+
+cd libmemcached-1.0.16
+
+./configure --prefix=/usr/local/libmemcached --enable-sasl
+
+make
+
+make install
+
+cd ..
+
+ 
+
+4) 安装源码包memcached 【推荐版本为memcached-2.1.0】
+
+安装MEMCACHED前需要确认是否有zlib-devel包没有需要执行
+
+yum install zlib-devel
+
+请先检测下是否有已安装了memcached客户端包【包含源码包】如有则不需要安装，但需要重新编译增加-enable-memcached-sasl这个扩展
+
+ 
+
+wget http://pecl.php.net/get/memcached-2.1.0.tgz
+
+tar zxvf memcached-2.1.0.tgz
+
+cd memcached-2.1.0
+
+phpize（如果系统中有两套PHP环境，需绝对路径调用该命令/usr/bin/phpize，该路径为使用OCS的PHP环境路径）
+
+./configure --with-libmemcached-dir=/usr/local/libmemcached --enable-memcached-sasl（注意这个参数）
+
+make
+
+make install
+
+最后修改php.ini文件（locate找该文件，如果系统中有两套PHP环境，需找到使用OCS的PHP环境路径，对应修改之），增加extension=memcached.so
+
+memcached.use_sasl = 1
+
+依赖 ：
+
+Memcached 2.1.0扩展必须使用libmemcached 1.0.x的库，低于1.0的库不再能够成功编译。编译 libmemcached时GCC要求在4.2以上。
+
+使用该页面最后的测试代码测试下是否环境部署成功，请修改代码中相应的地址 端口 用户名及密码
