@@ -28,9 +28,9 @@ dir /var/redis/6379
 
 $ redis-server /etc/redis/6379.conf
 
+ 检查是否启动成功
 
-
-
+a) $ ps -ef | grep redis
 
 
 
