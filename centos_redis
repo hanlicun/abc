@@ -1,15 +1,8 @@
+wget http://download.redis.io/redis-stable.tar.gz
 
-先去官网下载源码：
+tar xvzf redis-stable.tar.gz
 
-wget http://redis.googlecode.com/files/redis-2.4.6.tar.gz
-
-解压：
-
-tar –zxvf redis-2.4.6.tar.gz
-
-编译
-
-需要说明的事，redis的安装非常简单，已经有现成的Makefile文件，直接运行make命令即可。
+cd redis-stable
 
 make
 
