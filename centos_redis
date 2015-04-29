@@ -1,10 +1,68 @@
+
 wget http://download.redis.io/redis-stable.tar.gz
-
 tar xvzf redis-stable.tar.gz
-
 cd redis-stable
-
 make
-
 make install
+
+
+cp redis-server /usr/local/bin/
+cp redis-cli /usr/local/bin/
+
+然后新建目录，存放配置文件
+mkdir /etc/redis
+mkdir /var/redis
+mkdir /var/redis/log
+mkdir /var/redis/run
+mkdir /var/redis/6379
+
+
+在redis解压根目录中找到配置文件模板，复制到如下位置。
+cp redis.conf /etc/redis/6379.conf
+通过vim命令修改
+daemonize yes
+pidfile /var/redis/run/redis_6379.pid
+logfile /var/redis/log/redis_6379.log
+dir /var/redis/6379
+最后运行redis：
+
+$ redis-server /etc/redis/6379.conf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
