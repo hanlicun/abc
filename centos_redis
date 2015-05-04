@@ -36,11 +36,6 @@ a) $ ps -ef | grep redis
 
 
 
-
-
-
-
-
 安装php的redis扩展
 
  tar -zxvf owlient-phpredis-2.1.1-1-g90ecd17.tar.gz 
@@ -59,13 +54,30 @@ Installing shared extensions:     /usr/lib/php/modules/
 # service httpd restart
 
 
+Yii1.1中使用redis
 
+（1）在config/main.php中配置
 
+  'redis_cache' => array (
+                        'class' => 'CRedisCache',
+                        'hostname' =>'127.0.0.1',
+                        'port'=>6379,
+                        'password'=>'xxxxx',
+                        'database'=>0
+                  ) ,
 
+ The minimum required redis version is 2.0.0.
 
+（2）
 
+CRedisCache
+包 	system.caching
+继承 	class CRedisCache » CCache » CApplicationComponent » CComponent
+实现 	ArrayAccess, ICache, IApplicationComponent
+源自 	1.1.14
+源码 	framework/caching/CRedisCache.php
 
-
+Yii framework 要求版本号在1.1.14+
 
 
 
