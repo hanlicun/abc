@@ -1,0 +1,28 @@
+
+1、  检查squid软件是否安装
+  # rpm -qa|grep squid
+
+
+2、安装squid软件包
+ yum -y install squid*
+
+3、squid配置文件
+ /etc/squid/squid.conf
+
+4、启动squid服务
+ service squid start/restart
+
+5、停止squid服务
+ service squid stop
+
+6、重新加载配置文件
+ squid -k reconfig
+
+7、常用配置项
+	http_port 192.168.10.1:3128
+	cache_mem 64MB
+	maximum_object_size 4096KB
+	reply_body_max_size 10480000 allow all
+	access_log /var/log/squid/access.log
+	visible_hostname 192.168.10.1
+	cache_dir ufs /var/spool/squid 100 16 256
