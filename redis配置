@@ -1,0 +1,86 @@
+wget http://download.redis.io/redis-stable.tar.gz
+tar xvzf redis-stable.tar.gz
+cd redis-stable
+make
+make install
+
+
+cp redis-server /usr/local/bin/
+cp redis-cli /usr/local/bin/
+
+然后新建目录，存放配置文件
+mkdir /etc/redis
+mkdir /var/redis
+mkdir /var/redis/log
+mkdir /var/redis/run
+mkdir /var/redis/6379
+
+
+在redis解压根目录中找到配置文件模板，复制到如下位置。
+cp redis.conf /etc/redis/6379.conf
+通过vim命令修改
+daemonize yes
+pidfile /var/redis/run/redis_6379.pid
+logfile /var/redis/log/redis_6379.log
+dir /var/redis/6379
+最后运行redis：
+
+$ redis-server /etc/redis/6379.conf
+
+ 检查是否启动成功
+
+a) $ ps -ef | grep redis
+
+
+
+
+
+安装php的redis扩展
+
+ tar -zxvf owlient-phpredis-2.1.1-1-g90ecd17.tar.gz 
+# cd owlient-phpredis-90ecd17 
+# /usr/local/webserver/php/bin/phpize 
+
+ 
+
+ # ./configure --with-php-config=/usr/local/webserver/php/bin/php-config
+# make  && make install
+
+
+Installing shared extensions:     /usr/lib/php/modules/
+# vim /etc/php.ini
+在最后一行加入: extension = redis.so
+# service httpd restart
+
+
+Yii中使用redis
+
+（1）在config/main.php中配置
+
+  'redis_cache' => array (
+                        'class' => 'CRedisCache',
+                        'hostname' =>'127.0.0.1',
+                        'port'=>6379,
+                        'password'=>'xxxxx',
+                        'database'=>0
+                  ) ,
+（2）
+Yii framework 要求版本号在1.1.14+
+用PHP测试：
+<?php
+
+$redis = new Redis();
+$redis->connect("192.168.138.2","6379");  //php客户端设置的ip及端口
+//存储一个 值
+$redis->set("say","Hello World");
+echo $redis->get("say");     //应输出Hello World
+
+//存储多个值
+$array = array('first_key'=>'first_val',
+          'second_key'=>'second_val',
+          'third_key'=>'third_val');
+$array_get = array('first_key','second_key','third_key');
+$redis->mset($array);
+var_dump($redis->mget($array_get));
+
+?>
