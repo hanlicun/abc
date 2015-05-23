@@ -1,0 +1,143 @@
+LVS
+LVS是Linux Virtual Server的简写，意即Linux虚拟服务器，是一个虚拟的服务器集群系统。本项目在1998年5月由章文嵩博士成立，是中国国内最早出现的自由软件项 目之一。目前有三种IP负载均衡技术（VS/NAT、VS/TUN和VS/DR）本文是按照VS/DR的方式配置,十种调度算法 （rrr|wrr|lc|wlc|lblc|lblcr|dh|sh|sed|nq）。
+Keepalvied
+Keepalived在这里主要用作RealServer的健康状态检查以及LoadBalance主机和BackUP主机之间failover的实现
+部署环境：
+系统：linux centos 5.8
+浮动IP：192.168.1.150
+主LVS IP：192.168.1.86
+备LVS IP：192.168.1.87
+真实服务器WEB1 IP：192.168.1.88
+真实服务器WEB2 IP：192.168.1.250
+安装与配置步骤
+1.主备LVS下载软件包
+ #wget http://www.linuxvirtualserver.org/software/kernel-2.6/ipvsadm-1.24.tar.gz
+ #wget http://www.keepalived.org/software/keepalived-1.1.15.tar.gz
+2.主备LVS安装LVS和Keepalived
+ #lsmod |grep ip_vs
+ #uname -r
+2.6.18-53.el5PAE
+ #ln -s /usr/src/kernels/2.6.18-53.el5PAE-i686/ /usr/src/linux
+(执行ln -s 出错请看最后的常见问题处理)
+ #tar zxvf ipvsadm-1.24.tar.gz
+ #cd ipvsadm-1.24
+ #make && make install
+ #find / -name ipvsadm # 查看ipvsadm的位置
+ #tar zxvf keepalived-1.1.15.tar.gz
+ #cd keepalived-1.1.15
+ #./configure && make && make install
+ #find / -name keepalived # 查看keepalived位置
+ #cp /usr/local/etc/rc.d/init.d/keepalived /etc/rc.d/init.d/
+ #cp /usr/local/etc/sysconfig/keepalived /etc/sysconfig/
+ #mkdir /etc/keepalived
+ #cp /usr/local/etc/keepalived/keepalived.conf /etc/keepalived/
+ #cp /usr/local/sbin/keepalived /usr/sbin/
+ #service keepalived start|stop
+3.主备LVS配置Keepalived
+修改配置文件/etc/keepalived/keepalived.conf为如下内容（注意真实环境下将#注释说明的内容去掉）
+global_defs {
+     notification_email {
+          admin@gmail.com
+     }
+     notification_email_from sns-lvs@gmail.com
+     smtp_server 127.0.0.1
+     router_id LVS_DEVEL
+}
+
+vrrp_instance VI_1 {
+     state MASTER   #备份服务器上将MASTER改为BACKUP     
+     interface eth0
+     virtual_router_id 88
+     priority 100  # 备份服务上将100改为99
+     advert_int 1
+     authentication {
+          auth_type PASS
+          auth_pass 123123
+     }
+     virtual_ipaddress {
+          192.168.1.150
+          #(如果有多个VIP，继续换行填写.)
+     }
+}
+
+virtual_server 192.168.1.150 80 {
+     delay_loop 3 #(每隔3秒查询realserver状态)
+     lb_algo wrr #(lvs 算法)
+     lb_kind DR #(Direct Route)
+     persistence_timeout 3 #(同一IP的连接3秒内被分配到同一台realserver)
+     protocol TCP #(用TCP协议检查realserver状态)
+
+     real_server 192.168.1.88 80 {
+          weight 3  #(权重)
+          TCP_CHECK {
+               connect_timeout 10 #(10秒无响应超时)
+               nb_get_retry 3
+               delay_before_retry 3
+               connect_port 80
+          }
+     }
+   
+     real_server 192.168.1.250 80 {
+          weight 3
+          TCP_CHECK {
+               connect_timeout 10
+               nb_get_retry 3
+               delay_before_retry 3
+               connect_port 80
+          }
+     }
+}
+作为高可用的备份lvs服务器配置只需在上述配置中的master修改backup即可，其他保持相同。
+4.配置提供真实服务的主机
+添加配置文件/etc/realserver/realserver.sh为以下内容
+
+SNS_VIP=192.168.1.150
+
+/etc/rc.d/init.d/functions
+
+case "$1" in
+start)
+     /sbin/ifconfig lo:0 $SNS_VIP netmask 255.255.255.255 broadcast $SNS_VIP up
+     /sbin/route add -host $SNS_VIP dev lo:0
+     echo "1" >/proc/sys/net/ipv4/conf/lo/arp_ignore
+     echo "2" >/proc/sys/net/ipv4/conf/lo/arp_announce
+     echo "1" >/proc/sys/net/ipv4/conf/all/arp_ignore
+     echo "2" >/proc/sys/net/ipv4/conf/all/arp_announce
+     sysctl -p >/dev/null 2>&1
+     echo "RealServer Start OK"
+;;
+
+stop)
+     /sbin/ifconfig lo:0 down
+     /sbin/route del $SNS_VIP >/dev/null 2>&1
+     echo "0" >/proc/sys/net/ipv4/conf/lo/arp_ignore
+     echo "0" >/proc/sys/net/ipv4/conf/lo/arp_announce
+     echo "0" >/proc/sys/net/ipv4/conf/all/arp_ignore
+     echo "0" >/proc/sys/net/ipv4/conf/all/arp_announce
+     echo "RealServer Stoped"
+;;
+
+*)
+echo "Usage: $0 {start|stop}"
+exit 1
+esac
+
+exit 0
+
+5.提供真实服务的主机修改/etc/rc.d/rc.loal
+ #vi /etc/rc.d/rc.local
+添加
+/etc/realserver/realserver.sh
+6.主备LVS执行
+ #chkconfig --level keepalived 35 on
+7.主备LVS启动keepalived服务
+ #/etc/init.d/keepalived start
+8.提供真实服务的主机运行/etc/realserver/realserver.sh
+ #chmod +x /etc/realserver/realserver.sh
+ #/etc/realserver/realserver.sh start
+9.查看当前LVS的状态
+ #ipvsadm -ln
+10.志跟踪方法：
+1、开两个ssh窗口连接到lvs服务器，第一个窗口运行如下命令：
+ [root@lvs1 ~]#?tail -F /var/log/message
+2、第二个窗口重新启动keepalived服务，同时观察窗口1中日志的变化，然后根据日志提示解决即可。
