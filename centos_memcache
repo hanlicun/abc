@@ -28,7 +28,7 @@ OPTIONS="" #附加参数
     tar vxzf memcache-3.0.8.tgz 
     cd memcache-3.0.8 
     /usr/local/webserver/php/bin/phpize 
-    ./configure –enable-memcache –with-php-config=/usr/local/webserver/php/bin/php-config –with-zlib-dir 
+    ./configure --enable-memcache --with-php-config=/usr/local/webserver/php/bin/php-config --with-zlib-dir 
     make 
     make install
 
