@@ -378,7 +378,18 @@ cd ../
 
 重新编译PHP
 
- './configure' '--prefix=/usr/local/webserver/php' '--with-config-file-path=/usr/local/webserver/php/etc' '--with-apxs2=/usr/local/webserver/httpd/bin/apxs'  '--with-mysql=/usr/local/webserver/mysql' '--with-mysqli=/usr/local/webserver/mysql/bin/mysql_config' '--enable-soap' '--enable-sockets'  --with-gd=/usr/local/webserver/lib/gd --with-iconv-dir=/usr/local/webserver/lib/libiconv --with-freetype-dir=/usr/local/webserver/lib/freetype --with-jpeg-dir=/usr/local --with-png-dir=/usr/local/webserver/lib/libpng --with-zlib  --with-libxml-dir=/usr/local/webserver/lib/libxml --enable-xml   --with-xpm-dir=/usr/lib64
+ './configure' '--prefix=/usr/local/webserver/php' \
+ '--with-config-file-path=/usr/local/webserver/php/etc' \
+ '--with-apxs2=/usr/local/webserver/httpd/bin/apxs'  \
+ '--with-mysql=/usr/local/webserver/mysql' \
+ '--with-mysqli=/usr/local/webserver/mysql/bin/mysql_config' \
+ '--enable-soap' '--enable-sockets'  --with-gd=/usr/local/webserver/lib/gd \
+ --with-iconv-dir=/usr/local/webserver/lib/libiconv \
+ --with-freetype-dir=/usr/local/webserver/lib/freetype \
+ --with-jpeg-dir=/usr/local --with-png-dir=/usr/local/webserver/lib/libpng \
+ --with-zlib  --with-libxml-dir=/usr/local/webserver/lib/libxml \
+ --enable-xml   \
+ --with-xpm-dir=/usr/lib64
 
  make 
  make install
