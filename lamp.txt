@@ -303,8 +303,10 @@ export PATH
  ln -s /usr/local/webserver/mysql/include/mysql/* /usr/local/include/
 
  
-tar zxvf PDO_MYSQL-1.0.2.tgz
-cd PDO_MYSQL-1.0.2/
+(tar zxvf PDO_MYSQL-1.0.2.tgz
+cd PDO_MYSQL-1.0.2/)
+注:php5.6中到php安装目录下eg:   cd /data/software/php-5.6.0/ext/pdo_mysql/
+
 /usr/local/webserver/php/bin/phpize
 ./configure --with-php-config=/usr/local/webserver/php/bin/php-config --with-pdo-mysql=/usr/local/webserver/mysql
 make
@@ -313,7 +315,7 @@ cd ../
 
 vi /etc/php.ini
 shift+g
-extension=pdo_mysql
+extension=pdo_mysql.so
 
 
 
