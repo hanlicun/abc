@@ -24,6 +24,7 @@ OPTIONS="" #附加参数
 安装Memcache的PHP扩展 
 1.在http://pecl.php.net/package/memcache 选择相应想要下载的memcache版本。 
 2.安装PHP的memcache扩展
+    wget http://pecl.php.net/get/memcache-3.0.8.tgz
     tar vxzf memcache-3.0.8.tgz 
     cd memcache-3.0.8 
     /usr/local/webserver/php/bin/phpize 
