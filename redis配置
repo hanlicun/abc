@@ -37,6 +37,8 @@ a) $ ps -ef | grep redis
 
 安装php的redis扩展
 
+wget  wget http://www.greengrass-service.com/software/owlient-phpredis-2.1.1-1-g90ecd17.tar.gz
+
  tar -zxvf owlient-phpredis-2.1.1-1-g90ecd17.tar.gz 
 # cd owlient-phpredis-90ecd17 
 # /usr/local/webserver/php/bin/phpize 
