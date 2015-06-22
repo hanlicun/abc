@@ -102,3 +102,81 @@ Slave_SQL_Running: Yes
 
 永久关闭？不知道怎么个永久法：
 #chkconfig –level 35 iptables off
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+实际操作日志记录：
+
+cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/webserver/mysql \
+-DSYSCONFDIR=/usr/local/webserver/mysql \
+-DMYSQL_DATADIR=/usr/local/webserver/mysql/data \
+-DEXTRA_CHARSETS=all \
+-DDEFAULT_CHARSET=utf8 \
+-DDEFAULT_COLLATION=utf8_general_ci \
+-DENABLED_LOCAL_INFILE=1 \
+-DWITH_MYISAM_STORAGE_ENGINE=1 \
+-DWITH_INNOBASE_STORAGE_ENGINE=1 \
+-DWITH_MEMORY_STORAGE_ENGINE=1 \
+-DWITH_ARCHIVE_STORAGE_ENGINE=1 \
+-DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
+-DMYSQL_UNIX_ADDR=/tmp/mysql.sock \
+-DMYSQL_USER=mysql\
+-DMYSQL_TCP_PORT=3307
+
+GRANT REPLICATION SLAVE ON *.* to 'savle'@'10.44.200.75' identified by '55445544';
+GRANT REPLICATION SLAVE ON *.* to 'savle'@'10.51.77.232' identified by '55445544';
+
+
+
++---------------+----------+--------------+------------------+-------------------+
+| File          | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++---------------+----------+--------------+------------------+-------------------+
+| binlog.000007 |      120 |              |                  |                   |
++---------------+----------+--------------+------------------+-------------------+
+
+
+
+change master to master_host='10.44.210.37', master_user='savle', master_password='55445544', master_log_file='binlog.000008', master_log_pos=1003;
+ 
+
+start slave; //启动从库连接
+
+6、查看从库状态：
+
+show slave status\G; //查看连接情况，是不是两个YES，两个YES为成功
+
+7、编辑从MYSQL服务器的MySQL配置文件my.cnf，在[mysqld]下面添加以下参数：
+
+master-host=10.44.210.37 //主库A的IP
+
+master-user=savle //刚才在主库创建的帐号
+
+master-password=55445544 //密码
+
+
+
+
+salve2: bK0FNl2HlPsWsHD3
+
+
+change master to master_host='10.44.210.37', master_user='savle', master_password='55445544', master_log_file='binlog.000009', master_log_pos=120;
+ 
+
+gitlabhq_production
+
+
+
