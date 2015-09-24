@@ -34,7 +34,7 @@ yum -y install openssl*
   报错：
   httpd: Could not reliably determine the server's fully qualified domain name, using 10.171.44.219 for ServerName
   
-  vi /usr/local/webserver/conf/httpd.conf
+  vi /usr/local/webserver/httpd/conf/httpd.conf
   
     将 #ServerName www.example.com:80   改为 ServerName 127.0.0.1:80
 
