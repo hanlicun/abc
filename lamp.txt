@@ -335,7 +335,8 @@ ln -s /usr/local/webserver/mysql/include/* /usr/local/webserver/mysql/include/my
     wget http://www.greengrass-service.com/software/libiconv-1.13.tar.gz
     wget http://www.greengrass-service.com/software/freetype-2.3.5.tar.gz
     wget http://www.greengrass-service.com/software/libpng-1.2.31.tar.gz 
-    wget http://www.greengrass-service.com/software/jpegsrc.v8b.tar.gz 
+    wget http://www.greengrass-service.com/software/jpegsrc.v8d.tar.gz
+
     wget http://www.greengrass-service.com/software/libgd-2.1.0.tar.gz
     wget http://www.greengrass-service.com/software/libxml2-2.6.30.tar.gz
 
@@ -359,14 +360,14 @@ make && make install
 cd ../
 
 tar zxvf jpegsrc.v8b.tar.gz 
-cd jpeg-8b/
-./configure --enable-static --enable-shared
+cd jpeg-8d/
+./configure --enable-static --enable-shared --prefix=/usr/local/webserver/jpeg
 make && make install
 cd ../
 
 tar -zxvf libgd-2.1.0.tar.gz
 cd libgd-2.1.0
-./configure --prefix=/usr/local/webserver/lib/gd --with-freetype=/usr/local/webserver/lib/freetype --with-jpeg --with-png
+./configure --prefix=/usr/local/webserver/lib/gd --with-freetype=/usr/local/webserver/lib/freetype --with-jpeg=/usr/local/webserver/jpeg  --with-png
 make
 make install
 cd ../
@@ -388,7 +389,7 @@ cd ../
  '--enable-soap' '--enable-sockets'  --with-gd=/usr/local/webserver/lib/gd \
  --with-iconv-dir=/usr/local/webserver/lib/libiconv \
  --with-freetype-dir=/usr/local/webserver/lib/freetype \
- --with-jpeg-dir=/usr/local --with-png-dir=/usr/local/webserver/lib/libpng \
+ --with-jpeg-dir=/usr/local/webserver/jpeg --with-png-dir=/usr/local/webserver/lib/libpng \
  --with-zlib  --with-libxml-dir=/usr/local/webserver/lib/libxml \
  --enable-xml  --enable-mbstring  \
  --with-xpm-dir=/usr/lib64  --with-curl 
