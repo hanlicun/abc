@@ -142,8 +142,8 @@ service mysqld start
 /usr/local/webserver/mysql/bin/mysql
 
 登录后再MySQL命令界面下执行如下命令创建root用户，并将密码也设置成root（当然可以设置为其他值）
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '55445544';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' IDENTIFIED BY '55445544';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY 'zaq1ZAQ!';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' IDENTIFIED BY 'zaq1ZAQ!';
 flush privileges;
 
 到此为止已经安装完成！
