@@ -120,8 +120,9 @@ mkdir -p /data/mysql/3306/binlog/
 mkdir -p /data/mysql/3306/relaylog/
 chown -R mysql:mysql /data/mysql/
 
+
 对数据库进行初始化
-/usr/local/webserver/mysql/scripts/mysql_install_db --basedir=/usr/local/webserver/mysql \
+/usr/local/webserver/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/webserver/mysql \
 --datadir=/data/mysql/3306/data --user=mysql --defaults-file=/usr/local/webserver/mysql/my.cnf \
 --explicit_defaults_for_timestamp
 
