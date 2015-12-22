@@ -361,7 +361,7 @@ cd libpng-1.2.31
 make && make install
 cd ../
 
-tar zxvf jpegsrc.v8b.tar.gz 
+tar zxvf jpegsrc.v8d.tar.gz 
 cd jpeg-8d/
 ./configure --enable-static --enable-shared --prefix=/usr/local/webserver/jpeg
 make && make install
