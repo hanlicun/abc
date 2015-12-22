@@ -394,7 +394,7 @@ cd ../
  --with-jpeg-dir=/usr/local/webserver/jpeg --with-png-dir=/usr/local/webserver/lib/libpng \
  --with-zlib  --with-libxml-dir=/usr/local/webserver/lib/libxml \
  --enable-xml  --enable-mbstring  \
- --with-xpm-dir=/usr/lib64  --with-curl 
+ --with-xpm-dir=/usr/lib64  --with-curl  --disable-fileinfo
  
 
  make 
