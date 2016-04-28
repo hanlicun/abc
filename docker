@@ -1,0 +1,32 @@
+ 
+ssh 10.171.44.219 -p 10122
+
+#创建apache:ubuntu镜像
+docker build -t apache:ubuntu .
+#测试镜像
+docker run -d -P apache:ubuntu
+
+#映射本地目录
+docker run -i -d -p 8080:80 -p 103:22 -e APACHE_SERVERNAME=test -v `pwd`/www:/var/www:ro apache:ubuntu
+
+
+
+#存出镜像
+docker save -o ubuntu_14.04.tar ubuntu:14.04
+
+#载入镜像
+docker load --input ubuntu_14.04.tar
+或
+docker load < ubuntu_14.04.tar
+
+
+
+
+#启动centos6.5镜像 
+docker run -d -p 127.0.0.1:2222:22 -m 256M centos-newssh
+
+ssh -o StrictHostKeyChecking=no root@127.0.0.1 -p 2222 
+
+
+
+
