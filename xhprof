@@ -1,0 +1,63 @@
+问题：
+最近服务器总是出现挂机的问题，通过监控图发现系统CPU使用已经达到100%，和研发沟通确认后，问题出现在代码问题上，下步就是找出这些消耗系统资源的页面。
+
+解决方案：
+系统环境是典型的LAMP环境，记得在开源网站上看到过性能跟踪的软件（Xdebug等），评价基本上都是特别消耗资源，后和研发沟通后决定采用XHProf进行测试，据说是facebook放出来的，毕竟是大牌子。
+
+一，XHProf介绍
+XHProf是facebook开源出来的一个php轻量级的性能分析工具，跟Xdebug类似，但性能开销更低，可以由程序开关来控制是否进行调用，如果你服务器足够强劲，完全可以用于生产环境，不过还是建议大家用于测试环节，在测试阶段就应该将一些较低级问题解决掉。
+
+二，XHProf安装
+此方法是将XHProf作为扩展模块安装，很简单
+wget http://pecl.php.net/get/xhprof-0.9.2.tgz
+tar xzvf xhprof-0.9.2.tgz
+cd xhprof-0.9.2/extension/
+cp -r xhprof_html xhprof_lib /var/www/html/
+/usr/local/webserver/php/bin/phpize
+./configure --with-php-config=/usr/local/webserver/php/bin/php-config
+make
+make install
+
+注意：修改自己的PHP安装路径,及xhprof性能展示的页面定位到/var/www/html/目录。
+
+安装完毕后，会提示：
+Installing shared extensions  /usr/local/webserver/php/lib/php/extensions/no-debug-non-zts-20060613/
+
+修改php.ini，以添加xhprof.so
+extension_dir = "/usr/local/webserver/php/lib/php/extensions/no-debug-non-zts-20060613/"
+
+extension=xhprof.so
+xhprof.output_dir=/var/logs/xhprof
+
+分析日志输出在/var/logs/xhprof目录。
+
+重新加载php配置文件或重启web，搞一个phpinfo页面，看到输出中是否有了xhprof信息，如果有输出xhprof的信息就说明模块加载正确，我的是这样的信息：
+xhprof    0.9.2
+CPU num    4
+
+下面还需要安装graphviz画图工具，用于显示xhprof的图表输出,方便查看
+wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz
+tar zxf graphviz-2.24.0.tar.gz
+cd graphviz-2.24.0
+./configure
+make && make install
+
+三，XHProf测试
+XHProf自带了一个sample.php测试的例子,稍微修改一下就可以使用了
+cp -rf examples/ /var/www/html/
+
+修改sample.php让它也显示cpu和内存信息
+vim /var/www/html/examples/sample.php
+将xhprof_enable()改为
+xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY)
+
+将最后一段echo一行修改为：
+echo 'count';
+
+XHProf输出说明
+1. Inclusive Time ： 包括子函数所有执行时间。
+2. Exclusive Time/Self Time ： 函数执行本身花费的时间，不包括子树执行时间。
+3. Wall Time ： 花去了的时间或挂钟时间。
+4. CPU Time ： 用户耗的时间+ 内核耗的时间
+5. Inclusive CPU ： 包括子函数一起所占用的CPU
+6. Exclusive CPU ： 函数自身所占用的CPU
