@@ -490,6 +490,8 @@ service httpd   restart
 
 
 升级php
+wget http://cn2.php.net/get/php-7.0.9.tar.gz/from/this/mirror
+
 
 ./configure --prefix=/usr/local/webserver/php7 \
  --with-apxs2=/usr/local/webserver/httpd/bin/apxs  \
