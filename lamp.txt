@@ -538,6 +538,10 @@ configure: error: xslt-config not found. Please reinstall the libxslt >= 1.1.0 d
 
 make && make install
 
+cp php.ini-production /usr/local/webserver/php7/etc/php.ini
+cp ./sapi/fpm/php-fpm /etc/init.d/php-fpm
+cp /usr/local/webserver/php7/etc/php-fpm.conf.default /usr/local/webserver/php7/etc/php-fpm.conf
+
 
 httpd.conf
 
