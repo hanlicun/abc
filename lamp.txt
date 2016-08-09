@@ -527,8 +527,10 @@ wget http://cn2.php.net/get/php-7.0.9.tar.gz/from/this/mirror
  --enable-sockets \
  --enable-sysvsem \
  --enable-xml \
- --enable-zip
-
+ --enable-zip \
+ --disable-fileinfo
+ 
+ 
 configure: error: xslt-config not found. Please reinstall the libxslt >= 1.1.0 distribution
 # yum -y install curl-devel
 # yum -y install libxslt-devel
