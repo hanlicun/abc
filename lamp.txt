@@ -541,7 +541,8 @@ make && make install
 cp php.ini-production /usr/local/webserver/php7/etc/php.ini
 cp ./sapi/fpm/php-fpm /etc/init.d/php-fpm
 cp /usr/local/webserver/php7/etc/php-fpm.conf.default /usr/local/webserver/php7/etc/php-fpm.conf
-
+cd  /usr/local/webserver/php7/etc/php-fpm.d/
+cp www.conf.default  www.conf
 
 httpd.conf
 
