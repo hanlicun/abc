@@ -29,6 +29,10 @@ extension_dir = "/usr/local/webserver/php/lib/php/extensions/no-debug-non-zts-20
 extension=xhprof.so
 xhprof.output_dir=/var/logs/xhprof
 
+
+
+http://www.cnblogs.com/bluefrog/archive/2012/03/01/2374922.html
+
 分析日志输出在/var/logs/xhprof目录。
 
 重新加载php配置文件或重启web，搞一个phpinfo页面，看到输出中是否有了xhprof信息，如果有输出xhprof的信息就说明模块加载正确，我的是这样的信息：
