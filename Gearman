@@ -1,0 +1,296 @@
+php安装gearman扩展实现异步分步式任务
+
+
+一、简介
+
+Gearman是一个分发任务的程序框架，它会对作业进行排队自动分配到一系列机器上。gearman跨语言跨平台，很方便的实现异步后台任务。php官方收录：http://php.net/manual/zh/book.gearman.php
+
+gearman
+gearman-introduce
+
+如上图，一个Gearman请求的处理过程涉及三个角色：Client -> Job -> Worker。
+
+Client：请求的发起者，可以是C，PHP，Perl，MySQL UDF等等。
+Job：请求的调度者，用来负责协调把Client发出的请求转发给合适的Work。
+Worker：请求的处理者，可以是C，PHP，Perl等等。
+二、安装
+1、安装服务器端：
+
+官方下载，请到https://launchpad.net/gearmand。
+
+yum install boost-devel* gperf* libevent-devel* libuuid-devel
+wget https://launchpad.net/gearmand/1.2/1.1.12/+download/gearmand-1.1.12.tar.gz
+tar zxvf gearmand…
+cd gearmand …
+./configure
+make && make install
+
+安装该扩展需要先安装一些依赖，建议直接默认./configure，不要指定路径等。
+
+常见问题1：提示找不到boost>=1.39，明明已经安装了，这里应该是没有安装gcc-c++，有的机器有gcc却不一定带有gcc-c++。yum install gcc-c++应该就可以了。
+update at 2016-08-06: 实在不行，执行安装这个：
+libboost-all-dev（来自这里）
+
+常见问题2：安装完成后启动不成功，gearmand -d或者gearmand -d -u root都启动不起来。gearmand -vvv调试模式却提示未定义选项-v。这时应该是触发gearmand新版本的bug了，查看log应该能看到“000000 [  main ] socket()(Address family not supported by protocol) -> libgearman-server/gearmand.cc:470”这个错误，解决办法是启动时添加参数-L 0.0.0.0，限定只绑定ipv4地址，忽略ipv6。或者安装不高于1.0.2的版本。参见官方反馈帖子：https://bugs.launchpad.net/gearmand/+bug/1134534
+
+参考链接：http://www.usamurai.com/2013/05/01/install-gearman-from-source-in-centos/
+2、安装gearman的php扩展
+
+下载扩展程序：http://pecl.php.net/package/gearman
+
+wget http://pecl.php.net/get/gearman-1.1.2.tgz
+tar zxvf gearman-1….
+cd gearman-1 …
+phpize
+./configure
+make && make install
+
+很快就安装完成，最后会展示so文件的路径，如： /usr/lib64/php/modules/
+
+在php.ini末尾加上extension=”/usr/lib64/php/modules/gearman.so”，重启apache，输出php –info |grep “gearman”或者php -m或者网页输出phpinfo()都能看到已经安装成功。
+
+常见问题：configure时如果提示找不到php-config，请指定。如–with-php-config=/usr/local/php/bin/php-config，注意要指定完整，不要只写目录。
+三、实例
+client:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+	
+<?php
+$client = new GearmanClient();
+$client->addServer('127.0.0.1', 4730);//本机可以直接addServer(),默认服务器端使用4730端口
+$client->setCompleteCallback('completeCallBack');//先绑定才有效
+ 
+$result1 = $client->do('say', 'do');//do是同步进行，进行处理并返回处理结果。
+$result2 = $client->doBackground('say', 'doBackground');//异步进行，只返回处理句柄。
+$result3 = $client->addTask('say', 'addTask');//添加任务到队列,同步进行？通过添加task可以设置回调函数。
+$result4 = $client->addTaskBackground('say', 'addTaskBackground');//添加后台任务到队列，异步进行？
+$client->runTasks();//运行队列中的任务，只是do系列不需要runTask()。
+ 
+echo 'result1:';
+var_dump($result1);
+echo '<br/>';
+ 
+echo 'result2:';
+var_dump($result2);
+echo '<br/>';
+ 
+echo 'result3:';
+var_dump($result3);
+echo '<br/>';
+ 
+echo 'result4:';
+var_dump($result4);
+echo '<br/>';
+ 
+//绑定回调函数，只对addTask有效
+function completeCallBack($task)
+{
+    echo 'CompleteCallback！handle result:'.$task->data().'<br/>';
+}
+worker:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+	
+<?php
+$worker = new GearmanWorker();
+$worker->addServer();
+$worker->addFunction('say', function(GearmanJob $job){
+    $workload = $job->workload();//接收client传递的数据
+    echo 'receive data:'.$workload.PHP_EOL;
+    return strrev($workload);//仅作反转处理
+});
+ 
+//无际循环运行，gearman内部已有处理，不会出现占用过高死掉的情况
+while($worker->work()){
+    if($worker->returnCode() !== GEARMAN_SUCCESS){
+        echo 'error'.PHP_EOL;
+    }
+}
+
+以上client输出：
+
+CompleteCallback！handle result:ksaTdda
+result1:string(2) “od”
+result2:string(17) “H:iZ943bixttyZ:87”
+result3:object(GearmanTask)#2 (0) { }
+result4:object(GearmanTask)#3 (0) { }
+
+worker输出：
+
+receive data:do
+receive data:doBackground
+receive data:addTaskBackground
+receive data:addTask
+四、pcntl扩展实现粗略的多worker守护
+
+由于worker要长驻后台时刻准备着被jobserver调用来处理job，所以worker不能死掉，网上有的解决办法是通过定时任务进行重启worker，这应该是不错的方案。也有说进行多进程守护，但实际上php比较难实现，通过pcntl扩展是其中一种方案，主进程forck出来的子进程来启动运行worker，相当于worker作为主进程的子进程。主进程监护着子进程，worker死掉及时启动新的一个。但如果主进程死掉呢？由于主进程不进行什么业务处理，死掉的概率要比子进程worker死掉的概率要小不少吧。
+
+以下示例，主进程启动5个子进程，也就是开启5个worker，并监护着它们：
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+	
+<?php
+declare (ticks = 1);
+$num = 5;//最大子进程数
+$child = 0;//当前子进程数
+ 
+//信号处理函数
+function sig_handler($sig)
+{
+    global $child;
+    switch ($sig) {
+        case SIGCHLD:
+            $child--;
+            echo 'SIGCHLD received! now we have '.$child.' process'.PHP_EOL;
+            break;
+        case SIGINT:
+            $child--;
+            echo 'SIGINT received! now we have '.$child.' process'.PHP_EOL;
+            break;
+        case SIGTERM:
+            $child--;
+            echo 'SIGTERM received! now we have '.$child.' process'.PHP_EOL;    
+            break;
+        default:
+            # code...
+            break;
+    }
+}
+ 
+//安装信号处理器
+pcntl_signal(SIGTERM, "sig_handler");//进程被kill时发出的信号
+// pcntl_signal(SIGHUP,  "sig_handler");//终端关闭时发出的信号
+pcntl_signal(SIGINT, "sig_handler");//中断进程信号，如Ctrl+C
+pcntl_signal(SIGCHLD, "sig_handler");//进程退出信号
+ 
+while(true)
+{
+    $child++;
+    $parentpid = getmypid();
+    $pid = pcntl_fork();//一分为二，父进程和子进程都会执行以下代码
+    if($pid == -1)
+    {
+        exit("can not fork!");//出错
+    }else if($pid > 0){
+        //父进程处理代码
+        echo 'I am parent.my pid is'.$pid.' and my parent pid is'.$parentpid.PHP_EOL;
+        if($child >= $num)
+        {
+            pcntl_wait($status);//挂起，while语句不会继续执行。等待子进程结束，防止子进程成为僵尸进程
+        }
+    }else if($pid == 0){
+        //子进程代码
+        echo 'I am child, and my parent pid is '.$parentpid." my pid is ".getmypid()." now have $child process".PHP_EOL;        
+        //执行具体代码
+        pcntl_exec('/usr/bin/php', array('/var/www/test/mywork.php'));
+ 
+    }
+    pcntl_signal_dispatch();//分发信号，使安装的信号处理器能接收。
+    //低于php5.3该函数无效，但有开头的declare (ticks = 1);表示每执行一条低级指令，
+    //就检查一次信号，如果检测到注册的信号，就调用其信号处理器
+    sleep(rand(3,5));//防止100%占用
+}
+
+参考链接：http://huoding.com/2012/10/30/196，http://www.zrwm.com/?cat=80
