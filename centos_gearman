@@ -16,24 +16,11 @@ Worker：请求的处理者，可以是C，PHP，Perl等等。
 二、安装
 1、安装服务器端：
 
-官方下载，请到https://launchpad.net/gearmand。
 
-yum install boost-devel* gperf* libevent-devel* libuuid-devel
-wget https://launchpad.net/gearmand/1.2/1.1.12/+download/gearmand-1.1.12.tar.gz
-tar zxvf gearmand…
-cd gearmand …
-./configure
-make && make install
+yum install gearmand
 
-安装该扩展需要先安装一些依赖，建议直接默认./configure，不要指定路径等。
 
-常见问题1：提示找不到boost>=1.39，明明已经安装了，这里应该是没有安装gcc-c++，有的机器有gcc却不一定带有gcc-c++。yum install gcc-c++应该就可以了。
-update at 2016-08-06: 实在不行，执行安装这个：
-libboost-all-dev（来自这里）
 
-常见问题2：安装完成后启动不成功，gearmand -d或者gearmand -d -u root都启动不起来。gearmand -vvv调试模式却提示未定义选项-v。这时应该是触发gearmand新版本的bug了，查看log应该能看到“000000 [  main ] socket()(Address family not supported by protocol) -> libgearman-server/gearmand.cc:470”这个错误，解决办法是启动时添加参数-L 0.0.0.0，限定只绑定ipv4地址，忽略ipv6。或者安装不高于1.0.2的版本。参见官方反馈帖子：https://bugs.launchpad.net/gearmand/+bug/1134534
-
-参考链接：http://www.usamurai.com/2013/05/01/install-gearman-from-source-in-centos/
 2、安装gearman的php扩展
 
 下载扩展程序：http://pecl.php.net/package/gearman
