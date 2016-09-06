@@ -233,7 +233,9 @@ cd php-5.6.0
 './configure' '--prefix=/usr/local/webserver/php' '--with-config-file-path=/usr/local/webserver/php/etc' \
 '--with-apxs2=/usr/local/webserver/httpd/bin/apxs' '--with-libxml-dir=/usr/local/webserver/libxml2' \
 '--with-mysql=/usr/local/webserver/mysql' '--with-mysqli=/usr/local/webserver/mysql/bin/mysql_config' \
-'--enable-soap' '--enable-sockets' --with-openssl  '--enable-mbstring' --with-curl  --disable-fileinfo 
+'--enable-soap' '--enable-sockets' --with-openssl  '--enable-mbstring' --with-curl  --disable-fileinfo \
+--enable-pcntl
+
 
 
  make ZEND_EXTRA_LIBS='-liconv' 
