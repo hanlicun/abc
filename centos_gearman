@@ -19,6 +19,7 @@ Worker：请求的处理者，可以是C，PHP，Perl等等。
 
 yum install gearmand
 
+yum install boost-devel.i686
 
 
 2、安装gearman的php扩展
