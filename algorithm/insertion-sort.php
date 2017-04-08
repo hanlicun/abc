@@ -23,3 +23,4 @@ function insertion($arr){
 
 var_dump(insertion($numbers));
 
+//时间复杂度0(n^2)
