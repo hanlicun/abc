@@ -7,7 +7,7 @@ $numbers = array(
 
 
 
-function insertion($arr){
+function insertion_sort($arr){
 	$len = count($arr);
 	for($j=1;$j<$len;$j++){
 		$key = 	$arr[$j];
@@ -21,6 +21,6 @@ function insertion($arr){
 	return $arr;
 }
 
-var_dump(insertion($numbers));
+var_dump(insertion_sort($numbers));
 
 //时间复杂度0(n^2)
