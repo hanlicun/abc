@@ -60,11 +60,42 @@ function mergeArray(&$arr, $left, $center, $right) {
     for($i=0, $len=count($temp); $i<$len; $i++) {
         $arr[$left+$i] = $temp[$i];
     }
- 
 }
  
- 
+
+
+function getCurrentTime ()  {  
+    list ($msec, $sec) = explode(" ", microtime());  
+    return (float)$msec + (float)$sec;  
+}  
+
+$begin = getCurrentTime();  
+
 //do some test:
-$arr = array(4, 7, 6, 3, 9, 5, 8,11);
-mergeSort($arr);
-print_r($arr);
+
+
+
+function get_rand_number($start=1,$end=10,$length=4){  
+    $connt=0;  
+    $temp=array();  
+    while($connt<$length){  
+        $temp[]=mt_rand($start,$end);  
+        $data=array_unique($temp);  
+        $connt=count($data);  
+    }  
+    sort($data);  
+    return $data;  
+}  
+$numbers = get_rand_number(1,100000,2000);
+mergeSort($numbers);
+
+
+$end = getCurrentTime();  
+$spend = $end - $begin;  
+echo "runtime:".$spend."\n"; 
+
+
+//print_r($numbers);
+
+//时间复杂度 cn*lg(n) + cn 
+
