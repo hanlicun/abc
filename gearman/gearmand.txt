@@ -1,0 +1,3 @@
+/home/okooo/apps/gearman/sbin/gearmand -p 4730 -u root -d -vvv -q libdrizzle --libdrizzle-host=192.168.8.182 --libdrizzle-user=datad --libdrizzle-password=datapass --libdrizzle-db=gearman --libdrizzle-port=3308 --libdrizzle-mysql
+
+
