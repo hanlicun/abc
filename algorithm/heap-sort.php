@@ -1,5 +1,5 @@
 <?php
-
+//http://www.cnblogs.com/leezhxing/p/5297515.html
 //堆排序（对简单选择排序的改进）
 
 function swap(array &$arr,$a,$b){
