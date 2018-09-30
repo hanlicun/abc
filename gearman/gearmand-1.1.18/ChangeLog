@@ -1,0 +1,2765 @@
+
+cbyrum/fix-macos, fix-macos - 2017-10-08 Enable osx in Travis
+ - 2017-10-08 Switch to named semaphores for compatability
+ - 2017-10-08 Fix building on MacOS
+ - 2017-11-01 Added configure options to bootstrap.sh arguments
+ - 2017-11-01 Update gearmand.init.in
+ - 2017-09-29 libgearman-server/plugins/http/protocol:unpack default
+ unique_size should be 1 instead of 2.
+ - 2017-07-25 SC1091 disabled
+ - 2017-07-25 SC2181 fixing
+ - 2017-07-25 SC2206 fixing
+ - 2017-07-25 SC2166 fixing
+ - 2017-07-25 SC2193 fixing
+ - 2017-07-25 SC2128 fixing
+ - 2017-07-25 rm trailing spaces
+ - 2017-07-25 SC2086 fixing
+ - 2017-07-25 SC2119 fixing
+ - 2017-07-25 SC2034 fixing
+ - 2017-07-25 SC2124 fixing
+ - 2017-07-25 SC2034 fixing
+ - 2017-07-25 SC2129 fixing
+ - 2017-07-25 SC2086 fixing
+ - 2017-07-25 SC2154 fixing
+ - 2017-07-25 SC2155 fixing
+ - 2017-07-25 SC2145 fixing
+ - 2017-07-24 ensure data/priority position in hgetall result
+ - 2017-06-15 logging time
+ - 2017-06-14 bug fixing LibmemcachedQueue::done
+ - 2017-06-14 libmemcached plugin refactoring
+ - 2017-06-14 replace memcached_last_error_message by memcached_strerror
+ - 2017-06-06 bug fixing redis plugin
+
+cbyrum/apt-update - 2017-05-18 Refresh apt index before installing
+packages
+ - 2017-05-18 reduce logging level to info on HGETALL reply
+ - 2017-05-04 set up gearmand config keepalive
+ - 2017-05-04 Fix gearman_config_socket methods declaration
+ - 2017-05-03 gearmand should release http client if request contains
+ 'X-Gearman-Background: true' header
+ - 2017-05-02 for backwards compatibility redis queue supports old
+ fashion job data
+ - 2017-04-27 Skip logging of EMFILE error related to the issue
+ https://github.com/gearman/gearmand/issues/102
+ - 2017-01-24 redis plugin refactoring:  - move declarations into header
+ file  - Hiredis class provides getter, setter methods  - build_key
+ prepares a key without \0 characters at the end
+ - 2017-01-24 add 'Building with hiredis y/n' into build configuration
+ summary
+ - 2016-12-21 returns GEARMAND_QUEUE_ERROR with a message
+ - 2017-04-05 include header files in libmemached/queue.h if defined
+ HAVE_LIBMEMCACHED
+ - 2017-04-04 Use uniform initialization
+ - 2017-04-04 Use C++11 uniform variable initialization
+ - 2017-04-03 Update memcached_execute_fn callbacks initialization in
+ C++11 kind
+ - 2017-04-03 Remove unique key assertion from libmemcached queue plugin
+ - 2017-04-03 Replace deprecated memcached_execute_function by
+ memcached_execute_fn
+ - 2017-04-03 Replace deprecated memcached_dump_func by memcached_dump_fn
+ - 2017-04-03 Replace deprecated memcached_return by memcached_return_t
+ - 2017-04-03 Do not provide useless Libmemcached to LibmemcachedQueue
+ constructior
+
+cbyrum/cyassl-to-wolfssl - 2017-03-29 Change CyaSSL to wolfSSL
+ - 2017-03-31 declaration with C++11 constexpr instead of preprocessor
+ macro
+ - 2017-03-31 Use C++11 nullptr instead of macro NULL
+ - 2017-03-29 exclude unreliable cycle test
+ - 2016-10-13 Change docs license to CC-BY-SA 4.0
+ - 2017-03-21 Fix bonnyci path and script
+ - 2017-03-21 Adding bonnyci test script
+ - 2017-03-20 Another revision to Contributing section
+ - 2017-03-20 Revise revision to Contributing section
+ - 2017-03-20 Fix punctuation
+ - 2017-03-20 Fix typos and other revisions to Contributing section
+ - 2017-03-03 We need to improve the result of gearman_connection_create
+ is type gearman_connection_st because simple ASSERT_TRUE is not
+ accurate enough
+ - 2017-02-20 fixing https://github.com/gearman/gearmand/issues/76 ISO
+ C++ forbids comparison between pointer and integer
+ - 2017-02-20 fixed a typo
+ - 2017-03-18 do not abort bootstrap, but 'configure --enable-ssl'
+ https://github.com/gearman/gearmand/issues/57#issuecomment-287231353
+
+tag: 1.1.15 - 2017-02-17 Fix comparison of pointer and bool
+ - 2016-12-26 Fix specfile for renamed README
+ - 2016-12-26 Update readme md (#66)
+ - 2016-12-14 remove gearmand text command shutdown (#40)
+ - 2016-12-14 Fixed typo (jon_queued -> job_queued)
+ - 2016-12-14 Added "prioritystatus" command to display queued jobs
+ broken down by priority.
+ - 2016-12-03 Turn on artifact storage
+ - 2016-11-27 Use _exit() in fork test to fix race (#47)
+ - 2016-11-18 add "redis-password" option to redis
+ - 2016-11-22 bug fixing:  instead of undefined
+ - 2016-11-22 bsd portable shebang
+ - 2016-11-19 Ignore tarballs built as a result of 'make dist'
+
+tag: 1.1.14, origin/upstream_master - 2016-11-16 Fix typos found by
+Debian lintian
+ - 2016-11-03 Do not exceed 80 chars per line
+ - 2016-11-03 Redis queue: take server address into account
+ - 2016-11-03 redis queue: improve debugging
+ - 2016-10-19 Travis: ensure redis support is built and tested
+ - 2016-10-18 redis queue: fix loading old jobs from the database
+ - 2016-10-14 bug fixing: http response with empty content
+ - 2016-10-12 Include docs in dist tarball
+ - 2016-09-22 travis build matrix with different compilers
+ - 2016-09-23 replace launchpad urls by github [ci skip]
+ - 2016-09-25 Generate ChangeLog in make dist
+ - 2016-09-24 Use git describe to determine version
+ - 2016-07-06 bug fixing: http response an empty content on post
+ request. (lp rev 910)
+ - 2016-07-02 bug fix endless loop on http bad request or bad method
+ (lp rev802)
+ - 2016-07-03 Add documentation for the purpose of Unique ID
+ - 2016-07-03 Add basic documentation of undocumented protocol
+ - 2016-07-03 Fix "make install"
+ - 2016-07-03 Fix typo in protocol docs
+ - 2016-06-30 Move build-aux higher in configure.ac
+ - 2016-06-30 Add docs/build to .gitignore
+ - 2016-06-30 Add files bzr automatically ignores to .gitignore
+ - 2016-06-30 Change build to use git instead of bzr
+ - 2016-06-30 Change bzr to git in HACKING/README
+ - 2016-06-29 add travis build badge [ci skip]
+ - 2016-06-29 Add Travis CI integration
+ - 2016-06-29 Create README.md
+ - 2016-06-29 renamed:    .bzrignore -> .gitignore
+ - 2014-02-15 Fix for NOTPARALLEL issue on building docs.
+ - 2014-02-12 Merge bzr://10.0.3.21/ Build: jenkins-Gearmand-1026
+ - 2014-02-12 Fix make man to not slow down main build.
+ - 2014-02-12 Fix for constant recompile issue.
+ - 2014-02-11 Simplify how we grab artifact.
+ - 2014-02-10 Fix bad macro.
+ - 2014-02-10 Remove dead rpm.am file.
+ - 2014-02-10 Merge bzr://gaz.haus/ Build: jenkins-Gearmand-1011
+
+tag: 1.1.12 - 2014-02-09 Update for release.
+ - 2014-02-07 Add PHONY targets for rpm build.
+ - 2014-02-06 Remove default Jenkins rule.
+ - 2014-02-03 Remove AX_DLOPEN and fix XML output for Junit.
+ - 2014-02-02 Add sphinx-build to output for easier debugging.
+ - 2014-02-02 Updated bootstrap.sh
+ - 2014-02-02 Remove Automatic parallelization in Graphite
+ - 2014-02-01 Fixing install documents. Added a default GNUmakefile so
+ that 'make' works out of the box.
+ - 2014-01-30 Documentation fix.
+ - 2014-01-30 Improve compile time by fixing job builder.
+ - 2014-01-30 Fix test calls to use just one path.
+ - 2014-01-30 Update m4 from autoconf-archive
+ - 2014-01-18 Update TESTS_ENVIRONMENT with LOG_COMPILER.
+ - 2014-01-18 Remove warning unless we compile in debug.
+ - 2014-01-14 Add placeholder for sync.
+ - 2013-12-18 Update pthread and boost m4
+ - 2013-12-18 Update boost version check.
+ - 2013-11-26 Fix for pthreads C++ compile issue.
+ - 2013-11-21 Fix warning around boost options. Fix order for libttol.
+ - 2013-11-21 Switch error and see what we are getting on different
+ platforms.
+ - 2013-11-16 Remove timeout so that we always hit the connection error.
+ - 2013-11-16 Cleanup non-block connection.
+ - 2013-11-10 Fix issue where send_and_flush() could use wrong value
+ for return.
+ - 2013-11-10 Restructure if/else to switch/case in recv()
+ - 2013-11-09 Add option to print more of the errors while using benchmark
+ - 2013-11-07 Upgrade approach to how to upgrade in place wrapper
+ licenses.
+ - 2013-11-06 And sometimes...
+ - 2013-11-05 Mass update to use unique_ptr
+ - 2013-11-04 Refactor packet so that cleanup logic will work with delete
+ - 2013-11-04 Restructure code so that a worker copies functions when
+ cloned.
+ - 2013-11-03 Fix C++ issue for version. Make sure redis test is correctly
+ run. Fix output generator to not try to print a null vcharptr.
+ - 2013-11-03 Fix for OSX 10
+ - 2013-10-20 Fix redis compile and put basic regression test in place
+ - 2013-10-19 Correct usage of warnings.
+ - 2013-10-17 Update ax_pthread.m4 for clang
+ - 2013-10-11 Update save/restore m4. Extend bits for OSX 9.
+ - 2013-10-11 Update hostile target
+ - 2013-10-11 update bootstrap
+ - 2013-10-05 Merge lp:~brianaker/gearmand/1.1.11-release Build:
+ jenkins-Gearmand-900
+ - 2013-10-05 Switch to use autoconf-archive boost
+ - 2013-10-05 Update ax_boost.m4
+ - 2013-10-05 Update ax_pthread.m4
+ - 2013-10-05 Simple style cleanup. We also will start looking for epoll.
+ - 2013-10-05 hide the event and revent detail
+ - 2013-10-04 Check for impl during task loop.
+ - 2013-10-03 Fixing version information for 1.1.11 release
+ - 2013-10-03 Concede the point to Shrews.
+ - 2013-10-02 Fix typo
+ - 2013-10-02 Fix socket call for wakeup on clone.
+ - 2013-10-01 Merge lp:~brianaker/gearmand/pick-cc Build:
+ jenkins-Gearmand-891
+ - 2013-10-01 Force compiler selection to cc/c++ initially
+ - 2013-09-30 Just fix ax_pthread compile issue for OSX
+ - 2013-09-21 Adding gearman.info Apache config
+ - 2013-09-17 Moving wakeup pipe into universal
+ - 2013-09-16 Fixed possible bug where the server would over count the
+ number of NOOP sent if NOOP messages did not get sent.
+ - 2013-09-16 Workers which return a bad gearman_return_t will be counted
+ as an error by the server and not a final (i.e. they will be retried).
+ - 2013-09-16 Fix for release
+ - 2013-09-16 Fix initialization
+ - 2013-09-15 Added tests for checking that the server was using
+ retry. Added new API call to determine if a client has active tasks.
+ - 2013-09-15 Add second server for worker tests.
+ - 2013-09-15 update m4 pthread test
+ - 2013-09-15 Add a second server for worker tests
+ - 2013-09-14 Update SSL code.
+ - 2013-09-10 Fix style on default verbose value
+ - 2013-09-05 Fix Changelog
+ - 2013-08-30 Fix spec file.
+ - 2013-08-30 Fix docs
+ - 2013-08-30 Fix duplicate man page entry.
+ - 2013-08-30 Fix uuid testing
+ - 2013-08-23 Update SSL logic/docs
+ - 2013-08-22 Added gearmnan_job_use_client()
+ - 2013-08-21 Remove debug output from each bufffer grab unless compiled
+ from VCS
+ - 2013-08-20 SSL error update
+ - 2013-08-20 Update default value for slow mac
+ - 2013-08-20 Fix error control on could not connect for single job
+ request.
+ - 2013-08-17 Add check for servers in job fetch. Box in API.
+ - 2013-08-16 Fix build so that make j works again
+ - 2013-08-16 Cleanup gearman_worker_grab_job() doc
+ - 2013-08-16 Fixed job return to correctly return NO_JOB
+ - 2013-08-16 Remove requirement around tracking init in Task. Also! Found
+ and fixed incredibly rare bug which would cause ABRT during a free of
+ gearman_task_st (this might have only been observable via hostile).
+ - 2013-08-15 Bump version for next release
+ - 2013-08-14 Clean up internal logic for building connection (less
+ error prone)
+ - 2013-08-14 Change options on verbosity.
+ - 2013-08-11 Further update ssl-errors
+ - 2013-08-10 Further refine errors from SSL
+ - 2013-08-10 Cleanup error cases where warning should be issued,
+ not error.
+ - 2013-08-10 Adding ignore for pragmas
+ - 2013-08-10 Adding ignore for pragmas
+ - 2013-08-10 Fix for removing job from durable queue on cancel.
+ - 2013-08-09 We should not be running hostile under valgrind.
+ - 2013-08-07 Additional SSL cleanup.
+ - 2013-08-05 Require errno be passed for perror
+ - 2013-08-05 Clarify how failure works for errno on write/read
+ - 2013-08-03 Merge lp:~brianaker/gearmand/set_host Build:
+ jenkins-Gearmand-808
+ - 2013-08-03 Fix cases where upon error we did not clean up name
+ service request
+ - 2013-08-03 Add --list-tests and --list-collections to YATL
+ - 2013-08-02 Remove stray set_host() call
+ - 2013-08-02 Use information_schema for postgres
+
+tag: 1.1.9 - 2013-08-02 Tagging for release.
+ - 2013-07-31 Fix warning message to actually include errno
+ - 2013-07-30 Fix memory allocation issue in tokyocabinet
+ - 2013-07-30 Fix error which should be reported as warning.
+ - 2013-07-29 Improve testing and assert around gearmand hostile test.
+ - 2013-07-28 Something is up with -Wunsafe-loop-optimizations  on
+ Fedora19. The gcc diagnostic ignore is failing to work (maybe you can't
+ with -funsafe-loop-optimizations enabled?).
+ - 2013-07-26 Fix the error return on commands from server to display
+ the right error.
+ - 2013-07-24 Fix burning to increase over iteration (and put an echo
+ test in it to check that everything is setup to run)
+ - 2013-07-24 Fix bug where a single host failure can cause an exception
+ to not be propogated (or... where we skip sending the exception).
+ - 2013-07-22 Fully support exceptions.
+ - 2013-07-22 Additional SSL cleanup (possibly memory leak fixed for
+ _ssl not free'd).
+ - 2013-07-22 Fix OSX issue.
+ - 2013-07-20 Add warning with perror interface. Fix regression in
+ systems that lack pipe2().
+ - 2013-07-19 Fix warnings from clang for cyassl work
+ - 2013-07-18 Commit current work.
+ - 2013-07-18 No longer fail builds via return code on valgrind
+ - 2013-07-18 Fix what symbols we use from the OS during a compile.
+ - 2013-07-17 Add .a since we are building a static library.
+ - 2013-07-18 Disable coverage (currently has issues with bin/gearman).
+ - 2013-07-17 Fixes from OSX (update harden file).
+ - 2013-07-17 Fix error message ubutu.
+ - 2013-07-17 Fix compiler find for unused variable.
+ - 2013-07-17 Cleaning up interface patch.
+ - 2013-07-16 Fix duplicate call for error message.
+ - 2013-07-16 Cleanup error code.
+ - 2013-07-16 Cleanup error code.
+ - 2013-07-16 Fix shutdown from FATAL.
+ - 2013-07-15 Fix issues found by clang.
+ - 2013-07-14 Merge lp:~brianaker/gearmand/error-update  Build:
+ jenkins-Gearmand-749
+ - 2013-07-14 Update error (heading toward better task errors).
+ - 2013-07-14 Add gearman_task_is_finished().
+ - 2013-07-14 Complete fix for WORK_EXCEPTION.
+ - 2013-07-14 Fix abstract.
+ - 2013-07-13 Fix compile issues.
+ - 2013-07-13 Update worker code, fix valgrind issue.
+ - 2013-07-13 Valgrind fix.
+ - 2013-07-13 Remove extra messages during test run.
+ - 2013-07-12 Update path for valgrind.
+ - 2013-07-12 Fix leak on timeout event.
+ - 2013-07-12 Valgrind fixes.
+ - 2013-07-11 Fix additional OSX warnings.
+ - 2013-07-11 Additional OSX fix.
+ - 2013-07-11 OSX build fixes.
+ - 2013-07-11 Fix for gearadmin multi-op
+ - 2013-07-10 More cleanup from ssl testing.
+ - 2013-07-10 Ignore shutdown error.
+ - 2013-07-10 Add SSL support to gearadmin
+ - 2013-07-10 Merge lp:~brianaker/gearmand/clocktime-option-check-fixes
+ Build: jenkins-Gearmand-728
+ - 2013-07-10 Re-enable code that checks for options immediatly. Fix
+ clocktime call.
+ - 2013-07-10 Validate input.
+ - 2013-07-10 Validate input.
+ - 2013-07-09 Update spec file for job.h
+ - 2013-07-09 Update spec file for job.h
+ - 2013-07-09 Remove impl() usage from Job.
+ - 2013-07-09 Remove impl() usage from Job.
+ - 2013-07-09 Add SSL support to gearman CLI command.
+ - 2013-07-09 Remove dead target
+ - 2013-07-08 Merge lp:~brianaker/gearmand/error-message-cleanup  Build:
+ jenkins-Gearmand-720
+ - 2013-07-08 Cleanup error messages.
+ - 2013-07-07 cleanup impl() in worker
+ - 2013-07-07 Remove more of impl() in worker.
+ - 2013-07-07 Fix usage of host/port.
+ - 2013-07-07 More client work.
+ - 2013-07-06 More cleanup of client shell.
+ - 2013-07-06 Update interface for client to be given to task.
+ - 2013-07-06 First patch to have remove protocol work.
+ - 2013-07-06 More updates to remove impl()
+ - 2013-07-06 Reference fixing.
+ - 2013-07-06 Remove more of the impl() bits.
+ - 2013-07-06 More removal of impl()
+ - 2013-07-06 Cleanup on Task reference.
+ - 2013-07-06 Merge lp:~brianaker/gearmand/misc-fixes  Build:
+ jenkins-Gearmand-712
+ - 2013-07-06 Just in case..
+ - 2013-07-06 Add gearmand_st to thread.
+ - 2013-07-06 First pass in task.
+ - 2013-07-06 Partials from ssl
+ - 2013-07-06 Partials from ssl
+ - 2013-07-06 Fixed old usage of MSG_WAIT
+ - 2013-07-06 Fixed old usage of MSG_WAIT
+ - 2013-07-06 This fixes the return rc for background jobs.
+ - 2013-07-06 This fixes the return rc for background jobs.
+ - 2013-07-05 Next pass through cleaning up how job/exception is handled.
+ - 2013-07-05 Next pass through cleaning up how job/exception is handled.
+ - 2013-07-05 Update the SSL support (testing works in a smoother manner).
+ - 2013-07-05 Merge lp:~brianaker/gearmand/job-cleanup-for-exception
+ Build: jenkins-Gearmand-702
+ - 2013-07-05 First part of error cleanup in Job (working on fixing
+ EXCEPTION bug).
+ - 2013-07-03 Cleanup to force use of reference
+ - 2013-07-03 This should never be executed, but if it did it could
+ possibly break the allocation.
+ - 2013-07-02 Merge lp:~brianaker/gearmand/prove-patch1  Build:
+ jenkins-Gearmand-698
+ - 2013-07-02 Update tests to all go into t (which makes using prove
+ simpler).
+ - 2013-07-02 Fix and update job interface for correct behavior when
+ "finish" has happened.
+ - 2013-07-02 Wrap a couple of return errors.
+ - 2013-07-02 Update formatters.
+ - 2013-06-30 Make the --enable-ssl option work again.
+ - 2013-06-30 The -o option was not recognized.
+ - 2013-06-30 Cleanup codestyle for SOCK_CLOEXEC
+ - 2013-06-29 Fix for fork test.
+ - 2013-06-28 Add diagnostics.
+ - 2013-06-28 Fork check.
+ - 2013-06-28 Merge lp:~brianaker/gearmand/connection Build:
+ jenkins-Gearmand-686
+ - 2013-06-28 connection patch
+ - 2013-06-28 Fix for waitpid()
+ - 2013-06-27 Add in kill
+ - 2013-06-27 Fix for changes in com object.
+ - 2013-06-27 Add in missing files.
+ - 2013-06-27 Merge p:~brianaker/gearmand/remove-job-on-exception Build:
+ jenkins-Gearmand-676
+ - 2013-06-26 Add protocol test.
+ - 2013-06-26 Add to exception testing
+ - 2013-06-26 redis fix
+ - 2013-06-26 Fix valgrind error, switch to reference usage.
+ - 2013-06-23 Fix a few tests.
+ - 2013-06-23 We never call connection with options, so lets remove that.
+ - 2013-06-23 Update gearman_connection_create()
+ - 2013-06-21 Merge lp:~brianaker/gearmand/update-bootstrap-june Build:
+ jenkins-Gearmand-656
+ - 2013-06-21 Fix for cases where we might get zero.
+ - 2013-06-20 Update bootstrap.sh
+ - 2013-06-17 Fix case where we are not passing warnings.`
+ - 2013-06-17 Update m4.
+ - 2013-06-15 Free timeout_event when event_del is called on it.
+ - 2013-06-15 Fix how we call man to make sure we get the most out of
+ PAR build.
+ - 2013-06-15 Encapsulate failed packet logic (setup for patch around
+ exceptions).
+ - 2013-06-15 Fix issue around when we re-enter loop for
+ GEARMAN_TASK_STATE_EXCEPTION (this is now correct... but the original
+ code was fine as well).
+ - 2013-06-15 Fix issue with GEARMAN_COMMAND_WORK_EXCEPTION in actions. It
+ should be counted as an error.
+ - 2013-06-15 Fix valgrind found issue with timeout not being null
+ terminated.
+ - 2013-06-15 Add in protocol bit for work_exception.
+ - 2013-06-14 Update check.
+ - 2013-06-14 Remove debug messages which are a little too verbose.
+ - 2013-06-14 Fix location for checking is servers are available.
+ - 2013-06-14 Close connection, but don't move addr_next.
+ - 2013-06-13 Fix for clang compiler issue.
+ - 2013-06-13 Fix for callback around exception.
+ - 2013-06-12 Fix to determine location of Redis server.
+ - 2013-06-12 GEARMAN_TASK_STATE_EXCEPTION was not in the correct position
+ (which would have been harmless).
+ - 2013-06-12 Encapsulate failed packet.
+ - 2013-06-12 When an exception is thrown we should remove job from
+ the server.
+ - 2013-06-11 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-626
+ - 2013-06-11 Fixing bugs in Redis key delete call
+ - 2013-06-11 Add a test for checking background usage of exception.
+ - 2013-06-10 Update submit protocol.
+ - 2013-06-10 Part 1, make more of connection private.
+ - 2013-06-10 Fixes from OSX.
+ - 2013-06-09 Fix for osx default build.
+ - 2013-06-06 Fix for warning issued when compiling on 32bit systems
+ with latest gcc.
+ - 2013-06-06 Update bzrignore.
+ - 2013-06-06 Update Changelog for release.
+ - 2013-06-06 Update openssl.
+ - 2013-06-05 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-612
+ - 2013-06-05 Update support for SSL (add basic documentation).
+ - 2013-06-05 Update changelog
+ - 2013-06-05 Fix for lp:1187263
+ - 2013-06-03 Move echo out to a protocol file.
+ - 2013-06-02 Remove thread specific variable which was hanging up older
+ OSX builds.
+ - 2013-06-02 More error cleanup.
+ - 2013-06-02 Make sure the valgrind output of the server ends up in
+ the right directory.
+ - 2013-06-02 Update on errors.
+ - 2013-06-02 Optimize for case where data will come via do (so we know
+ it won't move during the operation).
+ - 2013-06-02 Just malloc for the moment (we don't do any memory caching
+ here anyways).
+ - 2013-06-02 Fix for gperf not being found (we should error).
+ - 2013-06-01 Fix for issue where if we stacked up task and the pointer
+ to data was changed then the wrong data would be sent.
+ - 2013-05-31 Fix segfault
+ - 2013-05-30 Merge  lp:~brianaker/gearmand/bootstrap-june-cleanup Build:
+ jenkins-Gearmand-600
+ - 2013-05-30 Merge lp:~brianaker/gearmand/cyassl-1.2/ Build:
+ jenkins-Gearmand-599
+ - 2013-05-30 SSL now works :)
+ - 2013-05-30 Test order.
+ - 2013-05-29 Second pass through on test case.
+ - 2013-05-28 Add job order.
+ - 2013-05-26 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-595
+ - 2013-05-21 Update bootstrap.sh
+ - 2013-05-21 Add JENKINS_TARGET
+ - 2013-05-20 Add in banner printing of target in bootstrap.sh
+ - 2013-05-20 Fix a number of interfaces to check for NULL.
+ - 2013-05-20 Update valgrind files (i.e. where they end up).
+ - 2013-05-19 Update bootstrap.sh
+ - 2013-05-19 Update valgrind path
+ - 2013-05-19 Yet more exception testing.
+ - 2013-05-18 Additional testing for exceptions..
+ - 2013-05-16 Extend exception testing.
+ - 2013-05-12 Fix compiler issues.
+ - 2013-05-12 Add log testing.
+ - 2013-05-12 Further pragma fix finds.
+ - 2013-05-12 Additional header fixes.
+ - 2013-05-11 Confirm gearman_worker_set_timeout() error message for
+ timeout.
+ - 2013-05-11 Setup WORKSPACE for junit files.
+ - 2013-05-11 Fix gcc diag
+ - 2013-05-11 Cleanup + fix display bug in version.
+ - 2013-05-11 Remove warnings.
+ - 2013-05-11 Fix for abort being called without abort.
+ - 2013-05-11 Fix more warnings.
+ - 2013-05-11 Update SSL trunk.
+ - 2013-05-11 Extend stress test.
+ - 2013-05-07 Fix rename issue.
+ - 2013-05-07 Updates for handling exceptions.
+ - 2013-05-06 Bump version number.
+ - 2013-05-05 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-544
+ - 2013-05-05 Cleanup of error codes from server (first pass).
+ - 2013-05-05 Add UUID to required linker objects for core test.
+ - 2013-05-05 First pass through having workers be able to identify
+ on connection.
+ - 2013-05-04 Fix rename and improve on how error codes are returned.
+ - 2013-05-04 Great renaming.
+ - 2013-05-04 Add support for setting port on server via ENV.
+ - 2013-05-04 Enable exceptions by default in server.
+ - 2013-05-04 Fix connection.
+ - 2013-05-04 Adding missing file.
+ - 2013-05-04 Fix issue where identifier was not being set on reconnect.
+ - 2013-05-04 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-534
+ - 2013-05-04 Update and split out C interface from vector.
+ - 2013-05-04 Update changelog.
+ - 2013-05-04 Fix regression in log not setting time forward on all
+ platforms.
+ - 2013-05-03 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-531
+ - 2013-05-03 Make sure we always have at least one byte stored in
+ this test.
+ - 2013-05-03 Fix test case.
+ - 2013-05-03 Merge with libtest from libmemcached
+ - 2013-05-03 Fix missing file
+ - 2013-05-02 Fix build related issues.
+ - 2013-05-02 Yet more with issues around dns lookup in libc.
+ - 2013-05-02 Stop running DNS tests under valgrind.
+ - 2013-05-02 Second attempt to quiet valgrind.
+ - 2013-05-02 Change host check in dns.
+ - 2013-05-02 Fix error message.
+ - 2013-05-02 Update bootstrap, gen valgrind errors.
+ - 2013-05-01 Update (see if we can clean up annoying valgrind warning).
+ - 2013-05-01 Update bootstrap
+ - 2013-05-01 Update bootstrap.sh
+ - 2013-04-30 Fix one malloc call.
+ - 2013-04-30 Force label usage.
+ - 2013-04-30 Change build timing for check libraries.
+ - 2013-04-29 Update for harden finds.
+ - 2013-04-29 Fix some, but not all, valgrind warnings.
+ - 2013-04-29 Merge fixes from libdrizzle
+ - 2013-04-29 Fixes for make job control
+ - 2013-04-28 Update sphinx
+ - 2013-04-28 Fix for sphinx
+ - 2013-04-28 Add all
+ - 2013-04-28 Update bootstrap. Fix issue where if a platform has
+ in_port_t listed as being signed that any negative value will be
+ converted to default.
+ - 2013-04-28 Fix for gearmand
+ - 2013-04-28 Latest bootstrap
+ - 2013-04-28 Update bootstrap.sh
+ - 2013-04-26 Update bootstrap
+ - 2013-04-26 1) Fix new errors that the latest version of clang
+ discovered. 2) Add --identifier flag to blob benchmark.
+ - 2013-04-25 Remove unused variable found by clang.
+ - 2013-04-25 Update for missing declaration.
+ - 2013-04-24 Update to add enum to structure. First pass on cleanup of
+ this part of the code.
+ - 2013-04-23 Adding new files.
+ - 2013-04-23 Include perf file.
+ - 2013-04-23 First pass on error_code
+ - 2013-04-22 Update for eventual version.
+ - 2013-04-22 Bumping version (not releasing).
+ - 2013-04-21 Fix usage.
+ - 2013-04-20 Remove strcpy that was no longer required.
+ - 2013-04-20 Update bootstrap.sh
+ - 2013-04-20 Fix issue where strlen() of zero was assumed to specify
+ localhost.
+ - 2013-04-20 Fix rpm
+ - 2013-04-20 Fix for any bad async reads.
+ - 2013-04-18 Fixing missed file.
+ - 2013-04-16 Implement cancel via job_handle in client.
+ - 2013-04-16 Fix two locations where we had spaces in the error codes.
+ - 2013-04-16 Tag for version release.
+ - 2013-04-16 Fix build bug.
+ - 2013-04-15 Merge libtest.
+ - 2013-04-15 Bump for version
+ - 2013-04-15 Update harden rules.
+ - 2013-04-13 Push valgrind bits out.
+ - 2013-04-11 Update to use latest memcached.
+ - 2013-04-10 Fix valgrind warning in clone
+ - 2013-04-08 Add arch doc template
+ - 2013-04-07 Bring up second server.
+ - 2013-04-03 Add in test cases for Job
+ - 2013-04-03 Task interface API is now documented for NULL.
+ - 2013-04-02 Cleanup how allocation works for the client we store
+ during tests.
+ - 2013-04-02 Extend clone test.
+ - 2013-04-02 Bump versio, and fix bad call for log_fn
+ - 2013-04-02 Remove two dead internal logging calls.
+ - 2013-04-02 Cleanup internal log API.
+ - 2013-04-02 Cleanup logging.
+ - 2013-04-01 Update testing for client API.
+ - 2013-04-01 Check for testing of result API.
+ - 2013-03-29 Add more testing.
+
+tag: 1.0.4 - 2013-03-22 Update for release.
+ - 2013-03-21 Update docs for server.
+ - 2013-03-21 Add comment to Changelog about keep-alive.
+ - 2013-03-21 Add docs on protocol.
+ - 2013-03-21 Work to support cancel.
+ - 2013-03-20 We can now grab the list of jobs.
+ - 2013-03-20 Fix display of status.
+ - 2013-03-20 Fix for missing include.
+ - 2013-03-20 This makes way for extending the output in 1.2.
+ - 2013-03-20 Add printf for vector.
+ - 2013-03-19 Fix for 32bit error on Fedora
+ - 2013-03-18 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-430
+ - 2013-03-18 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-429
+ - 2013-03-16 Fix for 1144632
+ - 2013-03-16 Cleanup result and add more tests.
+ - 2013-03-15 Fix namespace issue for merges.
+ - 2013-03-15 Port back from 1.2 tree.
+ - 2013-03-15 Cleanup usage of Client/Worker. They are still not a part
+ of the API.
+ - 2013-03-15 Add in std headers.
+ - 2013-03-15 Reworks vector for reuse in server.
+ - 2013-03-15 Fix issue with curl being reported when it should not be.
+ - 2013-03-12 Add support for more compilation with vector.
+ - 2013-03-12 Modify vector so that we can use it in the server.
+ - 2013-03-12 Initial support for show and cancel jobs
+ - 2013-03-12 Fix for compiling against current libdrizzle.
+ - 2013-03-12 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-411
+ - 2013-03-12 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-409
+ - 2013-03-09 Fix --help for gearmand
+ - 2013-03-09 OSX fix.
+ - 2013-03-05 Remove connect_list file (we no longer need this thanks
+ to the fix for list macros).
+ - 2013-03-05 Simple server API rework (internals).
+ - 2013-03-01 Update style.
+ - 2013-02-28 Small style fix.
+ - 2013-02-28 Simple refactor of function to method.
+ - 2013-02-28 Added config.hpp
+ - 2013-02-28 Fix for hostname
+ - 2013-02-26 cleanup tests.
+ - 2013-02-26 Fix for compile issue under clang.
+ - 2013-02-26 Next step for keepalive.
+ - 2013-02-22 Performance improvement from Etsy. Additionally I fixed
+ the bug that would sometimes cause a crash in the sqlite test.
+ - 2013-02-22 Add more of the keepalive framework.
+ - 2013-02-21 Add command line parsing and test cases for keepalive.
+ - 2013-02-20 Update version.
+ - 2013-02-20 Fix for asking for too much memory during escape.
+ - 2013-02-20 lp:1130516 Add support for doing core to disk.
+ - 2013-02-20 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-391
+ - 2013-02-20 Update for cleaning up server_options, and pushing core
+ over to build elsewhere.
+ - 2013-02-19 Fix output for main.cc errors which are strings.
+ - 2013-02-15 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-390
+ - 2013-02-15 Fix compiler warning on OSX.
+ - 2013-02-07 Remove dead typedef.
+ - 2013-02-07 Style/etc cleanup in server.
+ - 2013-02-06 Clarify use of malloc()/realloc() and comment on it.
+ - 2013-02-06 Fix for compile with debug disabled on OSX.
+ - 2013-02-03 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-383
+
+tag: 1.0.3 - 2013-02-03 Update for release.
+ - 2013-02-03 Merge lp:~tangent-org/gearmand/1.0 Build:
+ jenkins-Gearmand-381
+ - 2013-02-03 Fix for lp:1098413
+ - 2013-02-01 Extend hostfile for close(), add a native means to test
+ for valgrind,...
+ - 2013-01-30 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-372
+ - 2013-01-29 Handle regression for non-block.
+ - 2013-01-29 Add support for auto determining threads to core.
+ - 2013-01-29 Extend hostile.
+ - 2013-01-28 Add in "make sgcheck"
+ - 2013-01-28 Merge 1.0
+ - 2013-01-28 Code reuse where we set a value for just a descent into
+ a set of functions.
+ - 2013-01-28 Bump structure version and then fix rpm spec.
+ - 2013-01-25 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-366
+ - 2013-01-25 Merge lp:~tangent-org/gearmand/1.0 Build:
+ jenkins-Gearmand-365
+ - 2013-01-25 Merge lp:~tangent-org/gearmand/1.0 Build:
+ jenkins-Gearmand-364
+ - 2013-01-24 Merge lp:~tangent-org/gearmand/1.0 Build:
+ jenkins-Gearmand-363
+ - 2013-01-24 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-361
+ - 2013-01-24 Slight switch in call semantics.
+ - 2013-01-24 Update for vector.
+ - 2013-01-24 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-360
+ - 2013-01-24 See lp:1097982
+ - 2013-01-24 Safety third (set ptr to NULL )
+ - 2013-01-24 Merge lp:~tangent-org/gearmand/1.0 Build:
+ jenkins-Gearmand-358
+ - 2013-01-24 Drop warning for tests.
+ - 2013-01-23 Fix for lp:1098409
+ - 2013-01-23 Merge lp:~tangent-org/gearmand/1.0 Build:
+ jenkins-Gearmand-355
+ - 2013-01-22 Fix for OSX.
+ - 2013-01-22 Update error messages, and add more logic for failed
+ conditions.
+ - 2013-01-21 Add an additional assert() around unlikely malloc failure.
+ - 2013-01-21 Minor cleanups found by cppcheck.
+ - 2013-01-19 Merge lp:~tangent-org/gearmand/1.0 Build:
+ jenkins-Gearmand-351
+ - 2013-01-19 Cleanup how we invoke mysql parameters.
+ - 2013-01-19 Fix for poll sizeof().
+ - 2013-01-17 Merge lp:~tangent-org/gearmand/1.0 Build:
+ jenkins-Gearmand-343
+ - 2013-01-17 Portability
+ - 2013-01-17 Small cleanups, extend backtrace message.
+ - 2013-01-16 Merge lp:~gearmand/1.0 Build: jenkins-Gearmand-340
+ - 2013-01-15 Fixes for OSX.
+ - 2013-01-15 Remove count caller for argv.
+ - 2013-01-14 Remove final bits of old split.
+ - 2013-01-14 Next pass through removing split.
+ - 2013-01-14 Fix macro change case.
+ - 2013-01-14 REmove more of original split.
+ - 2013-01-13 Fix util library reference.
+ - 2013-01-13 Better compatibility for libmemcached.
+ - 2013-01-13 Encapsulate the logic to delete bits in the destructor.
+ - 2013-01-13 Remove final bits around having code protected from C files.
+ - 2013-01-13 Shift things around for port (this will allow us to make
+ the changes needed for SSL in 1.1 without creating merge hells).
+ - 2013-01-13 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-328
+ - 2013-01-13 Test the new macro in C++ context.
+ - 2013-01-13 Add non-prefix version.
+ - 2013-01-13 Update, create non-prefix macros for use in C++ code.
+ - 2013-01-12 Fix line indent.
+ - 2013-01-12 Remove no longer needed typedef.
+ - 2013-01-11 Missed header.
+ - 2013-01-11 First part, test for lp:1098409
+ - 2013-01-10 check for cyassl
+ - 2013-01-10 Extend tests to check built binaries.
+ - 2013-01-10 Fix for deallocating memory from throw.
+ - 2013-01-10 Framework update (mostly fix effective c++ warnings).
+ - 2013-01-09 Regression test for lp:1077917
+ - 2013-01-09 Update copyright data on docs.
+ - 2013-01-08 Fix for compiling without libdrizzle.
+ - 2013-01-08 Fix libdrizzle interface to use 5.1 API.
+ - 2013-01-08 Fix for lp:1094089
+ - 2013-01-08 Add a few more test cases for new options in the server.
+ - 2013-01-08 This fix allows you to customize the hash used for the
+ server, and add --job-handle-prefix (which allows you to customize your
+ job handles).
+ - 2013-01-08 Missing stdio which is required for snprintf.
+ - 2013-01-08 Fix indention
+ - 2013-01-08 Update harden flags, assert, and add assert logic to
+ fatal calls.
+ - 2013-01-08 Add in more testing for locking.
+ - 2013-01-07 Style fix
+ - 2013-01-07 Cleanup tests.
+ - 2013-01-05 We now use accept4() if it is available.
+ - 2013-01-04 Extend vchar for libmemcached test.
+ - 2013-01-04 Cleanup ICC warnings.
+ - 2013-01-04 Additional updates.
+ - 2013-01-03 Additional cleanup in YATL.
+ - 2013-01-03 Have test.hpp also set yatl var (file will go away).
+ - 2013-01-03 Update more of the logic to handle throw usage.
+ - 2013-01-02 Update install-html rule.
+ - 2013-01-02 Update rules for html install.
+ - 2013-01-01 Update to include install-html rules.
+ - 2013-01-01 Update tests for assert, and fix the sqlite test hang issue.
+ - 2012-12-31 Make fatal the same as failure (though they should fail
+ differently).
+ - 2012-12-31 Refine the building/search for memcached.
+ - 2012-12-31 Additional test cleanup.
+ - 2012-12-31 Found an additional usage of libmemcached that was not
+ really required.
+ - 2012-12-31 Remove requirements on libmemcached for yatl.
+ - 2012-12-31 Next pass through cleaning up result types in tests.
+ - 2012-12-31 Add new include for usage of yatl, plus yatl_lite.
+ - 2012-12-28 Breakout hostile, and fix queue add to have a default
+ return value.
+ - 2012-12-27 Correct value for a FATAL test which should stop all
+ testing.
+ - 2012-12-27 pipe() cannot be passed NULL without valgrind barfing.
+ - 2012-12-27 Extend tests for hostile and break out stress from hostile.
+ - 2012-12-24 Fix for libhostile.
+ - 2012-12-24 Remove dead call in Makefile
+ - 2012-12-23 Add test for hostile connect and retry write.
+ - 2012-12-23 Add connect to libhostile.
+ - 2012-12-23 Improve on error return.
+ - 2012-12-23 Fix for sqlite shutdown
+ - 2012-12-23 Fix two cases around build_arg
+ - 2012-12-23 Update bootstrap.sh
+ - 2012-12-22 Add @RT_LIB@ for libgearman-server
+ - 2012-12-22 Update make rules.
+ - 2012-12-22 Add np pthread_join with timeout.
+ - 2012-12-22 Fix case where return is not checked.
+ - 2012-12-20 Add keepalive to accept().
+ - 2012-12-20 Allow for a longer return if port is in use when server
+ starts up.
+ - 2012-12-17 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-265
+ - 2012-12-17 Possible fix for man pages.
+ - 2012-12-17 Update for release.
+ - 2012-12-17 Refactor dependencies.
+ - 2012-12-17 Update how DEPENDENCIES are checked.
+ - 2012-12-16 Fix bad test case around use of job_status.
+ - 2012-12-16 Add status information for worker.
+ - 2012-12-16 Fix confusing issue around recieve.
+ - 2012-12-16 Style cleanup.
+ - 2012-12-16 Cleanup connect loop.
+ - 2012-12-16 Style cleanup on connect.
+ - 2012-12-16 Clean up style.
+ - 2012-12-16 Execute do/task status calls so that the event loop exits
+ immediatly on their completion.
+ - 2012-12-13 Update test.
+ - 2012-12-13 Adding support for deriving the unique value based on the
+ data that is supplied by the client.
+ - 2012-12-13 Pull patch for debug.
+ - 2012-12-13 Style and comment cleanup. Fix recv() such that it will
+ not cause issues with signals.
+ - 2012-12-12 Merge lp:~tangent-org/gearmand/1.2-build/ Build:
+ jenkins-Gearmand-246
+ - 2012-12-12 Merge lp:~tangent-org/gearmand/1.0-build/ Build:
+ jenkins-Gearmand-245
+ - 2012-12-12 Fix syntax.
+ - 2012-12-12 Update DDm4.
+ - 2012-12-11 Merge lp:~tangent-org/gearmand/1.2-build Build:
+ jenkins-Gearmand-1.2-35
+ - 2012-12-10 Merge lp:~tangent-org/gearmand/1.0-build Build:
+ jenkins-Gearmand-1.0-239
+ - 2012-12-10 Cleanup
+ - 2012-12-10 Update from YATL.
+ - 2012-12-08 Makefile fix, and patch from Shrews to correct spelling.
+ - 2012-12-07 Add test for queue shutdown code.
+ - 2012-12-06 Fix for result, and update for m4.
+ - 2012-12-05 Add massive test for sqlite.
+ - 2012-12-05 Add pipe2
+ - 2012-12-05 Update sqlite.
+ - 2012-12-04 Check that sqlite table is what we expect it to be after
+ we shutdown the server.
+ - 2012-12-03 Performance and general cleanup of SQLite driver
+ - 2012-12-01 Clean SQLite calling style.
+ - 2012-11-30 Add some additional logic for throw results.
+ - 2012-11-30 Add support for throwing as well as returning.
+ - 2012-11-30 Update curl rule.
+ - 2012-11-29 Update
+ - 2012-11-29 Add in additional -ldl linkage
+ - 2012-11-29 Add missing library
+ - 2012-11-29 Update dlopen rule.
+ - 2012-11-29 Update configure.ac to look
+ - 2012-11-29 Fix for tokyocabinet and hiredis.
+ - 2012-11-29 Update m4
+ - 2012-11-27 Update m4/other rules.
+ - 2012-11-27 Update the demangle m4
+ - 2012-11-26 Backport bits from SSL tree.
+ - 2012-11-26 Correct usage for ax_check_library.
+ - 2012-11-26 Remove dependencies on tests.
+ - 2012-11-25 Just put in a bit of code so that I don't keep retyping
+ this from time to time.
+ - 2012-11-25 Update rules for uuid and event.
+ - 2012-11-25 Fix a few dependencies.
+ - 2012-11-20 Add tests for NON_BLOCK with different values for timeouts.
+ - 2012-11-20 Apply fixes for FreeBSD.
+ - 2012-11-19 Update Changelog, switch default for generate in 1.2 to
+ no be enabled for all connections by default.
+ - 2012-11-19 Merge lp:~tangent-org/gearmand/1.0-build Build:
+ jenkins-Gearmand-1.0-205
+ - 2012-11-18 Fix unittest around touch.
+ - 2012-11-18 Add comment for GEARMAN_CLIENT_GENERATE_UNIQUE
+ - 2012-11-18 Add support to disable UUID generation on per task.
+ - 2012-11-19 Upstart configuration
+ - 2012-11-18 Adding tests for lp:1077917
+ - 2012-11-15 Cleanup some of conventions around cleaning up after
+ threads.
+ - 2012-11-14 Update backtrace on some failures.
+ - 2012-11-14 First pass, backtrace on certain types of failures.
+ - 2012-11-13 Fix a few heards where we did not have the config.h
+ being called.
+ - 2012-11-13 Remove dead include.
+ - 2012-11-13 Remove request for BOOST_THREADS
+ - 2012-11-13 Use wrapped condition.
+ - 2012-11-13 Add thread support.
+ - 2012-11-13 First pass at removing need to use boost threads.
+ - 2012-11-12 Update rpm to ldconfig the libraries.
+ - 2012-11-12 Update m4 rule for libevent
+ - 2012-11-11 Add a test to verify that just sending random streams to
+ the gearmand server won't do anything.
+ - 2012-11-11 added retention queue plugin
+ - 2012-11-10 Style cleanup
+ - 2012-11-10 Fix naming issues to make merges a bit simpler.
+ - 2012-11-10 Update rpm
+ - 2012-11-10 This adds support for turning exceptions on in the server
+ directly.
+ - 2012-11-08 Update docs for setting worker identifier.
+ - 2012-11-08 Fix version info.
+ - 2012-11-07 Update date on version.
+ - 2012-11-07 Update libtest to be test for client.
+ - 2012-11-07 Update Client
+ - 2012-11-07 Update bootstrap
+ - 2012-11-07 Merge lp:~tangent-org/gearmand/1.0-build Build:
+ jenkins-Gearmand-1.0-187
+ - 2012-11-06 Fix value.
+ - 2012-11-06 Launchpad issue with 1.0.0 version.
+ - 2012-11-06 Fix spacing.
+ - 2012-11-05 Cleanup how we create client in stress worker.
+ - 2012-11-04 Updates around m4
+ - 2012-11-04 Update m4
+ - 2012-11-03 Fix OSX compile issue.
+ - 2012-11-03 Update hardening flags.
+ - 2012-11-02 Less stack.
+ - 2012-11-01 Fix remote hang.
+ - 2012-11-01 Label as 1.0.0
+ - 2012-11-01 Version fix on uuid for autoconf
+ - 2012-10-31 Update of m4
+ - 2012-10-31 Add dependencies.
+ - 2012-10-31 Update from autotool check.
+ - 2012-10-31 New bootstrap.
+ - 2012-10-31 Updates m4, and fixes rare race condition in stress
+ test case.
+ - 2012-10-29 Merge libtest changes from libmemcached.
+ - 2012-10-29 Code refactoring (more assert()'ing in case of bad lock
+ usage (which there has not been any found,... better safe then sorry)).
+ - 2012-10-28 Fix breakage on OSX.
+ - 2012-10-28 Fix up how we search for headers.
+ - 2012-10-28 Fix locality issue with ret value.
+ - 2012-10-28 Fix remaining usages of config.h
+ - 2012-10-28 Style fix on config.h.
+ - 2012-10-28 Update to use include for config via quote.
+ - 2012-10-28 Remove need for libgearman in libtest.
+ - 2012-10-26 Update libmemcached rules.
+ - 2012-10-25 Lower the version requirement.
+ - 2012-10-25 Fixes found from valgrind/mingw
+ - 2012-10-24 Remove autoconf rule which break malloc/realloc for C++.
+ - 2012-10-23 Add a timeout.
+ - 2012-10-22 Update bootstrap.sh
+ - 2012-10-21 Update configure.ac
+ - 2012-10-21 Update docs
+ - 2012-10-21 Update ax_uuid.m4
+ - 2012-10-21 This cleans up two resource leaks (which are not critical,
+ both are just to get valgrind to be quiet on exit).
+ - 2012-10-21 Update version macro.
+ - 2012-10-20 Fix visibility.
+ - 2012-10-20 Update harden flags and add LIB output to configure
+ - 2012-10-20 Reformat include file.
+ - 2012-10-20 Update the hardening rules.
+ - 2012-10-20 cppcheck fixes.
+ - 2012-10-19 Update to not run cycle on Jenkins (causes issues with
+ how fast ports can be made available).
+ - 2012-10-19 Update for rpm target.
+ - 2012-10-19 Add debug bits (Jenkins is hanging)
+ - 2012-10-19 Debian patch for buffer in yatl.
+ - 2012-10-19 Import spelling error fixes from Debian packaging.
+ - 2012-10-19 Remove redundant make of man pages.
+ - 2012-10-18 Cancel test (it wasn't actually doing anything).
+ - 2012-10-18 Add bootstrap configure file.
+ - 2012-10-18 Update to fix doc builds.
+ - 2012-10-17 Update logic on assert/debug.
+ - 2012-10-17 Fix rule that wasn't allowing for the doctree in man to
+ be deleted.
+ - 2012-10-17 Removing stray text
+ - 2012-10-17 Update fixes (includes better man builder)
+ - 2012-10-14 Update bootstrap.sh
+ - 2012-10-14 Update bootstrap.sh
+ - 2012-10-14 Update boostrap
+ - 2012-10-13 Ignore built out directories
+ - 2012-10-13 Remove dead uses of GEARMAN_LOCAL
+ - 2012-10-13 Update ignore rules.
+ - 2012-10-13 Remove bad hpp rule.
+ - 2012-10-12 Bug fix for lp:1065852
+ - 2012-10-12 Fix useage of delete.
+ - 2012-10-12 Update for version .41
+ - 2012-10-12 Merge in latest ddm4 (which also includes jobserver
+ for build). Straighten out caller ownership in test cases for
+ waitpid(). Update other m4 files.
+ - 2012-10-08 Fix output for unittests.
+ - 2012-10-07 Fix loop for testing so that we will wait for process to
+ come up before assuming that it failed from ping.
+ - 2012-10-07 Document gearman_worker_grab_job().
+ - 2012-10-07 Fix month for date in log.
+ - 2012-10-07 Update from ddm4
+ - 2012-10-07 More quoting.
+ - 2012-10-06 Fix fixes for OSX and older Centos
+ - 2012-10-06 Fixes for replay events on queue/cleaned up a few return
+ states we were not checking.
+ - 2012-10-06 Fix for lp:1054377.
+ - 2012-10-05 Fix Centos5.6 issues.
+ - 2012-10-05 Update and a couple of errors that happen on failure of
+ setup of tokyocabinet.
+ - 2012-10-01 Update bootstrap, multiple build options under jenkins.
+ - 2012-10-01 Update bootdtrap.sh
+ - 2012-10-01 Latest bootstrap
+ - 2012-10-01 Don't include man pages if there is no available sphinx
+ version.
+ - 2012-09-30 Only enable man when we have a recent version of
+ sphinx-build
+ - 2012-09-30 We need a null target for platforms with older sphinx-build
+ - 2012-09-30 Remove add-missing
+ - 2012-09-30 Remove old config directory
+ - 2012-09-30 Scope the man ignore better.
+ - 2012-09-30 Fix it so that we don't need to store the manpages in
+ the tree.
+ - 2012-09-30 Add more support for testing to see if libmemcached is
+ there or not.
+ - 2012-09-30 Fix such that we don't try to compile in libraries that
+ are not installed locally.
+ - 2012-09-29 Update libmemcached build rules.
+ - 2012-09-29 Update tests (still not perfect,...)
+ - 2012-09-29 Add in stdio.
+ - 2012-09-29 Update the examples to display errors with their names/have
+ a flag for verbose
+ - 2012-09-28 Update mysql to use include, not cflags.
+ - 2012-09-28 REmove dead PANDORA_HEADER_ASSERT
+ - 2012-09-28 Fix for lp:1054377
+ - 2012-09-27 Fix killpid to back off, and then do a SIGKILL if the app
+ has not shutdown.
+ - 2012-09-27 Possible fix for rare packet failure case.
+ - 2012-09-27 Fix for building mysql via mysql_config.
+ - 2012-09-26 Update test.
+ - 2012-09-26 Clarify documentation on timeout (thanks to Leo!)
+ - 2012-09-26 Fix bug in testing for sqlite in tests.
+ - 2012-09-26 Fix for lp:1056638  (highlights that no testing exists
+ for replay of queue).
+ - 2012-09-23 Fix version, document.
+ - 2012-09-23 Update from ddm4
+ - 2012-09-23 Remove one file, and a caller.
+ - 2012-09-23 Update from ddm4
+ - 2012-09-21 Updating m4
+ - 2012-09-19 Update builder options.
+ - 2012-09-19 Fix for release.
+ - 2012-09-19 Forgot remove debug statements.
+ - 2012-09-19 Fixes 1052795 by making sure we are calling delete on the
+ queue object.
+ - 2012-09-19 Updating for 0.39 release
+ - 2012-09-19 Fix a couple of doc directives.
+ - 2012-09-19 Add in dependency for changes and docs for html-local
+ - 2012-09-18 Fix two additional warnings found on older Ubuntu
+ - 2012-09-18 Simplify the static rule.
+ - 2012-09-18 Update for docs.
+ - 2012-09-18 Fix warning.
+ - 2012-09-18 Update m4
+ - 2012-09-17 using const_cast to drop const qualifier in calls to
+ memcached_last_error
+ - 2012-09-17 Update m4
+ - 2012-09-17 Update autoconf, fix warning.
+ - 2012-09-16 Fix issue with errno not responding correctly. Modify test
+ such that under valgrind we don't allocate too much memory.
+ - 2012-09-16 Move more of the packet cleanup to the interface.
+ - 2012-09-15 Add gearman_job_error() interface.
+ - 2012-09-15 Check for MAKE and MAKE_J variables.
+ - 2012-09-15 When developing, make sure no regression happens on m4.
+ - 2012-09-15 Fix warnings in m4.
+ - 2012-09-14 Update Changelog for version 0.38
+ - 2012-09-14 Moving out stack code because of issues with compiling on
+ 32bit platforms.
+ - 2012-09-13 Update
+ - 2012-09-12 Merge lp:~tangent-org/gearmand/1.2-build Build:
+ jenkins-Gearmand-1.2-211
+ - 2012-09-12 More updates around uuid
+ - 2012-09-12 Test with run, not link.
+ - 2012-09-12 Update uuid (test from having uuid support).
+ - 2012-09-11 Update AX_CHECK_SOCK_CLOEXEC macro.
+ - 2012-09-11 Autoconf fixes plus compiler issues on OSX.
+ - 2012-09-10 Fix for OSX
+ - 2012-09-10 Extend testing to cover case of large queues. MySQL
+ driver now doesn't do second strlen() lookup. Switched from alarm()
+ to setitimer.
+ - 2012-09-07 Fix permission issue
+ - 2012-09-07 Update docs.
+ - 2012-09-07 Fix build rule for html docs.
+ - 2012-09-06 Update doc install location
+ - 2012-09-06 Update docs for release.
+ - 2012-09-05 Fix for final version for release.
+
+tag: 1.1.0 - 2012-09-03 Update for version.
+ - 2012-09-02 Release 0.37.
+ - 2012-09-02 Fix prototype issue in hostile.
+ - 2012-09-02 Fix undefined symbol
+ - 2012-09-02 Fix compiler warnings found by hardening rules.
+ - 2012-09-02 Fix the LDFLAGS var.
+ - 2012-09-02 Fix compile issue with clang.
+ - 2012-09-02 Update version for spec file.
+ - 2012-09-02 Fix compile issues around default OSX compiler.
+ - 2012-09-01 Use service over a plain port.
+ - 2012-08-24 Fix older gcc issues (sadly...).
+ - 2012-08-24 Disable http test.
+ - 2012-08-24 Use pre-allocated structure so that we only need to do
+ one malloc most of the time.
+ - 2012-08-22 Fix cases where we are looking for allocated where it
+ would always now be true.
+ - 2012-08-21 Update for 1.0 version.
+ - 2012-08-21 Add in new interfaces.
+ - 2012-08-21 Remove dead files.
+ - 2012-08-21 Remove additional assert() that would not be hit.
+ - 2012-08-21 Fix assert.
+ - 2012-08-21 Update for build issues found in CI.
+ - 2012-08-21 Update for universal now being hidden.
+ - 2012-08-20 Move universal and packet out.
+ - 2012-08-20 Fix final bits to the client interface.
+ - 2012-08-20 Partial client
+ - 2012-08-20 Updating to shell worker interface.
+ - 2012-08-20 Update to shell around task.
+ - 2012-08-19 Hide the job structure, it turns out we never exposed it.
+ - 2012-08-18 Adding date to version.
+
+tag: 0.36 - 2012-08-18 Refactor (style change, nothing more)
+ - 2012-08-18 Update documentation.
+ - 2012-08-18 Fix gcc warnings.
+ - 2012-08-18 Update license headers.
+ - 2012-08-18 Fix OSX compile issue.
+ - 2012-08-17 Make sure that addrinfo will be NULL as expected.
+ - 2012-08-16 Fixes rare race condition in uuid generation.
+ - 2012-08-13 Fix from valgrind.
+ - 2012-08-13 update the boot strap file.
+ - 2012-08-13 Add license headers to some (but not all) of the files
+ missing them
+ - 2012-08-13 Update version information.
+ - 2012-08-12 Since we run check during the build of an rpm, we only
+ need to run dist.
+ - 2012-08-12 Add a simple program to determine the "count" for cores.
+ - 2012-08-12 Fix bad assert. Add additional test for mangled data.
+ - 2012-08-12 Update paths such that options and echo use the same.
+ - 2012-08-12 Convert echo logic over to a external loop.
+ - 2012-08-12 Fix autoconf warnings.
+ - 2012-08-11 Fix macro.
+ - 2012-08-11 Push workers off into start_worker.
+ - 2012-08-11 Move out the worker we use from basic such that all tests
+ can use it.
+ - 2012-08-11 First pass to just check -.
+ - 2012-08-10 Update queue logic
+ - 2012-08-10 Update all warnings (fix anything that was found).
+ - 2012-08-08 Potential fix for specifying compiler
+ - 2012-08-08 Update to add sphinx
+ - 2012-08-08 Remove a portion of pandora
+ - 2012-08-07 Add pragma to solve warning on pg driver.
+ - 2012-08-07 Clang based fixes.
+ - 2012-08-07 Correct comment
+ - 2012-08-07 Remove postgres include and comment out pedantic for the
+ time being.
+ - 2012-08-07 Fix sign difference.
+ - 2012-08-07 Backtrack on use of unique_ptr
+ - 2012-08-07 Fix PRIu usage.
+ - 2012-08-07 Fix dependency
+ - 2012-08-07 Adding in pragma warning.
+ - 2012-08-07 Update warnings, and fix everything found.
+ - 2012-08-06 Don't remove origin directories.
+ - 2012-08-06 Add in m4 git repository.
+ - 2012-08-05 Update log with date for version.
+ - 2012-08-04 Remove need for custom plugin for sphinx
+ - 2012-08-04 Fix compile issue.
+ - 2012-08-04 Add missing file.
+ - 2012-08-03 merge
+ - 2012-08-03 Add meta dat look at this as a performece oproortinitied.
+ - 2012-08-03 Fix for libtest
+ - 2012-08-03 Additional fixes, and putting an alarm on the running tests.
+ - 2012-08-02 Add additional flag
+ - 2012-08-02 OSX clang fixes
+ - 2012-08-02 Fix the auto bits.
+ - 2012-08-02 Update args
+ - 2012-08-02 Fix param issue
+ - 2012-08-02 Additional fixes for build.
+ - 2012-08-02 Fix warning.
+ - 2012-08-02 Fix more cases around warnings, update manual.
+ - 2012-08-01 Handle error case.
+ - 2012-08-01 Update for build failure catches.
+ - 2012-08-01 Update for merge-clean rules.
+ - 2012-08-01 Fix compile issue in server.
+ - 2012-08-01 Fixes for latest GCC, Fedora
+ - 2012-07-30 Update retry.
+ - 2012-07-30 Done
+ - 2012-07-30 Fix usage of throw for server failure.
+ - 2012-07-28 Switch from using an array to using a vector for arguments.
+ - 2012-07-27 Fix casting
+ - 2012-07-27 Fix for FreeBSD
+ - 2012-07-26 Clean up httpd test
+ - 2012-07-26 Fixes for OSX Mountain Lion
+ - 2012-07-25 Add support for "port".
+ - 2012-07-25 Additional Fedora finds.
+ - 2012-07-25 Fix fedora finds.
+ - 2012-07-24 Cleanup failing bugs while running under gdb on OSX.
+ - 2012-07-24 Update to add definition
+ - 2012-07-24 Handle race condition/bad begin point for tests.
+ - 2012-07-24 Fixes bad allocation bug.
+ - 2012-07-23 OSX enhancements.
+ - 2012-07-22 Fix a missing link
+ - 2012-07-22 Fix bad include.am
+ - 2012-07-22 Remove tab in output, and cleanup any left over XML files.
+ - 2012-07-16 Update for XML output (Junit like)
+ - 2012-07-15 Adding formatting class.
+ - 2012-07-14 Fix a number of CPPCheck warnings.
+ - 2012-07-14 Updating/merging to latest libtest
+ - 2012-07-13 Update files.
+ - 2012-07-13 Missing dependency
+ - 2012-07-13 Updated
+ - 2012-07-12 Fix a number of linking issues.
+ - 2012-07-12 Update docs.
+ - 2012-07-12 Additional breakout of workers.
+ - 2012-07-11 Move workers out to their own files (makes for better
+ examples).
+ - 2012-07-11 Add support for multiple gearman servers for gearman CLI.
+ - 2012-07-11 First pass on bringing the hostile server into automated
+ testing.
+ - 2012-07-11 Update perl test worker.
+ - 2012-07-11 Add in an a test case for the perl driver.
+ - 2012-07-10 Update changelog date for release.
+ - 2012-07-10 Fixes for OSX
+ - 2012-07-09 Straighten up the headers, fix some cases where we had a
+ few things out of order.
+ - 2012-07-09 Add m4 files for testing linking.
+ - 2012-07-09 Merge and fix libmemcached.
+ - 2012-07-09 Fix one build issue.
+ - 2012-07-09 CPPCheck fixes
+ - 2012-07-09 HAVE_PIPE2 use
+ - 2012-07-09 Better error checking on ports.
+ - 2012-07-09 Small cleanups on logic around result ptr.
+ - 2012-07-09 This fixes a number of corner cases around bad IO.
+ - 2012-07-07 Breakout function/fix poll
+ - 2012-07-07 Enable poll()
+ - 2012-07-06 Make sure we don't recurse while making hostile calls.
+ - 2012-07-06 Improve on the output for timer.
+ - 2012-07-06 Fix close on exec for socket, additionally fix wrong error
+ message from shutdown test.
+ - 2012-07-06 Cleanup how we handle pidfile failure in benchmark worker.
+ - 2012-07-06 Add option to skip log-file.
+ - 2012-07-05 Fix RPM
+ - 2012-07-05 Update on status structure.
+ - 2012-07-04 Extend testing for unique.
+ - 2012-07-02 Update to fix issues around unique lookup.
+ - 2012-06-30 Update m4 rules and cleanup more of the finds from cppcheck
+ - 2012-06-30 First pass at merging libtest.
+ - 2012-06-29 Switch to warning from error.
+ - 2012-06-29 Valgrind fix
+ - 2012-06-28 Additional info on exit_code from main libtest.
+ - 2012-06-28 Add logic such that a throw will increment the failed
+ counter.
+ - 2012-06-28 Fixup mysql testing (a bit more)
+ - 2012-06-28 Fix to make allocation work a bit faster.
+ - 2012-06-28 Remove timeout.
+ - 2012-06-28 Add additional test
+ - 2012-06-27 Remove the skip around namespace tests.
+ - 2012-06-27 Cppcheck fixes. First pass
+ - 2012-06-21 A number of bug fixes.
+ - 2012-06-21 Fix the RPM build process.
+ - 2012-06-18 Update required include.
+ - 2012-06-18 Disable poll test for now.
+ - 2012-06-18 Fix the task for job status.
+ - 2012-06-18 Fix old bug around using loop while in do task.
+ - 2012-06-17 Update autoconf build related files.
+ - 2012-06-15 Don't have OSX try to run valgrind.
+ - 2012-06-15 Add first pass of poll() for libhostile.
+ - 2012-06-14 Fix errror message, remove the throw for default dns
+ failure case.
+ - 2012-06-13 Don't require sqlite in default plugin for queue
+ - 2012-06-13 Fixups foe build
+ - 2012-06-12 Update the libmemcached queue.
+ - 2012-06-12 Update for new queue interface (first pass).
+ - 2012-06-12 Add in versioning for interface versioning on queue.
+ - 2012-06-12 Moved out to functions for queue (temp design until all
+ code is C++)
+ - 2012-06-12 Fix the queue for C++ only include file.
+ - 2012-06-12 Remove the check for no queue, and insert an assert.
+ - 2012-06-12 Update build dependency.
+ - 2012-06-12 builtin queue added
+ - 2012-06-12 Update to have just one priority.
+ - 2012-06-12 Fix remaining cases where DNS might influence tests.
+ - 2012-06-12 Fix for bad DNS
+ - 2012-06-12 Cleanup tests, and revert an error from a bad commit
+ - 2012-06-11 Fix include.
+ - 2012-06-11 Add test case for DNS (bad DNS,...)
+ - 2012-06-11 Remove hint style compare.
+ - 2012-06-10 Fix build related issue
+ - 2012-06-08 Update rpm build process.
+ - 2012-06-08 Add correct version information.
+ - 2012-06-07 MErge up latest yatl
+ - 2012-06-05 Additional spec changes.
+ - 2012-06-05 Move RPM build bits out to single generic include file.
+ - 2012-06-04 Remove not needed poll.h
+ - 2012-06-04 Fix for lp:1007362
+ - 2012-06-03 Update spc file.
+ - 2012-06-02 Fix the rpm mkdir issue.
+ - 2012-06-02 Add ci specific run.gdb
+ - 2012-05-31 Clean up the set identifier code.
+ - 2012-05-31 Brackets
+ - 2012-05-31 Small update to connection
+ - 2012-05-28 Update testing for set identifier.
+ - 2012-05-26 Remove option around dead interface.
+ - 2012-05-26 Remove storage bit for non_blocking in universal structure.
+ - 2012-05-26 Use anonymous variable in cases of pop/push blocking.
+ - 2012-05-26 Update for status data.
+ - 2012-05-22 Update manpage
+ - 2012-05-22 Update for version increment.
+ - 2012-05-22 Basic MySQL test.
+ - 2012-05-22 Fix compile issue with MySQL, and possible error in test.
+ - 2012-05-22 Add xml output for Valgrind so that Jenkins can process it.
+ - 2012-05-21 Fix test case, alter time output.
+ - 2012-05-21 Test pthread calls a bit more, some abstraction.
+ - 2012-05-21 Update for encapsuation of interfce.
+ - 2012-05-21 Encapsulate more of the server's interfaces.
+ - 2012-05-21 abstract creation of gearmand_con_s
+ - 2012-05-21 Clean up scoping around job.
+ - 2012-05-21 Adjust abstract around connection/packet
+ - 2012-05-20 Fix test case around httpd.
+ - 2012-05-19 Fix valgrind error around URI length.
+ - 2012-05-17 Remove one snprintf
+ - 2012-05-15 Fix for OSX.
+ - 2012-05-14 Store the length of unique to avoid strlen() calls.
+ - 2012-05-13 Additional testing for server.
+ - 2012-05-13 Updated for unique interface.
+ - 2012-05-12 Remove dead stream.cc file.
+ - 2012-05-12 Remove stream.cc
+ - 2012-05-09 Improve performance in server by cutting strlen() usage,
+ additionally add first pass for "UNIQUE" lookup.
+ - 2012-05-09 Update strlen() usage.
+ - 2012-05-08 Syntax fix
+ - 2012-05-08 Update to remove additional global around handle.
+ - 2012-05-08 Update for additional protocol additions for lookup based
+ on unique.
+ - 2012-05-08 REmove extra strlen() calls.
+ - 2012-05-08 Remove double case of strlen().
+ - 2012-05-07 First pass for building out search by unique
+ - 2012-05-07 This break port protocol support. Adds a feature for local
+ free of port, before we start the server.
+ - 2012-05-06 Update boost build file
+ - 2012-05-05 Fix for crash where we checked to see if accept() was
+ hijacked.
+ - 2012-05-05 Add in additional kill.
+ - 2012-05-04 First pass on signal HUP to reopen() file.
+ - 2012-05-04 Update framework.
+ - 2012-05-04 REmove unused variable.
+ - 2012-05-04 Fix declaration.
+ - 2012-05-04 Update in case STDC is already defined.
+ - 2012-05-03 Update for release.
+ - 2012-05-03 Update for libtest, documentation, and fix for root bzr dir.
+ - 2012-04-30 Update style version.
+ - 2012-04-28 Update all licenses to BSD.
+ - 2012-04-26 Merge patch --config-file
+ - 2012-04-23 Break out text protocol to its own file.
+ - 2012-04-23 Abstract out the protocol around submit.
+ - 2012-04-22 Update such that we zero out value which will not be
+ consistent for multi-threads.
+ - 2012-04-21 Fixed round robin valgrind warning.
+ - 2012-04-21 Update libtest from libmemcached.
+ - 2012-04-20 Fix for OSX 10.6.8 compile issue.
+ - 2012-04-20 Break line up.
+ - 2012-04-20 Merge in work from Keyur.
+ - 2012-04-20 Fix compile flags for Ubuntu
+ - 2012-04-20 Add accept()
+ - 2012-04-20 Update error logic in libhostile.
+ - 2012-04-19 Test case for lp:985920
+ - 2012-04-19 Add tests for default values when calling some of the
+ worker_st functions.
+ - 2012-04-18 Update tests, check for growing size while chunking data.
+ - 2012-04-17 Add additional tests around value returned by worker
+ functions.
+ - 2012-04-17 Use a shared_ptr for tracking the thread's memory.
+ - 2012-04-17 Remove verbose error message.
+ - 2012-04-17 Fix and add additional drizzle startup tests.
+ - 2012-04-16 A couple of NULL.
+ - 2012-04-16 This fixes bug from SHUTDOWN error when it is returned.
+ - 2012-04-16 Fix Drizzle support in the test system.
+ - 2012-04-16 merge
+ - 2012-04-15 Remove wait.
+ - 2012-04-14 Fix warning.
+ - 2012-04-14 Fix for null attr, workload in execute. Plus tests for
+ return value from worker.
+ - 2012-04-11 Store version.
+ - 2012-04-11 Commit version date.
+ - 2012-04-11 merge
+ - 2012-04-10 merge
+ - 2012-04-10 Update all of the docs
+ - 2012-04-10 Fix for 978235
+ - 2012-04-10 Update for version .32
+ - 2012-04-10 Fix for 977328, plus a clean up around the queue tests.
+ - 2012-04-09 Update to push runner code out to include file.
+ - 2012-04-09 Remove need for static runner.
+ - 2012-04-09 Update test to be main (which is what it actually is).
+ - 2012-04-09 Update fixes for OSX.
+ - 2012-04-09 Update updates from tests.
+ - 2012-04-09 Remove warnings from code.
+ - 2012-04-08 Updated docs
+ - 2012-04-07 Give the option to just bail on all tests.
+ - 2012-04-07 Update from libmemcached's libtest
+ - 2012-04-07 Fix valgrind issue
+ - 2012-04-07 Update version for 0.31 release.
+ - 2012-04-07 Fix for lp:975591
+ - 2012-04-06 Updated the error initializing the queue to correctly
+ include the name of the queue which was tried
+ - 2012-04-05 Update for int().
+ - 2012-04-04 Fix for pg
+ - 2012-04-04 Add time to logging information.
+ - 2012-04-04 Allowing known issue under valgrind to be run in most cases.
+ - 2012-04-03 There is a regression that will only show up under valgrind
+ via this test that I am currently unable to figure out.
+ - 2012-04-02 Update test lib
+ - 2012-04-02 Update safety logic around packet in function.
+ - 2012-04-01 Fix valgrind leak in timer code (this would have never
+ been found in a released version).
+ - 2012-04-01 Set of fixes for libtest.
+ - 2012-03-31 Fix for lp:967463 by lp~keyurdg at Etsy.
+ - 2012-03-31 Update for env around repeat tests.
+ - 2012-03-31 This should solve (cross your fingers,...) issues around
+ bouncing servers and having them not start.
+ - 2012-03-31 Update tests.
+ - 2012-03-30 update main test
+ - 2012-03-30 Merge in fixes for http/code refactoring.
+ - 2012-03-30 Fix for include file.
+ - 2012-03-30 Rewrite the epoch thread call.
+ - 2012-03-30 Cleanup pid (since we now use spawn and do not rely on
+ daemonizing).
+ - 2012-03-28 Update to add a timer.
+ - 2012-03-27 Fix the kill command.
+ - 2012-03-26 Update tests.
+ - 2012-03-26 Sync text.
+ - 2012-03-26 Fix for bad wait.
+ - 2012-03-25 Update worker code.
+ - 2012-03-24 Revert change for valgrind/stessworker
+ - 2012-03-24 Merge
+ - 2012-03-23 Update for having gdb no additionally started in server
+ binary.
+ - 2012-03-23 Merge from memcached tree.
+ - 2012-03-22 Update logic for when to call app.
+ - 2012-03-22 Update to keep app as a part of server bits.
+ - 2012-03-22 Syntax cleanup
+ - 2012-03-22 Update to test creation of function on server.
+ - 2012-03-21 Update getenv
+ - 2012-03-21 Additional patch from Walmartlabs for error on failure
+ from host.
+ - 2012-03-18 Update logic on when to run massive tests.
+ - 2012-03-17 Additional fix for bad task in client loop.
+ - 2012-03-17 Update burnin test.
+ - 2012-03-17 Fix valgrind warning in test case.
+ - 2012-03-15 Solution for lp:951574. Clear client task when removing
+ task from client.
+ - 2012-03-15 Fix for testing with memcached
+ - 2012-03-15 Spelling error fixes from Michael Fladischer
+ <FladischerMichael@fladi.at>
+ - 2012-03-14 Slightly better pidfile work.
+ - 2012-03-14 Merge in better backoff strategy for ping.
+ - 2012-03-13 Update information for release.
+ - 2012-03-13 Clean up dependency
+ - 2012-03-13 Adding in missing file
+ - 2012-03-13 Update libtest
+ - 2012-03-12 Update to just use boost, not pthreads, for slave startup
+ - 2012-03-12 Simplify the exit for the object just to remove anychance
+ of not calling delete.
+ - 2012-03-12 A few random stylish sorts of cleanups.
+ - 2012-03-12 Additional fix for include files for Fedora17
+ - 2012-03-12 Missing include file. This fixes compile issues for
+ Fedora 17.
+ - 2012-03-11 Fix for lp:948312
+ - 2012-03-11 Fix port for redis
+ - 2012-03-11 Update test case around checking for exist.
+ - 2012-03-11 More error output to look for user inserting bad tasks:
+ https://bugs.launchpad.net/gearmand/+bug/951574
+ - 2012-03-10 Merge in libtest.
+ - 2012-03-10 Fix a number of issues with style/compiling for the
+ mysql plugin.
+ - 2012-03-10 Update changelog
+ - 2012-03-08 Consume
+ - 2012-03-07 Update ignore
+ - 2012-03-07 Update docs
+ - 2012-03-07 Real fix for include issue.
+ - 2012-03-07 Update to get config.h required
+ - 2012-03-06 Update logic around building hostile.
+ - 2012-03-04 Update build bits.
+ - 2012-03-04 Update all files for config.h
+ - 2012-03-04 Update on style
+ - 2012-03-04 Fixes the error message for lp:944132.
+ - 2012-03-04 Remove crazy call, just use debug.
+ - 2012-03-04 Update libtest, and have children in stress test match cpus
+ - 2012-03-02 Update framework.
+ - 2012-02-29 Revert changes on .h file.
+ - 2012-02-28 Update for doing more stress testing.
+ - 2012-02-28 Fix for OSX (aka, just loosen up the UUID requirement)
+ - 2012-02-28 Fix for bad -lm
+ - 2012-02-27 Update of libtest.
+ - 2012-02-27 Fix merge up of libtest.
+ - 2012-02-26 Remove dead code for valgrind, and just put in a simple
+ check.
+ - 2012-02-23 Remove requirement (Centos won't compile without this
+ change).
+ - 2012-02-23 Update to requiring 2.63.
+ - 2012-02-23 Update for version.
+ - 2012-02-22 Update tests.
+ - 2012-02-19 Update to see if this will fix the build problems occuring
+ with make -j
+ - 2012-02-19 Remove hard coded ports.
+ - 2012-02-15 Adding missing file.
+ - 2012-02-15 Update from libtest
+ - 2012-02-14 Logging updated
+ - 2012-02-13 Initial commit for mysqlclient queue support (-q MySQL)
+ - 2012-02-12 Fix for failure during partition.
+ - 2012-02-12 Update tests/add both a client and worker identifier call
+ (i.e. add in API bit not currently supported).
+ - 2012-02-09 fix for lp:927006
+ - 2012-01-29 Cleanup some include file handling.
+ - 2012-01-29 Force c99
+ - 2012-01-29 Remove forced c99
+ - 2012-01-29 Additional fixes for m4
+ - 2012-01-28 Refactor calls in IO so that now we don't prototype.
+ - 2012-01-28 Update error messages so that no WARNING is issued in the
+ server when a peer disconnects.
+ - 2012-01-28 Cleanup reverse worker example.
+ - 2012-01-27 Fix for lp:922832
+ - 2012-01-27 Fix for close issue (not all platforms have it under std::)
+ - 2012-01-27 Update for possible stdio fix.
+ - 2012-01-26 Update for 0.28 release
+ - 2012-01-26 Pull out to semi-classes out of gearmand.cc
+ - 2012-01-26 Add test case for stderr.
+ - 2012-01-26 Update changelog
+ - 2012-01-26 Use --log-file=stderr to specify stderr logging.
+ - 2012-01-22 Factor some of the server's messages to go to debug logging.
+ - 2012-01-20 Fix for lp:912029 -v has been deprecated in favor of just
+ using --verbose
+ - 2012-01-20 Make syslog off by default.
+ - 2012-01-20 Fix rpm build by not use -j during make. This is a work
+ around.
+ - 2012-01-20 Update to check for C++.
+ - 2012-01-19 Fix to make sure we don't try to listen to the same
+ address twice.
+ - 2012-01-19 Fix command line options (remove fuzzy, go with strict).
+ - 2012-01-18 Fix missing rule.
+ - 2012-01-18 PUSH(C)
+ - 2012-01-18 Reverse previous patch, remove ERROR and replace with WARN.
+ - 2012-01-18 Since the PG m4 will bomb if the PG bits are not found,
+ this needs to be optional.
+ - 2012-01-18 Remove unused option.
+ - 2012-01-18 Fix quoting for configure.ac
+ - 2012-01-18 Fix spacing issue
+ - 2012-01-18 Update lib-prefix.m4
+ - 2012-01-18 Fix for MSG m4 warnings.
+ - 2012-01-18 Fix for hostile taking too long on downstream machines.
+ - 2012-01-18 New m4 logic for stdint.
+ - 2012-01-18 Update m4 work to corrent for warnings.
+ - 2012-01-18 Continued update of m4
+ - 2012-01-17 New Postgres m4
+ - 2012-01-17 Remove dead pandora files.
+ - 2012-01-17 Update rules for hiredis and tokyocabinet to make sure
+ that the disable works.
+ - 2012-01-17 Remove libuuid
+ - 2012-01-17 Update redis and event rules.
+ - 2012-01-17 Remove custom libevent for ax_check_library
+ - 2012-01-17 Add res to worker.
+ - 2012-01-17 Fix error messages.
+ - 2012-01-17 Autoconf refresh
+ - 2012-01-17 Fix for services file not existing.
+ - 2012-01-14 Merge from build.
+ - 2012-01-13 Add API call for cloning a new worker for use from a Job.
+ - 2012-01-10 Merge in check for compiler and TLS
+ - 2012-01-10 Fix for RH 17 Rawhide.
+ - 2012-01-09 Updating for version 0.27
+ - 2012-01-09 Catch error resulting from a connection breaking.
+ - 2012-01-08 Fix for tokyocabinet build
+ - 2012-01-07 Remove additional m4 that we don't use.
+ - 2012-01-07 Add libgearman to slave worker.
+ - 2012-01-05 Cleanup curl usage.
+ - 2012-01-01 Update for testing applications, and start of testing for
+ HTTP protocol.
+ - 2011-12-31 Update for Fedora fix
+ - 2011-12-31 Another attempt,...
+ - 2011-12-31 Fire all guns,...
+ - 2011-12-31 Final fix(?) for curl.
+ - 2011-12-31 Update HTTP interface.
+ - 2011-12-30 Update CURL rule
+ - 2011-12-29 Fix curl reference via include
+ - 2011-12-29 Adding in httpd test.
+ - 2011-12-29 Add CURL testing to framework.
+ - 2011-12-28 Style cleanup
+ - 2011-12-26 Possible fix (Build servers have to test it, I require
+ sqite on my own box).
+ - 2011-12-26 Fix autoconf rule for sqlite
+ - 2011-12-24 Add ability to catch the output of an application (i.e. we
+ can test CLI now for correct output).
+ - 2011-12-22 Update Application so that we can find out what was written
+ to stdout
+ - 2011-12-21 Split run cycle.
+ - 2011-12-21 Update cmdline code to just use Application now.
+ - 2011-12-19 Switch how we spawn applications that we are testing.
+ - 2011-12-15 Fix test case where there is a Gearman server that happens
+ to be running on the host where make check is running.
+ - 2011-12-15 Fixed issue with sem_t anonymous not being supported on
+ OSX by switching to Boost thread semaphore.
+ - 2011-12-14 Ignore SIGPIPE for the pipe.
+ - 2011-12-12 Cleanup the mutex used for test workers.
+ - 2011-12-12 Copy, don't referenc, the function description
+ - 2011-12-12 Remove assert for now.
+ - 2011-12-12 Fix for calls
+ - 2011-12-12 Move tests over for API check, also fixed OSX setup issue
+ - 2011-12-08 Quick pass through the code to break out the structures.
+ - 2011-12-07 Clean up error level.
+ - 2011-12-06 Update logging logic
+ - 2011-11-30 Update for new version.
+ - 2011-11-29 Simple rule to see if we are building from a bzr or hg
+ repository.
+ - 2011-11-29 Update all the docs
+ - 2011-11-28 Fix pass on adding redis support
+ - 2011-11-25 Fix build related issues
+ - 2011-11-24 Additions to stress worker
+ - 2011-11-23 Clean up issues with invalid reads of err from getsocket
+ - 2011-11-23 Clean up the cases where we were replacing the default
+ caller for no particular reason.
+ - 2011-11-23 Build a hostile binary of gearmand
+ - 2011-11-23 Extend the tests so that we check for failure in send
+ - 2011-11-23 Add support for syslog
+ - 2011-11-23 Fix client pipe issue, and refactor one test for
+ readability.
+ - 2011-11-23 Fix bug where during a clone the wakeup pipe was not
+ being saved.
+ - 2011-11-21 Test failure fix
+ - 2011-11-20 Improve error messages/make sure connection really works.
+ - 2011-11-20 Fix error printing, and fix connection add so that it
+ actually check to see if the server exists.
+ - 2011-11-20 Remove dead m4 caller.
+ - 2011-11-20 Add hostile to the list.
+ - 2011-11-19 Fix version, and bug for DELETE.
+ - 2011-11-18 Fix test to look for out of range echo commands.
+ - 2011-11-18 Fixes libdrizzle issues.
+ - 2011-11-13 Fix for libuuid usage
+ - 2011-11-13 Drop dead logic around shutdown function
+ - 2011-11-13 Adding in first pass of kill api.
+ - 2011-11-13 Fix valgrind issue in test case
+ - 2011-11-13 Fix test to remove server when finishing collection in
+ basic queue tests.
+ - 2011-11-12 From laptop
+ - 2011-11-10 Partial commit for autoconf fix
+ - 2011-11-06 Merge in updates for libdrizzle
+ - 2011-11-05 Update memcached queue plugin.
+
+tag: 0.25 - 2011-11-03 Commit for version 0.25
+ - 2011-11-03 Merge in version of interface for libgearman
+ - 2011-11-02 Fixes issue with realloc for packet header size.
+ - 2011-11-01 Additional cleanup of casting
+ - 2011-11-01 Cut down on some casting.
+ - 2011-10-30 Update autoconf
+ - 2011-10-29 Remove double declaration for static functions.
+ - 2011-10-29 Remove const on size_t
+ - 2011-10-29 Fix possible issue with gcc not finding the correct
+ polymorphic method
+ - 2011-10-29 Update test
+ - 2011-10-28 Fix shutdown operation
+ - 2011-10-28 Update how the command line tool testing works.
+ - 2011-10-27 Merge in fixes, disable admin for check.
+ - 2011-10-27 Fix double port usage
+ - 2011-10-27 Update test runner, add specific pre-test to kill off any
+ old gearmand servers.
+ - 2011-10-27 Test cases for 833394
+ - 2011-10-25 Updates to build
+ - 2011-10-25 Fix include file for all headers.
+ - 2011-10-25 Fix valgrind test case issue.
+ - 2011-10-25 Merge in hostile/setup test for random open socket issue.
+ - 2011-10-20 Fix possible crash with lingering job.
+ - 2011-10-20 Remove dead usage of directory lookup
+ - 2011-10-20 Update autoconf framework.
+ - 2011-10-20 MErge in test updates.
+ - 2011-10-17 Update all of core
+ - 2011-08-20 Update around autoconf.
+ - 2011-08-19 Update, see if we can get around OSX issue for libtool
+ - 2011-08-19 Update visi conf
+ - 2011-08-18 Small cleanup on the autoconf
+ - 2011-08-16 Fix for test
+ - 2011-08-16 Merge in work.
+ - 2011-08-16 Update headers
+ - 2011-08-16 Skip it, just modify the GNU m4 and send in a bug report.
+ - 2011-08-16 Update build files.
+ - 2011-08-16 Update m4 files to use GNU ones.
+ - 2011-08-15 Update to latest tests.
+ - 2011-08-10 Merge in skiptest/other files.
+ - 2011-08-10 Update all of tests/+include
+ - 2011-08-02 Merge in updates from libtest tree.
+ - 2011-08-02 Merge in better check for whether or not the server
+ launched.
+ - 2011-08-02 Update build files.
+ - 2011-08-02 Adding LT_INIT
+ - 2011-08-02 Fix warnings from previous version/add in ignore for
+ cycle test.
+ - 2011-08-02 Update ignore file
+ - 2011-07-24 Update include files.
+ - 2011-07-24 Update docs
+ - 2011-07-24 Shift tests.
+ - 2011-07-22 Remove extra printout
+ - 2011-07-22 Fix for compiles with Drizzle
+ - 2011-07-21 Cleanups around testing, place all of the option processing
+ in the tests.
+ - 2011-07-21 Update tests, remove the need for external testing of
+ gearmand options.
+ - 2011-07-21 Merge in test cleanups.
+ - 2011-07-20 Update all of test framework
+ - 2011-07-14 Continue merge from main branch
+ - 2011-07-14 Merge in start of changelog message
+ - 2011-07-14 Full framework
+ - 2011-07-12 Merge in style cleanup for tests.
+ - 2011-07-12 Merge in test for gearadmin
+ - 2011-07-12 1) Have server delay becoming a daemon until we know it
+ really has started. 2) Import the new framework for testing servers.
+ - 2011-06-29 Update build.
+ - 2011-06-29 Move over the gearmand startup to a file named after it.
+ - 2011-06-29 Merge update from libtest.
+ - 2011-06-28 1) Update tests so that we have a single notion of port. 2)
+ Fix a number of issues related to old style functions calling partition.
+ - 2011-06-27 Update default around looking up work.
+ - 2011-06-27 Merge up changes to documents.
+ - 2011-06-27 Document libmemcached options for server.
+ - 2011-06-27 Timeout change/additional test to check this. SO_KEEPALIVE
+ is now applied to sockets.
+ - 2011-06-27 Include unittest, updated benchmark, and added "workers"
+ to gearadmin
+ - 2011-06-24 Updating allof the test cases for common style
+ - 2011-06-23 Update test framework.
+ - 2011-06-21 Merge in fix for command line application. There was a
+ double free on task. lp:800177
+ - 2011-06-21 Merge of PG fix.
+ - 2011-06-21 Just a rename to make the function backends make a bit
+ more sense.
+ - 2011-06-21 Add in workers that are v2 (ie, lets make sure we have
+ tests on them).
+ - 2011-06-21 Merge in my tree, plus updates to docs.
+ - 2011-06-21 Update Changelog for Taneli Lepp&#228;!
+ - 2011-06-21 Merge in local fixes (which includes new allocator,
+ worker shutdown,...)
+ - 2011-06-19 Fix for issue where PHP was not being handed memory it
+ thought that it owned.
+ - 2011-06-19 Merge in fix for naming.
+ - 2011-06-17 Add a test for creating callbacks on the client states.
+ - 2011-06-17 Bad note in documentation on worker.
+ - 2011-06-17 Continue to extend to test for free in client (also added
+ method for determining if it has been enabled).
+ - 2011-06-17 Fix for lp:785203 (PHP client issue).
+ - 2011-06-17 Reset version.
+ - 2011-06-17 Simplify signing.
+ - 2011-06-16 Final updates on spec files.
+ - 2011-06-16 Add in install document.
+ - 2011-06-16 Update link to point to gearman.info
+ - 2011-06-16 Add in favicon.
+ - 2011-06-16 Fix the title for the Changelog
+ - 2011-06-16 Update documentation, add test case for failing host lookup.
+ - 2011-06-16 Fix package files.
+ - 2011-06-16 Updated documentation.
+ - 2011-06-16 Clarify term around mapper.
+ - 2011-06-16 Update for interface change in gearman_execute().
+ - 2011-06-16 Update all docs, fix interface after feedback.
+ - 2011-06-16 Update docs, and bump version for the next release
+ - 2011-06-15 Merge spec file fixes.
+ - 2011-06-15 Fix API around usage/how to extend gearman_execute().
+ - 2011-06-14 Update spec file.
+ - 2011-06-14 Fix issue, don't use pragma (though, it does make for one
+ might long switch())
+ - 2011-06-14 More docs.
+ - 2011-06-14 Refactor out gearman_worker_error_t, update more parts of
+ the documentation.
+ - 2011-06-14 Fix a valgrind issue in the tests, and switch the design
+ over for gearman_worker_define_function().
+ - 2011-06-13 Merge in some update for gearman_job_handle_t.
+ - 2011-06-13 Update benchmark tools so that they will pass icc. Also
+ documented how to determine task errors.
+ - 2011-06-13 Final updates for .21 release.
+ - 2011-06-13 Merge in Trunk
+ - 2011-06-10 Release bits (ie for making release)
+ - 2011-06-10 Update the spec file.
+ - 2011-06-10 Modify the actual conf.py.in file.
+ - 2011-06-10 Just fix comments in file.
+ - 2011-06-10 Fix reset for worker_work().
+ - 2011-06-10 Cache errno from bad poll call
+ - 2011-06-09 Fix issue where GEARMAN_COULD_NOT_CONNECT was not causing
+ the client to reset (so you couldn't try for a second time).
+ - 2011-06-09 Merge in test to make sure that we have no issues running
+ a task with a client which has no hosts.
+ - 2011-06-09 Update more of the documentation.
+ - 2011-06-09 Additional cleanup for task job_handle checking.
+ - 2011-06-09 Update docs/abilities of gearman_client_job_status()
+ - 2011-06-08 Fix it so that is_known and is_running are a bit more
+ accurate.
+ - 2011-06-08 Adding test to check for cases where a queue/etc might
+ run a task multiple times.
+ - 2011-06-08 Merge in updates for version requirements for autoconf.
+ - 2011-06-07 Fix for lp:783141, task will now be set as failed if it
+ runs out of connections to try.
+ - 2011-06-07 Verify that bug lp:778306 is fixed.
+ - 2011-06-07 Update docs, credit John Ewart for epoch work (wahoo!),
+ and a few other packing details.
+ - 2011-06-07 Fix for lp:791407
+ - 2011-06-07 Update docs.
+ - 2011-06-07 do() will now allow a task to (i.e. it no longer will just
+ free tasks when it is run).
+ - 2011-06-06 Fix for build (unused variable).
+ - 2011-06-02 Shifted the parse bits into their own file.
+ - 2011-06-02 Merge in parser location move.
+ - 2011-06-02 Merge in breakout for parser function.
+ - 2011-06-02 Merge in split of task run out to its own file.
+ - 2011-06-02 Merge in test for protocol numbering.
+ - 2011-06-02 Merge in additional docs.
+ - 2011-06-01 Merge in documentaion updates.
+ - 2011-05-31 Fix build issues for make distcheck.
+ - 2011-05-27 Fix build issues.
+ - 2011-05-27 Merge in doc updates
+ - 2011-05-26 Make TRY_AGAIN be the same as return_t equiv.
+ - 2011-05-26 Fix more documentation, better name the return types
+ for workers.
+ - 2011-05-26 Merge in cleanup from OSX builds.
+ - 2011-05-26 Fix assert, increase the number of times we run burnin.
+ - 2011-05-25 Merge in changes to remove dead options.
+ - 2011-05-25 Always log/error correctly on lost connection.
+ - 2011-05-25 Merge in send() clarification.
+ - 2011-05-25 Merge clarification of method names for recv.
+ - 2011-05-25 Merge in work for error cleanup of server (ie, better
+ error messages).
+ - 2011-05-25 Fix -d for gearmand
+ - 2011-05-25 Add parameter test for execute_map_reduce()
+ - 2011-05-25 Split client callbaks out to their own file.
+ - 2011-05-25 Fix typo
+ - 2011-05-25 Merge in fix for map reduce job failing.
+ - 2011-05-25 Fix OSX compile issue.
+ - 2011-05-25 Merge in docs.
+ - 2011-05-24 Merge in namespace docs.
+ - 2011-05-24 Updating documentation.
+ - 2011-05-24 Updating for release.
+ - 2011-05-24 Merge in namespace support.
+ - 2011-05-23 Cleanup calling functions such that if the first parameter
+ is missing that we don't see a crash.
+ - 2011-05-23 Adding test to make sure that if the mapper itself tosses
+ and error everything will error correctly.
+ - 2011-05-23 Adding reducer test for failure cases.
+ - 2011-05-23 Remove dead test.
+ - 2011-05-22 Merge in basic function/mapper
+ - 2011-05-20 Merge in additional error message output (plus framework
+ for mapper functions).
+ - 2011-05-19 Remove the block for where the aggregator will go.
+ - 2011-05-18 Cleanup caller around do
+ - 2011-05-18 Remove redundant code.
+ - 2011-05-18 Merge in work for final bit of universal
+ - 2011-05-18 Additional cleanup
+ - 2011-05-18 Small style fix.
+ - 2011-05-18 Merge in additional cleanup around universal
+ - 2011-05-18 Fix remaining bit in connection
+ - 2011-05-18 Merge in update, more for connection class
+ - 2011-05-18 Merge in _packet switch for connection objects.
+ - 2011-05-18 recv(), close()
+ - 2011-05-18 Shift over flush()
+ - 2011-05-18 Convert over send()
+ - 2011-05-18 Refactor tests.
+ - 2011-05-18 Merge in move to just using object mechanics for
+ connection_st
+ - 2011-05-18 Merge additional over for connection.
+ - 2011-05-18 Merge in update so that we correctly now know internally
+ that we never do anything but allocate a connection.
+ - 2011-05-18 Merge in gearman_wait()
+ - 2011-05-18 More language shift.
+ - 2011-05-18 More interface updates.
+ - 2011-05-17 Merge in more updates to worker_test.
+ - 2011-05-17 Merge in update to test style
+ - 2011-05-17 Merge additional updates for style.
+ - 2011-05-17 Merge in packet update.
+ - 2011-05-17 Update tests/interface.
+ - 2011-05-17 More universal fixes.
+ - 2011-05-17 More cleanup.
+ - 2011-05-17 Encapsulate the arguments for aggregate functions.
+ - 2011-05-17 Cleanup the epoch code, we will eventually allow epoch
+ priority.
+ - 2011-05-17 Style cleanup
+ - 2011-05-17 Merge in updates to remove dead client side efforts
+ around MR
+ - 2011-05-17 Update interfaces/rename a few things to get them out of
+ the way.
+ - 2011-05-17 Update names on interface.
+ - 2011-05-17 Rename to aggregator
+ - 2011-05-17 Remove dead methods for the aborted client side MR
+ - 2011-05-17 Merge in updates
+ - 2011-05-17 Style cleanup
+ - 2011-05-17 Code cleanup.
+ - 2011-05-17 Merge in convert to use reference for pack/unpack
+ - 2011-05-17 Continue scope to gearman_return_t to remove possibility
+ of errors.
+ - 2011-05-17 Fix bug where wrong error message was returned during
+ a timeout.
+ - 2011-05-17 Partial commit.
+ - 2011-05-16 Improve test case.
+ - 2011-05-16 Merge in split for command structure to be shared.
+ - 2011-05-16 Merge in next pass of API for map/reduce.
+ - 2011-05-12 Merge in current gearman work (need valgrind).
+ - 2011-05-10 Remove function_st, just allow someone to use a string
+ (scrap notion of found functions).
+ - 2011-05-10 Worker pass for reduction.
+ - 2011-05-07 Merge in style cleanup.
+ - 2011-05-07 Style cleanup.
+ - 2011-05-07 Remove the worker's cached job in favor of being able to
+ abstract out Job.
+ - 2011-05-07 OSX fixes.
+ - 2011-05-07 Add many test cases/work out more of the details of execute.
+ - 2011-04-28 Merge header fixes.
+ - 2011-04-28 Merge in updates since .20, this includes new build configs.
+ - 2011-04-13 Update of docs.
+ - 2011-04-13 Update boost paths.
+ - 2011-04-13 Fix for RPM build.
+ - 2011-04-13 Update and adding of all docs
+ - 2011-04-12 Merge in a couple of small fixes.
+ - 2011-04-12 Update docs.
+ - 2011-04-12 Remove a few other dead functions.
+ - 2011-04-12 Merge in removal of a dead section of the structure.
+ - 2011-04-12 Merge in a number of  little cleanup fixes with headers.
+ - 2011-04-12 Merge in flip from malloc to new.
+ - 2011-04-12 Merge in pragma removal.
+ - 2011-04-12 Update admin language to allow for creating functions.
+ - 2011-04-11 Update changelog.
+ - 2011-04-10 Add "drop function" to text protocol.
+ - 2011-04-08 Add in documents
+ - 2011-04-08 Additional updates for the documentation.
+ - 2011-04-08 Updating everything for next version of Gearman.
+ - 2011-04-08 Fix issue with PHP driver compiling.
+ - 2011-04-08 Merge in updates to all documentation.
+ - 2011-04-07 Remove final cases around permissive.
+ - 2011-04-07 Remove possible array boundary bug.
+ - 2011-04-07 Merge in new docs, we commit he man pages so that others
+ do not need sphinx in order to build them.
+ - 2011-04-07 Adding in additional documentation.
+ - 2011-04-07 Fix documentation issue.
+ - 2011-04-07 Update warnings and add in additional new documentation.
+ - 2011-04-07 Adjust gearman_function_t to be gearman_function_st since
+ it must be decallocated.
+ - 2011-04-07 Update for new documentation.
+ - 2011-04-07 Improve on error messages.
+ - 2011-04-07 Fix for OSX compile issues.
+ - 2011-04-06 Remove the client store in the function.
+ - 2011-04-06 Merge in additional tests for execute interface.
+ - 2011-04-06 Merge in working epoch system.
+ - 2011-04-06 See Changelog, a lot of stuff :)
+ - 2011-04-05 Fix it so that we compile a bit more strictly.
+ - 2011-04-05 Fix enum, move client over to be compiled by C++ compiler.
+ - 2011-04-05 Cleanup FD that we left behind.
+ - 2011-04-04 Cleaned up calling method for server.
+ - 2011-04-01 Update with version information.
+ - 2011-03-30 Cleanup header files.
+ - 2011-03-29 Increment ID correctly even after submission error. Do
+ not free packet after error because caller frees anyway.
+ - 2011-03-27 Fix spec file.
+ - 2011-03-27 Merge in updates for copyright.
+ - 2011-03-27 Fix headers to hide more of the internal API.
+ - 2011-03-27 Update Changelog
+ - 2011-03-27 Improve performance of sqlite module by not requiring it
+ to build strings each time.
+ - 2011-03-26 Merge in bug fix for lp:738917
+ - 2011-03-24 Fix RPM such that we no longer build all modules for it.
+ - 2011-03-23 Fix include file structure.
+ - 2011-03-19 Remove all of the dead code around the original conf system.
+ - 2011-03-18 Convert examples to C++, fix a number of little memory
+ leaks.
+ - 2011-03-16 This converts a good chunk of the server over such that it
+ will now compile with a C++ compiler (which thankfully caught a number
+ of bugs involving bad uses of enum, and type conversion).
+ - 2011-03-16 Clean up packet and task even after submission error.
+ - 2011-03-15 Fix for platforms that don't have gearman in /etc/services.
+ - 2011-03-15 Merge in fixes for 0.18 release
+ - 2011-03-15 Debian fix for compiles where no plugins are compiled with
+ the source.
+ - 2011-03-15 Fix for debian(?) compiler issue where warning becomes
+ error on unused parameter.
+ - 2011-03-15 Fix for bug 734663, this solves an issue where Gearman
+ may crash during startup while using either Drizzle or MySQL.
+ - 2011-03-13 New boost m4.
+ - 2011-03-08 Fix error value in test.
+ - 2011-03-08 Allow maxqueue to specify different limits for different
+ priorities.
+ - 2011-03-08 Fix issue where if blob is null we send in a null and
+ don't trip the erro.
+ - 2011-03-08 Fix bad error call.
+ - 2011-03-08 Fix for bad copyright headers.
+ - 2011-03-08 Update for next version.
+ - 2011-03-07 Adds in a gearadmin so that you don't have to telnet to
+ the port to execute some commands. This refactors server to no longer
+ share code with client. gearmand_error_t was added for server. Boost
+ is used in the new command line tool (rolling your own getopt is a drag).
+ - 2011-03-03 Add testing for Drizzle support.
+ - 2011-03-02 This fixes issues with the Gearman command line client,
+ and switches from write/read to send/recv.
+ - 2011-02-26 Style fixes/cleanup of nested if/else for switch case.
+ - 2011-02-25 Upates Pandora, adds additional test, and cleans up some
+ issues with pid.
+ - 2011-02-22 Merge in message for 0.16.
+ - 2011-02-22 Update docs for verbose.
+ - 2011-02-22 Improve on error logging.
+ - 2011-02-21 A few cleanups from ICC.
+ - 2011-02-21 Merge in all DD fixes that can be merged with this
+ version. See Changelog for lists of fixes
+ - 2011-02-17 update the changelog and the authors file.
+ - 2011-02-15 remove echo test from worker test
+ - 2011-02-15 Merge in release version/changelog.
+ - 2011-02-14 Additional buffer testing around snprintf.
+ - 2011-02-14 Add a default value above zero  (this should eventually
+ be allowed to be configured by an end user).
+ - 2011-02-14 Additional ICC complaints.
+ - 2011-02-14 Merge in header files (this should finish off the ICC
+ complaints about errors/undefined symbols)
+ - 2011-02-14 ICC fixes
+ - 2011-02-14 Merge in fix for 562148.
+ - 2011-02-14 Remove libmemcached from default build.
+ - 2011-02-14 Fix warning that ubuntu caught.
+ - 2011-02-14 Fix for IPV6 bind issue.
+ - 2011-02-14 Restore old method for finding version
+ - 2011-02-14 Merge in partial set of work from DD branch.
+ - 2011-02-11 fix for build issue of libmemcached
+ - 2011-02-08 Remove unittest (we never made use of it).
+ - 2011-01-25 - adding test for failover during connection - fixing
+ order of operations in libgearman/connection.c when errors happen
+ - 2010-12-10 passes all tests
+ - 2010-12-09 compiles, fails tests
+ - 2010-12-07 beginnings
+ - 2010-07-26 sizeof usage for array
+ - 2010-07-23 Don't try to override swap64() when it's already provided
+ by the operating system.
+ - 2010-07-23 #include <pthread.h> when using pthread types.
+ - 2010-07-23 Start gearmand with "-u root" (when tests are run via sudo
+ or from the root account).
+ - 2010-07-23 Start memcached with "-u root", because it let us run
+ tests via sudo or from the root account. It doesn't break anything,
+ because this option is simply ignored when memcached is started by
+ unprivileged user.
+ - 2010-07-14 Added support for timestamp to TC queue
+ - 2010-07-12 Adding support for timestamp to libdrizzle queue
+ - 2010-07-12 Fixed a bug with the job queue where it would issue the
+ same job because it didn't advance the head of the job queue list.
+ - 2010-07-09 Updated job.c to support the time-based queue in job_peek()
+ to eliminate the incorrect NOOPS that were being sent, also fixed
+ job_take() to iterate through all the worker function lists, there was
+ a bug where there would be jobs in a particular list but none ready to
+ run, and it would keep trying that same list.
+ - 2010-07-01 Adding initial support for SUBMIT_JOB_EPOCH, right now
+ it's just a change to the job struct to have a time_t when and some
+ changes to the dequeue logic to skip over any tasks whose time to run
+ has not been met or exceeded.
+ - 2010-06-30 Update changelog
+
+tag: 0.14 - 2010-06-30 Space fix.
+ - 2010-06-30 Updated for ";"
+ - 2010-06-30 Added include.am. Doh.
+ - 2010-06-30 Moved unittests to unittests/. Added unit target. Removed
+ -Werror from unittests.
+ - 2010-06-30 Small fix for possible delete before execute.
+ - 2010-06-30 Next release version
+ - 2010-06-30 Enable client test and fix memory leak in it.
+ - 2010-06-30 Set minimal version for libmemcached
+ - 2010-06-30 Ubuntu Fix.
+ - 2010-06-29 additional test, one needs to be fixed though.
+ - 2010-06-29 Ubuntu fix.
+ - 2010-06-29 Few more additional tests for sqlite
+ - 2010-06-29 This updates gearmand with the server framework from the
+ 1.0 tree (it has some additional ability to test).
+ - 2010-06-29 Added unittests to the .bzrignore file.
+ - 2010-06-29 Add support for writing GTest unittests.
+ - 2010-04-15 Change unique keys on SQL based persistent queues to be
+ both function name and uniqe id
+ - 2010-04-06 Fix for malloc/realloc
+ - 2010-04-06 Remove bitmask (these were all just one option).
+ - 2010-04-06 Clean up pidfile.
+ - 2010-04-06 Fix for race condition.
+ - 2010-04-06 Remove fork logic.
+ - 2010-04-06 Fixes timing (yes, it uses sleep).
+ - 2010-04-06 It is now possible to test the server with valgrind.
+ - 2010-04-06 Update to remove additional bitmask from server.
+ - 2010-04-06 Commit for remove options from universal.
+ - 2010-04-06 Remove bits of enum.
+ - 2010-04-06 Remove additional bitmask
+ - 2010-04-05 Removing one of the bitmaps
+ - 2010-04-05 Bumped pandora number.
+ - 2010-04-05 Fixed the libmemcached cast issue.
+ - 2010-04-05 Merged in latest pandora-build.
+ - 2010-04-05 Fix C++ compile issue.
+ - 2010-04-04 Fixed memory leaks in abandoned_worker test.
+ - 2010-04-04 Various bug fixes.
+
+tag: 0.13 - 2010-04-03 Updated version information.
+ - 2010-04-01 Death of macro around error logging.
+ - 2010-03-26 Fix for bug #518512.
+ - 2010-03-16 Remove Macro around locks.
+ - 2010-03-16 Use OR REPLACE syntax for inserting items into the sqlite
+ queue to prevent errors when the in memory queue gets out of sync. This
+ is in alignment with using memcached_set instead of memcached_add for
+ the memcached persistent queue
+ - 2010-03-15 ICC fixes.
+ - 2010-03-14 Another pass through.
+ - 2010-03-14 Additional refactoring bit (removed flag...) will remove
+ more.
+ - 2010-03-14 Small style cleanup.
+ - 2010-03-12 More ifdef
+ - 2010-03-12 Reset the ENUM.
+ - 2010-03-12 Possible fix for test failure for zero results
+ - 2010-03-12 A few additional cleanups.
+ - 2010-03-11 Removed allocated.
+ - 2010-03-11 Remove additional..
+ - 2010-03-11 More updates for removing ALLOC sorts of only flags.
+ - 2010-03-11 Addition option
+ - 2010-03-11 Another option...
+ - 2010-03-11 Remove old style options.
+ - 2010-03-11 Remove bad , at end of enum.
+ - 2010-03-09 Changed default bitfield optimize setting to only be off
+ for Solaris.
+ - 2010-03-09 Fixed connection clone bug.
+ - 2010-03-09 Fixed config.h dependency for public struct sizes.
+
+tag: 0.12 - 2010-02-18 Remove dead configure bit.
+ - 2010-02-18 Added date for version.
+ - 2010-02-18 Fixed common.h on freebsd.
+ - 2010-02-18 Update for ChangeLog
+ - 2010-02-12 Fix for Solaris.
+ - 2010-02-09 Updates for rpm. Added version symbol.
+ - 2010-02-09 Added pid/daemon options to gearman client (and test).
+ - 2010-02-04 Removed goto, just because I can.
+ - 2010-02-02 tests for round-robin
+ - 2010-02-01 moving append into generic function
+ - 2010-02-01 round robin functions per connection by pushing last served
+ to the end of the list
+ - 2010-01-28 Fixed bug reported by Brugeman Artur.
+ - 2010-01-28 Fixed the TC pandora test.
+ - 2010-01-28 pandora-build v0.100
+ - 2010-01-28 Backout build merge
+ - 2010-01-28 Updated RPM.
+ - 2010-01-26 fix return value for warning response
+ - 2010-01-25 Adding tests to bzrignore
+ - 2010-01-25 Fix copied test
+ - 2010-01-25 Use tcadb interface to allow Hash or B+Tree, and allow
+ passing optimization/init params on cmdline.
+ - 2010-01-25 Tests for tokyocabinet
+ - 2010-01-20 -Fixing key so function+unique is used -Anything except
+ nul is allowed in function and unique ID.
+ - 2010-01-20 adding tests to verify the --time-order option
+ - 2010-01-18 - no longer delete everything on replay - took priority
+ out of key and put into payload - made optimize step optional (could
+ be disastrous for a really big, really full file)
+ - 2010-01-15 the install was not including log.h which is included
+ in core.h
+ - 2010-01-13 pandora-build v0.95
+ - 2010-01-08 Removed cast.
+ - 2010-01-08 Test for worker context.
+ - 2010-01-07 Added work timeout test.
+ - 2010-01-07 Restored documentation/made a few more things private.
+ - 2010-01-07 Fix bad enum. Damn GCC for not finding this @$@#$
+ - 2010-01-07 Possible overflow catch... I'll do something a bit more
+ for different 32bit as I test more platforms.
+ - 2010-01-07 Added GEARMAN_ARGUMENT_TOO_LARGE
+ - 2010-01-07 See if this makes 32bit systems happy.
+ - 2010-01-07 Extended test cases, fixed unregister to not send back a
+ silly answer.
+ - 2010-01-07 Bug fix for overflow case on packet.
+ - 2010-01-05 Fix for Solaris.
+ - 2010-01-05 Fix for bad ENUM.
+ - 2010-01-05 Started adding test for worker.
+ - 2010-01-05 Fix for overflow + added code so that we can do htonll
+ - 2010-01-05 Enum fix.
+ - 2010-01-05 Name cleanup, plus cleanup for tests (you can now run
+ them individually).
+ - 2010-01-05 Remove pointer from worker_st for universal.
+ - 2010-01-05 Small code style fix.
+ - 2010-01-05 Remove need for push/pop part of API. Also cleaned up the
+ exit mess for the while/switch craziness.
+ - 2010-01-05 Remove memory leak caused by fork() in test.
+ - 2010-01-04 Fix for assert (aka, not make it so that undef assert()
+ will remove commands).
+ - 2010-01-02 Fix for context in Server API.
+ - 2010-01-02 context is no longer cast as const (it wasn't const...).
+ - 2010-01-01 Merged in latest pandora-build.
+ - 2009-12-31 Const fit
+ - 2009-12-31 const correction.
+ - 2009-12-30 First pass through interface to tighten up the param
+ passing.
+ - 2009-12-30 gearman_worker_function_st -> _worker_function_st (made
+ private)
+ - 2009-12-30 Pack task structure.
+ - 2009-12-30 Removed final bit from core.c (and removed it).
+ - 2009-12-30 Fix gearman_universal_options_t to gearman_options_t
+ - 2009-12-30 Code Style, pushed structures back to includes.
+ - 2009-12-30 White space fix/use strncpy to make sure we don't write
+ too much.
+ - 2009-12-30 Indent fix.
+ - 2009-12-30 Don't install the libgearman-server headers.
+ - 2009-12-30 First pass on re-org for server.
+ - 2009-12-30 Made libgearman-server a noinst lib.
+ - 2009-12-30 Change libgearman-server to a noinst lib.
+ - 2009-12-30 Fixed header install.
+ - 2009-12-30 Bumped version numbers for release.
+ - 2009-12-30 Updated memcached test to check that we actually _have_
+ memcached before trying to test against it.
+ - 2009-12-30 This removes uint8_t arrays as our storage. This was
+ originally my idea when I was being pendantic. char * store 4Ever\/
+ - 2009-12-30 bumped pandora-build number.
+ - 2009-12-30 pandora-build v0.89 - fix file offset bits issue on solaris.
+ - 2009-12-30 Fix const char* change (we don't want users changing the
+ internals under the hood).
+ - 2009-12-30 Turned on Solaris visibility settings by default.
+ - 2009-12-29 Possible fix for Sun Studio
+ - 2009-12-29 Changed gearman_log_* from being inline, because the
+ solaris linker was then causing the gearman_log symbol to get injected
+ into public files, which was not correct.
+ - 2009-12-29 Added additional internals tests.
+ - 2009-12-29 Merged in the ideas from libmemcached in terms of hiding
+ internal symbols.
+ - 2009-12-29 Deprecation of event IO watch for worker/client.
+ - 2009-12-29 White space cleanup
+ - 2009-12-29 Remove static/non alloc bits. Fixed valgrind case for
+ function in worker.
+ - 2009-12-29 gearman_connection_create() add tests for.
+ - 2009-12-29 Remove all but static allocation of universal.
+ - 2009-12-29 Modified API to require actual structures for universal_st
+ (moving to non-allocated versions of it for internals).
+ - 2009-12-29 Straighten out logging symbols/groups for doxygen
+ - 2009-12-29 Make a number of enum anon to control user access.
+ - 2009-12-29 Fix visibility for internals.
+ - 2009-12-29 distcheck build fix
+ - 2009-12-28 Rename state to Universal. This helps with naming conflicts.
+ - 2009-12-28 Update for API.
+ - 2009-12-28 More with CORE.
+ - 2009-12-28 Add connection to GEARMAN_CORE.
+ - 2009-12-28 First pass through on GEARMAN_CORE.
+ - 2009-12-28 A number of additional tests for state change.
+ - 2009-12-27 Bug in true/false
+ - 2009-12-26 testing
+ - 2009-12-26 persistance stores should require unique keys
+ - 2009-12-24 First pass through breakup to core and non-core.
+ - 2009-12-24 Fix, aka remove libmemcached requirement from test.h
+ - 2009-12-24 Update interface for Task.
+ - 2009-12-24 Remove/modify options to Task. Get rid of dead enum.
+ - 2009-12-24 Removed files from dist that are configure
+ generated. Shipping our versions of these files in the tarball is wrong.
+ - 2009-12-24 Updated to latest pandora-build.
+ - 2009-12-24 Update for client to use new options/fix for lack of
+ trigger on delete for full set.
+ - 2009-12-23 Update ChangeLog
+ - 2009-12-23 Refactoring on worker_st
+ - 2009-12-22 Rename on state, connection name cleanup.
+ - 2009-12-22 Remove dead gearman_packet_options_t
+ - 2009-12-22 Refactor on job
+ - 2009-12-22 Rewrite for connection.
+ - 2009-12-22 Rename for connection.
+ - 2009-12-22 More cleanup around state. Broke tests out to
+ internals/regression
+ - 2009-12-22 More rework on state. gearman_state_create() now handles
+ and optional ist of values which can be set.
+ - 2009-12-21 Refactor packet create to packet files.
+ - 2009-12-21 Fix interface around packet to use bitfield.
+ - 2009-12-21 Fix to use bitfield (removes ICC warning).
+ - 2009-12-21 First pass through internals refactoring.
+ - 2009-12-21 First pass through for moving structures to style.
+ - 2009-12-19 Add default error_test return
+ - 2009-12-19 Refactor tests for new framework (make it all a bit
+ cleaner).
+ - 2009-12-18 Updated tests to use new test framework.
+ - 2009-12-18 Fix test programs to always build. Saves you trouble later
+ discovering you broke the API.
+ - 2009-12-18 It's all in the root Makefile now.
+ - 2009-12-18 Added in missing macro call.
+ - 2009-12-18 Took care of scripts and support.
+ - 2009-12-18 Moved libgearman, libgearman-server and benchmark.
+ - 2009-12-18 moved gearmand.
+ - 2009-12-18 Migrated bin and examples.
+ - 2009-12-18 Updated to latest pandora build. Reworkd ld version script.
+ - 2009-12-16 Fixed job handle compare for work_fail bug, added test case.
+ - 2009-12-03 Calling tcbdboptimize() after destacking the queue is a
+ good way to save space.
+ - 2009-12-03 Don't ignore errors
+ - 2009-12-03 Fix computation of the function data length.
+ - 2009-12-03 Change the database format in order to handle priorities. +
+ a bunch of small fixes.
+ - 2009-12-03 Prefixes don't make any sense with Tokyocabinet.
+ - 2009-12-03 Switch Tokyocabinet databases to btrees instead of
+ hashes. This is slower and requires more storage space, but eventually
+ it will bring ordered processing and priority support.
+ - 2009-12-03 Spaces
+ - 2009-12-03 Untab
+ - 2009-12-02 pandora-build v0.80. Fixed old ld's
+ - 2009-12-02 pandora-build v0.79
+ - 2009-12-02 Get rid of code inside of assert calls.
+ - 2009-12-02 Fixed the test cases to work even if the main code is
+ build with --disable-assert.
+ - 2009-12-02 pandora-build v0.78 - We need to always check for the
+ assert header - not just when disable-assert is off.
+ - 2009-12-02 pandora-build v0.76
+ - 2009-12-01 Small fixes for release while working with Monty on
+ packaging.
+ - 2009-11-30 Updated ChangeLog
+ - 2009-11-09 fix wrong number of packet args in gearman_job_send_fail()
+ - 2009-11-04 Fixed array assignment bug in test case from packet_args
+ change.
+ - 2009-11-04 Removed va_args packet add function, replaced with array
+ passing.
+ - 2009-10-30 Fixed client error reporting bug, updated ChangeLog.
+ - 2009-10-29 Fixed bug #458912, was not flushing all sockets when all
+ jobs were queued.
+ - 2009-10-29 Added max worker wakeup option to server.
+ - 2009-10-29 More API cleanup, reversed changes that made context
+ 'const'.
+ - 2009-10-28 Increased version numbers, cleaned up documentation,
+ minor API tweaks.
+ - 2009-10-20 pandora-build 0.63 - Makes the build properly work as far
+ back as gcc 3.3
+ - 2009-10-11 Remove use of /tmp in test. the build-related files really
+ should be in the build dir.
+ - 2009-10-01 Update docs.
+ - 2009-09-30 Fixed bug where the internal task object used for do
+ functions was having the context free function called.
+ - 2009-09-30 Moved event header to correct place.
+ - 2009-09-29 Turned on the flag for requiring c++.
+ - 2009-09-29 Added missing gearman_worker_remove_servers function.
+ - 2009-09-28 Cleaned up the lib versioning test - we sure don't need
+ to do the test twice.
+ - 2009-09-28 Fix man page generation. If the return type is on its own
+ line, it gets concatenated directly onto the function name for the BI.
+ - 2009-09-28 pandora-build v0.62
+ - 2009-09-28 Fixed library versioning.
+ - 2009-09-28 Updated spec file.
+ - 2009-09-28 Added timeout options, whih involved just exposing what
+ was already there through the API. Also fixed a small error logging
+ length bug.
+ - 2009-09-26 Added error message when job is dropped due to retries.
+ - 2009-09-26 Removed list add/del macros from libgearman. Moved
+ error_set to gearman.c since first arg is a gearman struct (following
+ OO guidelines).
+ - 2009-09-26 Tweaked a few small things with error_set function.
+ - 2009-09-26 Finish macro logging removal, added test case for log API.
+ - 2009-09-26 Refactor of GEARMAN_ERROR_SET to gearman_error_set()
+ - 2009-09-24 Updated docs and changelog.
+ - 2009-09-24 Separated out libgearman (client & worker only) and
+ libgearman-server (server and embedded gearmand w/ libevent).
+ - 2009-09-23 Removed leftover debugging printf.
+ - 2009-09-23 Fixed memcached queue module to work with new and old
+ versions (const and non-const param).
+ - 2009-09-23 Updated ChangeLog, added max job retry option to server.
+ - 2009-09-23 Overwrite password string argument to not show in ps.
+ - 2009-09-23 Fix for bug #372074.
+ - 2009-09-22 Added memory ownership functions to task, job, and packet.
+ - 2009-09-22 Added SIGPIPE comment in docs.
+ - 2009-09-22 Added stdio fd remapping code when detaching.
+ - 2009-09-22 Changed worker behavior to only send one noop per pre-sleep,
+ rather than only have one in the queue at a time.
+ - 2009-09-22 Fixed bug so workers can run concurrent jobs.
+ - 2009-09-18 Updated ChangeLog, fixed docs, and increased release/library
+ version number.
+ - 2009-09-17 Cleaned up the API and documentation for non-server related
+ files. The API is more consistent and much more object-oriented. This is
+ a large patch, but much of it is automated renames, code moving (copy
+ and paste), and new comments (doxygen docs). There are no significant
+ logic changes.
+ - 2009-08-31 Tweaked doc configs, fixed PROTOCOL typo.
+ - 2009-08-10 pandora-build v0.47
+ - 2009-08-10 pandora-build v0.46 - including the pandora-build autorun.sh
+ and removing the libtool files. Moved the gearman specific autorun code
+ into pre_hook.sh.
+ - 2009-08-07 pandora-build v0.41
+ - 2009-08-06 pandora-build v0.40
+ - 2009-08-06 pandora-build v0.39
+ - 2009-08-03 allow for time-ordered queues if -T or --time-order options
+ specified at gearmand startup.  Based on patch from Yasser González
+ Fernández posted to gearman@googlegroups.com
+ - 2009-07-29 pandora-build v0.35
+ - 2009-07-29 pandora-build v0.34
+ - 2009-07-29 OCD on m4, made queue modules optional.
+ - 2009-07-28 Made the check for postgres headers a little more sensible.
+ - 2009-07-28 pandora-build v0.32
+ - 2009-07-28 Fixed tests to include config.h, removed sqlite data file
+ after test.
+ - 2009-07-26 pandora-build v0.31
+ - 2009-07-26 pandora-build v0.27
+ - 2009-07-26 pandora-build v0.25
+ - 2009-07-18 Fixed 32-bit warnings.
+ - 2009-07-18 pandora-build v0.22 Fixed ordering problem - make setting
+ 64-bit build happen very, very early.
+ - 2009-07-17 Fixes to man page script.
+ - 2009-07-17 pandora-build v0.21
+ - 2009-07-17 Added libpq (PostgreSQL) queue module.
+ - 2009-07-16 Added tests for SQLIte
+ - 2009-07-16 pandora-build v0.20
+ - 2009-07-15 Fixed libsqlite3 memory leak on shutdown.
+ - 2009-07-15 Replaced INT_MAX with UINT32_MAX.
+ - 2009-07-15 Fixed up doxygen comments.
+ - 2009-07-14 pandora-build v0.16
+ - 2009-07-14 Added missing file.
+ - 2009-07-14 pandora-build v0.15
+ - 2009-07-14 Added sqlite test.
+ - 2009-07-14 pandora-build v0.14
+ - 2009-07-14 Fixed sign-conversion warnings.
+ - 2009-07-13 pandora-build v0.12
+ - 2009-07-13 Allow add_servers to take NULL and default to localhost.
+ - 2009-07-10 pandora-build v0.10
+ - 2009-07-10 typos in doxygen
+ - 2009-07-10 typos in protocol doc
+ - 2009-07-09 Fixed shadow on signal.
+ - 2009-07-09 pandora-build v0.9
+ - 2009-07-08 pandora-build v0.8.
+ - 2009-07-08 Missing a couple of "else if"
+ - 2009-07-08 pandora-build r0.7
+ - 2009-07-08 pandora-build v0.6
+ - 2009-07-08 Fixed -Wwrite-strings warnings.
+ - 2009-07-08 Merged in Trond's updated autorun.sh.
+ - 2009-07-08 pandora-build v0.5
+ - 2009-07-08 pandora-build v0.2
+ - 2009-07-08 Moved malloc libs (tcmalloc/mtmalloc) from the library to
+ gearman and gearmand. If it's in the library, then it can infect/b0rk
+ apps that link with it.
+ - 2009-07-08 pandora-build v0.1
+ - 2009-07-02 fix compile type conversion warnings from gcc-4.4
+ - 2009-07-01 Made gearman tool aware of worker return codes.
+ - 2009-07-01 Bug 394169: Make test fails if you enable memcached support
+ and don't have memcached in path
+ - 2009-06-30 Set up and tear down a memcached server for make check.
+ - 2009-06-30 Changed ChangeLog date for release.
+ - 2009-06-29 Added fix to retry a libdrizzle query once if the connection
+ was lost.
+ - 2009-06-28 * check for non-NULL on malloc * add validation for all
+ sqlite3_column* calls * add validation for all sqlite3_bind* calls *
+ enable rollback logic for cases where sqlite3_bind* calls fail
+ - 2009-06-27 Fixed event loop bug with large workloads/long running jobs.
+ - 2009-06-26 adding libsqlite3 persistent queue
+ - 2009-06-23 Untab
+ - 2009-06-23 Deal with gmodconf changes.
+ - 2009-06-23 Avoid whitespace following trailing backslash
+ - 2009-06-23 Fixed uninitialized value.
+ - 2009-06-22 Fixed client reconnect bug.
+ - 2009-06-21 Collapsed lib-prefix.m4 patch for submission upstream.
+ - 2009-06-21 Added visibility support.
+ - 2009-06-20 Added -Wformat=2 - checks for some safety/security
+ violations on format strings.
+ - 2009-06-20 Removed -W - it's an alias for -Wextra.
+ - 2009-06-20 Turned on strict-aliasing.
+ - 2009-06-20 Put Trond's changes to lib-prefix back in. These, plus
+ everything else finally seem to work.
+ - 2009-06-20 Deal with old OS software.
+ - 2009-06-18 Merged more build fixes.
+ - 2009-06-17 Missed a little thing.
+ - 2009-06-17 One more build merge.
+ - 2009-06-16 Removed obsolete macro. Thanks autoupdate!
+ - 2009-06-16 Added macro dir macro.
+ - 2009-06-16 Changed to keeping the libtool macro files in the tree
+ and not running libtoolize every time.
+ - 2009-06-16 Removed -lmopt
+ - 2009-06-16 Merged flags for real.
+ - 2009-06-16 Merged from Drizzle.
+ - 2009-06-15 Added libgearman.ver to distribution.
+ - 2009-06-15 Memcached queue fixes for -Wsign-conversion.
+ - 2009-06-15 Renamed modconf to gearman_conf.
+ - 2009-06-15 Genericed the 64bit.m4 macro a little bit.
+ - 2009-06-15 Also reverted the prefix patch. It doesn't seem to be
+ needed.
+ - 2009-06-15 Reverted lib-link.m4. Now it works. I don't know why.
+ - 2009-06-15 Fixed -Wconversion test.
+ - 2009-06-15 Added -Wconversion check.
+ - 2009-06-15 Added check for -fdiagnostics-show-option.
+ - 2009-06-15 Good conversion test.
+ - 2009-06-15 Cleaned up unused attribute usage.
+ - 2009-06-15 Added -fdiagnostic-show-option from drizzle. Made the
+ coversion test work right.
+ - 2009-06-15 Fixed the cast. Thanks kindahl!
+ - 2009-06-15 Conversion back on.
+ - 2009-06-14 Removed commented out code I'd put in from -Wconversion.
+ - 2009-06-14 Sun Studio doesn't recognize __attribute__((unused)) syntax.
+ - 2009-06-14 Fixed end-of-configure comment.
+ - 2009-06-14 Synced again with libdrizzle and libmemcached.
+ - 2009-06-14 Removed -XO0. It's not really an option.
+ - 2009-06-14 Fixed more warnings.
+ - 2009-06-13 Made warnings the same as libdrizzle. Fixed the -Wconversion
+ warnings. (except for one that I need Eric to fix...)
+ - 2009-06-13 Renamed bootstrap to autorun.sh.
+ - 2009-06-13 Align CFLAGS section with libdrizzle's.
+ - 2009-06-13 Migrated pthread checking to ACX_PTHREAD.
+ - 2009-06-13 Fixed the 32/64 bit problem. (I think) Time to submit a
+ patch to gettext.
+ - 2009-06-13 Allow compilation of a 32 bit version on a Solaris system
+ running in 64 bit mode
+ - 2009-06-12 Finished protocol plugin hooks, basic HTTP module.
+ - 2009-06-11 Added pluggable port listener into gearmand, new protocol
+ hooks now complete. Still need to finish HTTP module.
+ - 2009-06-11 Second pass at HTTP support, libevent HTTP was too
+ restrictive. This also has the basic framework started for other protocol
+ plugins to use.
+ - 2009-06-11 Updated ChangeLog and package/library version.
+ - 2009-06-11 Packed structs, removed memset for initializing structs,
+ cleaned up logging messages.
+ - 2009-06-06 Added include (and check for) strings.h needed for the
+ index function used in queue_libmemcached.c
+ - 2009-06-04 When replaying, it looks like only the 'data' argument is
+ implicitely free()ed.
+ - 2009-06-04 Add native support for Tokyo Cabinet.
+ - 2009-05-31 Removed modconf man page building.
+ - 2009-05-31 Moved libmodconf into libgearman and put global symbols
+ under a custom namespace to avoid future conflicts.
+ - 2009-05-31 Added missing modconf header file for tests.
+ - 2009-05-31 Fixed man page section.
+ - 2009-05-31 Dated the ChangeLog.
+ - 2009-05-31 Added gearmand.8.
+ - 2009-05-31 Fixed tests from being run twice.
+ - 2009-05-31 Finished libmodconf, changed modconf conversion in gearmand
+ and tests, and fixed broken memcached tests.
+ - 2009-05-31 New module config processing about done, this is a somewhat
+ broken commit.
+ - 2009-05-29 Updated library version for release.
+ - 2009-05-29 Fixed bug replay bug in persistent queue, jobs were not
+ being removed.
+ - 2009-05-28 Fix for bug #379198
+ - 2009-05-28 Added gearman_*_add_servers().
+ - 2009-05-26 Dynamix text response and libevent 1.1 fix.
+ - 2009-05-25 Added option for tasks to be freed when complete.
+ - 2009-05-20 Replaced hyphens with minus signs.
+ - 2009-05-19 Adding tests for Memcached.
+ - 2009-05-19 First pass with adding memcached server.
+ - 2009-05-19 Extended gearman_queue_done_fn so that function name is
+ passed to it along with unique ID.
+ - 2009-05-19 Small fixes from Monty.
+ - 2009-05-19 Cleaned makefile a little.
+ - 2009-05-19 Removed FATAL set, fixed lost connection check to use
+ verbose names.
+ - 2009-05-19 Cleaned up autoconf for release.
+ - 2009-05-19 Added a README file for the SMF script files
+ - 2009-05-19 Added unlikely macros for better branch prediction around
+ debug logging.
+ - 2009-05-19 Changed behavior of foreground jobs to be ignored when
+ their calling clients detach.
+ - 2009-05-19 Switched to a named verbose logging system, made foreground
+ jobs not get queued.
+ - 2009-05-18 A few libdrizzle queue fixes, more logging hooks added.
+ - 2009-05-18 Remove output from ed and grep
+ - 2009-05-17 Finished up most of the persistent queue work.
+ - 2009-05-17 Fixed logging functions, more persistent queue work,
+ added optional libdrizzle persistent queue module.
+ - 2009-05-14 Started persistent queue changes, fixed packet free bug
+ in server.
+ - 2009-05-14 Add configuration files to (install) and run Gearman as
+ a Solaris SMF service
+ - 2009-05-14 Fixed compilation error (statement not reached)
+ - 2009-05-12 Changed package name to contain all 3 version numbers to
+ match library.
+ - 2009-05-12 One more manpage change.
+ - 2009-05-12 Added NAME section to man page generation.
+ - 2009-05-12 Forgot break around poll fix.
+ - 2009-05-11 Various cleanup issues from.
+ - 2009-05-08 Added test for bug #372074, can't reproduce though. Going
+ to try on other platforms.
+ - 2009-05-08 Fixed bug #373060.
+ - 2009-05-08 Added support to gearmand to bind to all available
+ addresses.
+ - 2009-05-01 Added check to not repeat complete/fail messages.
+ - 2009-05-01 Fix for bug 326735 This fixed building of RPM's
+ - 2009-05-01 Added command line option to bind to a specific address
+ - 2009-04-27 Added example to protocol document.
+ - 2009-04-27 made define easier to read
+ - 2009-04-27 fixed unbalance quote
+ - 2009-04-22 Updated ChangeLog
+ - 2009-04-22 Upped version for release.
+ - 2009-04-21 Man page reworking, OSX bug fixes.
+ - 2009-04-17 More cleanup.
+ - 2009-04-17 Fixed some concurrency issues, other cleanup.
+ - 2009-04-16 More cleanup.
+ - 2009-04-16 Logging and error reporting callbacks added.
+ - 2009-04-16 Lock callbacks were a bad idea. Mostly working in
+ multi-threaded mode now, not bug free or cleaned up yet, but getting
+ there.
+ - 2009-04-16 Much of ther server thread work done, still some bugs. The
+ single threaded version still seems to be stable.
+ - 2009-04-14 Added fdlimit and user option to gearmand, cleaned up
+ gearmand_threads a bit.
+ - 2009-04-13 Thread creation, event handling, and shutdown working,
+ need to move connection I/O  next.
+ - 2009-04-13 Fixed shutdown code.
+ - 2009-04-13 Moved around some signal handling code.
+ - 2009-04-13 Reworked gearmand, started adding thread support.
+ - 2009-04-08 Fix for bug #357881.
+ - 2009-03-31 Merged trunk.
+ - 2009-03-31 Fixed Makefile.am for trunk.
+ - 2009-03-31 Some last minute cleanup for 0.4 release.
+ - 2009-03-22 Fixed worker function change loop.
+ - 2009-03-22 Fixed exception packet building.
+ - 2009-03-20 Added priority and background options to CLI, fixed
+ server_job priority bug.
+ - 2009-03-20 Moved sched/epoch down in the protocol, may remove later.
+ - 2009-03-20 Solaris didn't like the break hack.
+ - 2009-03-20 Added LOW priority job handling.
+ - 2009-03-20 Fixed unique checks in server, added wait for CLI.
+ - 2009-03-19 Updated the protocol document.
+ - 2009-03-06 Added function prefix option.
+ - 2009-03-06 Fixed for 64-bit sparc solaris build.
+ - 2009-03-06 Updated build to work on 64-bit OpenSolaris.
+ - 2009-03-06 Ported 64-bit Sun build fixes in.
+ - 2009-03-04 Updated command line tool, added task set fn_arg function.
+ - 2009-03-02 More work on gearman command line tool.
+ - 2009-03-01 Added per-line parsing for command line tool.
+ - 2009-03-01 Added command line tool, added client data functions.
+ - 2009-02-28 Added missing task_send function for workload callback,
+ fixed Makefile vars.
+ - 2009-02-27 Fix entry .. in ignore.
+ - 2009-02-27 Fix "running" variable naming.
+ - 2009-02-27 Swap names.
+ - 2009-02-27 Forgot to add test file.
+ - 2009-02-26 Fixed C++ { issues. Added a test case to link a C++
+ program to library.
+ - 2009-02-26 Rename new variable to running_tasks for C++
+ - 2009-02-26 Added hook to free task fn_arg during task struct cleanup.
+ - 2009-02-25 actual function for adding a background, high priority task
+ - 2009-02-25 Needed an add_task function for high, background tasks
+ - 2009-02-24 Reworked some client code, added new protocol commands.
+ - 2009-02-24 Fixing typo.  SUBMIT_JOB_BJ is not a valid request.
+ - 2009-02-22 Updated PROTOCOL doc, added new protocol commands that were
+ in Perl svn version, added new UNIQ grab/assign commands so worker can
+ see client's unique ID as well (needed for persistent queues in workers).
+ - 2009-02-05 Oops, this is Gearman, not Drizzle.
+ - 2009-02-05 Added real ChangeLog, added port warning to README.
+ - 2009-02-04 Upped version number for release.
+ - 2009-02-04 Removed check from socket close, useless. Fixed IO wait
+ error in packet_parse.
+ - 2009-01-30 Added missing m4 script.
+ - 2009-01-30 Added daemon mode to gearmand.
+ - 2009-01-30 One more lib config fix.
+ - 2009-01-30 Fixed some more configure stuff.
+ - 2009-01-29 Change autoconf to use better lib search macros.
+ - 2009-01-19 Fixed polling issue with client code.
+ - 2009-01-19 Fixed man path.
+ - 2009-01-19 Fixed benchmark calculations, was overflowing on 32bit.
+ - 2009-01-19 Updated port, URLs, and README.
+ - 2009-01-18 Fixed broken man deps, need to change during distribution
+ build instead.
+ - 2009-01-18 Added man page support. Doxygen produced miserable pages,
+ so a custom Perl seemed best. It understands just enough of the Doxygen
+ style comments to produce some useful, nicely formatted pages.
+ - 2009-01-17 Removed reverse_worker_bg and added functionality to
+ reverse_worker with a flag.
+ - 2009-01-16 Another large multi-task client bug fixed.
+ - 2009-01-16 Finished up what Chris started with blobslap_client.
+ - 2009-01-16 Fixed bug where an infinite loop is hit with multiple
+ tasks and the send buffer fills.
+ - 2009-01-15 Updated Source location in spec, reduced the number of
+ syscalls in gearmand with some extra event watch tracking.
+ - 2009-01-15 Reworked the worker code, no reconnects and queues function
+ changes.
+ - 2009-01-15 Committing fixes for 0.2 release (aka update version and
+ spec for RPM)
+ - 2009-01-12 Missed void as args for functions.  Needed for strict
+ compile warnings
+ - 2009-01-12 These functions should be returning  const char *
+ - 2009-01-12 Created functions to return version and bug report URL.
+ Put into use in gearmand.
+ - 2009-01-12 Adding version option -V to the command line options
+ - 2009-01-09 These are some style and formating updates so that this
+ looks more like the group's gearman code.
+ - 2009-01-09 Re-enabled pedantic/fail for dev, fixed bug #315652.
+ - 2009-01-08 removed option to buffer result.  I don't want mallocs on
+ the way back.
+ - 2009-01-08 cleaning things up a bit around malloc() and checking for
+ return even though this is just the client.
+ - 2009-01-08 This looks better than a 4GB malloc.  =-)
+ - 2009-01-08 This is the start of the new blobslap code for benchmarks.
+ - 2009-01-08 This is the start of the benchmark code to slap the server
+ using different functions
+ - 2009-01-07 Build fixes, disabled pedantic/fail for release.
+ - 2009-01-07 First pass through making RPM.
+ - 2009-01-07 Added test record files to distribution.
+ - 2009-01-07 Make sure files are built during configure. Ignore
+ generated files.
+ - 2009-01-07 Adding support for PKG and SPEC.
+ - 2009-01-07 Added wc_worker, changed libevent handling, fixed a couple
+ client bugs.
+ - 2009-01-06 Fixed some build configs, allow SO_SNDTIMEO/SO_RCVTIMEO
+ setsockopt to fail if not supported.
+ - 2009-01-06 Added text-based protocol, this includes shutdown and
+ maxqueue additions to the server. Also added code to clean up free
+ lists on shutdown.
+ - 2009-01-05 Preserve make command and fix exit code from recursive make
+ - 2009-01-04 Split memory callback functions into two to keep things
+ simple moving forward. Not doing a generic callback set so we can keep
+ function type checking (no void * functions).
+ - 2009-01-04 Updated docs.
+ - 2009-01-04 Added free lists to common server objects to reduce the
+ number of malloc/free calls.
+ - 2009-01-04 Converted server job list into a hash table for faster
+ unique/job handle lookup.
+ - 2009-01-04 Added NULL workload test, user supplied malloc/free call
+ for workload, other cleanup.
+ - 2008-12-31 Fixed flush bug, added libevent bug workaround.
+ - 2008-12-31 Change for older libtool.
+ - 2008-12-31 Solaris build fixes.
+ - 2008-12-31 Explicitly provide -Im4 for the first running of aclocal.
+ - 2008-12-31 Fixed a typo.
+ - 2008-12-31 Added a few more warnings from libdrizzle.
+ - 2008-12-31 Use the doxygen check var.
+ - 2008-12-31 Merged in all of my fancy stuff from libdrizzle and
+ drizzle. A few fixes to search_for_lib.m4. Cleaned up the build a little.
+ - 2008-12-31 Fixed an issue in the don't-have-libevent ifdef.
+ - 2008-12-31 Added some m4 files.
+ - 2008-12-31 Fixed a warning.
+ - 2008-12-31 Removed generated files. Copied in an updated bootstrap
+ file from drizzle.
+ - 2008-12-31 Fixed NULL ptr bug.
+ - 2008-12-30 Added multi-client support for jobs and unique job checks.
+ - 2008-12-30 Added list add/del macros and replaced old list code.
+ - 2008-12-30 Added unique option to client do/task functions.
+ - 2008-12-30 Added test_worker and more client tests.
+ - 2008-12-30 Added test_gearmand.
+ - 2008-12-30 Modified test system to use new gearmand.
+ - 2008-12-30 Fixed buffering in client, fixed a couple small bugs
+ in server.
+ - 2008-12-30 Cleaned up some server code, fixed job restart ability.
+ - 2008-12-29 Got most of the server components done, still needs some
+ debugging.
+ - 2008-12-29 Started adding job processing.
+ - 2008-12-28 Reworked internal server processing, added packet queues
+ for server connections.
+ - 2008-12-27 Cleaned up allocation, error handling, and connection code.
+ - 2008-12-26 More gearmand/server cleanup.
+ - 2008-12-26 Cleaned up gearmand interface.
+ - 2008-12-25 Added echo test, cleaned out event_close.
+ - 2008-12-25 Added echo support to server and client/worker.
+ - 2008-12-24 First pass at libevent interface, server interface,
+ and gearmand.
+ - 2008-12-24 Switched to BSD license, started cleaning up test suite.
+ - 2008-12-23 Updated docs.
+ - 2008-12-13 Added link to docs, started cleaning up test system.
+ - 2008-12-06 Fixed client/worker options, added BUFFER_RESULT option,
+ added concurrent client example, and added some docs.
+ - 2008-12-06 Fixed *do return bug, fixed POLLing bug.
+ - 2008-12-03 Fixed free bug, commented out broken watchpoints in test
+ (will fix later).
+ - 2008-12-02 Added job_handle type with size.
+ - 2008-12-02 Cleanup tests/interfaces
+ - 2008-12-02 Fixed int32_t typo, added const to hot arguments, check
+ worker function argument.
+ - 2008-12-01 Made function arguments explicit pointers, I don't like
+ how C silently allowed for this. :)
+ - 2008-12-01 Fixed enum types to have _t suffix.
+ - 2008-11-28 Fixed up and finished worker functions, made them
+ non-blocking capable, added function list for callback interface.
+ - 2008-11-24 Added docs option to Makefile.
+ - 2008-11-24 A few bug fixes, added background example.
+ - 2008-11-24 Updated .bzrignore.
+ - 2008-11-24 Finished first round of Doxygen conversion. This required
+ reorganizing some of the headers. The client.h documentation almost done,
+ this can be used as a template for other headers.
+ - 2008-11-22 Cleaned up old unused files, started Doxygen layout and
+ comment conversion.
+ - 2008-11-21 A lot of cleanup from the last commit, mostly improving
+ the new concurrent client and callback interface. Also added task
+ status functions.
+ - 2008-11-20 Overhauled the packet building and connection state
+ code. It now has smarter buffer management. Also included is parallel
+ client processing code.
+ - 2008-11-11 Reworked the client interface to return results directly
+ rather than job structs. Split off tasks for clients, jobs are now
+ only for workers. Fixed up the worker callback interface. Still need
+ to address some malloc in packets, workerloads, and results, along with
+ many other things.
+ - 2008-11-10 Reworked many pieces, especially connection state
+ machine. Added better error handling and cleanup, move char * -> uint8_t
+ * where appropriate, and added more to client state loop. It builds, but
+ with some things disabled for now (worker callback function and tests).
+ - 2008-11-09 Updated .bzrignore with patterns.
+ - 2008-11-09 Reworked client code, reverse_client, and cleaned up
+ packet code (added static buffer). Still need to do some cleanup,
+ but ready for merge with trunk.
+ - 2008-11-08 Reworked libary and reverse_worker example. Non-blocking
+ I/O is now supported, gearman_packet_st object introduced, cleaned up
+ error reportingi, and other misc cleanup.
+ - 2008-11-05 Partial cleanup, gearman_client_do() is broken (we need
+ a decision)
+ - 2008-11-05 First pass through on my merge.
+ - 2008-11-05 Eric found a bug in the byte_array realloc()
+ - 2008-11-04 Worker code now works via hand rolled test.
+ - 2008-11-02 Added new PROTOCOL document, small fixes in example code.
+ - 2008-10-20 Fixed submit_job_test test case.
+ - 2008-10-20 Move to using uint8_t over signed char
+ - 2008-10-20 Mostly working backgroup task scheduler (status is not
+ working)
+ - 2008-10-20 Updated ignore file
+ - 2008-10-20 Fixed echo (we now talk to the server)
+ - 2008-10-20 Updated bzr ignore
+ - 2008-10-20 Basic test for allocation on worker/client finished.
+ - 2008-10-19 Remapped API to resemble per API.
+ - 2008-09-28 Cleaned up autoconf and added stricter build options (and
+ fixed code so it builds with new options). Also added proper licensing
+ headers to source files.
+ - 2008-09-19 fixed/added port option to server and examples
+ - 2008-09-19 Did a lot of little cleanup, mostly cosmetic. Also updated
+ configure.ac options and added -Werror. Made appropriate fixes so
+ -Werror works.
+ - 2008-09-16 Fixed worker so it will now "sleep" correctly when it does
+ not have a job.
+ - 2008-09-15 Fixed loop in gearman client to try next host (stil bugs
+ in worker).
+ - 2008-09-15 Import from HG
